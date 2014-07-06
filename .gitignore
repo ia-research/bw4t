@@ -26,7 +26,8 @@ $RECYCLE.BIN/
 .LSOverride
 
 # Icon must ends with two \r.
-Icon
+Icon
+
 
 # Thumbnails
 ._*
@@ -34,3 +35,9 @@ Icon
 # Files that might appear on external disk
 .Spotlight-V100
 .Trashes
+/bw4t-core/target/
+/bw4t-server/target/
+/bw4t-client/target/
+/bw4t-integration-test/target/
+/bw4t-scenario-editor/target/
+/bw4t-environment-store/target/
