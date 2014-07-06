@@ -1,0 +1,22 @@
+17:45:02,036 - sequence
+17:45:02,038 - room RoomA3 contains blocks:  W G W
+17:45:02,039 - room RoomA2 contains blocks:  R P G O
+17:45:02,039 - room RoomB3 contains blocks:  B G
+17:45:02,039 - room RoomC1 contains blocks:  G Y
+17:45:02,040 - room RoomA1 contains blocks:  W W P B
+17:45:02,040 - room RoomB2 contains blocks:  O R R O G P Y
+17:45:02,041 - room RoomC3 contains blocks:  O
+17:45:02,041 - room RoomB1 contains blocks:  Y
+17:45:02,041 - room RoomC2 contains blocks:  B G Y B
+17:45:02,043 - sequence R O R O B G
+17:45:42,468 - action Human_1 goTo(RoomA1)
+17:45:42,702 - action Human_1 goTo(RoomB1)
+17:45:44,196 - action Human_1 goTo(RoomC1)
+17:45:45,489 - action Human_1 goTo(RoomA2)
+17:45:49,492 - action Human_1 goTo(RoomA3)
+17:45:50,896 - action Human_1 goTo(RoomB1)
+17:45:54,301 - action Human_1 goTo(RoomB2)
+17:45:55,705 - action Human_1 goTo(RoomB3)
+17:45:57,107 - action Human_1 goTo(RoomC1)
+17:45:59,928 - Bot Human_1 collided.
+17:55:18,436 - action Human_1 goTo(11.0,65.0)

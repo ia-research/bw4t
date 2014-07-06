@@ -13,7 +13,7 @@ public enum DefaultConfigurationValues {
     ENABLE_COLLISIONS("FALSE"),
     USE_GOAL("TRUE"),
     MAP_FILE(""),
-    COLLISIONS_ENABLED("TRUE");
+    COLLISIONS_ENABLED("FALSE");
 
     private String value;
 
