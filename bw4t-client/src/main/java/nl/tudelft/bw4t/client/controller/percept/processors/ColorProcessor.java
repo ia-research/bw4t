@@ -20,6 +20,8 @@ public class ColorProcessor implements PerceptProcessor {
         ViewBlock b = clientMapController.getBlock(id);
         b.setColor(BlockColor.toAvailableColor(color));
         clientMapController.getVisibleBlocks().add(b);
+        
+        clientMapController.getClientController().getHumanAgent().getVisibleBlocks().add(b);
     }
 
 }
