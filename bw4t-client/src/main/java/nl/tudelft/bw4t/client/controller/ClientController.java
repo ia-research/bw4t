@@ -149,6 +149,9 @@ public class ClientController implements EntityComboModelProvider {
      */
     public void handlePercepts(Collection<Percept> percepts) {
         getMapController().getVisibleBlocks().clear();
+        
+        getHumanAgent().getVisibleBlocks().clear();
+        
         getMapController().makeEPartnersInvisible();
         for (Percept percept : percepts) {
             String name = percept.getName();
