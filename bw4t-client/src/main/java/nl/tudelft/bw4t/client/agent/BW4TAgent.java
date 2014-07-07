@@ -10,14 +10,18 @@ import eis.iilang.Parameter;
 import eis.iilang.Percept;
 
 import java.rmi.RemoteException;
+import java.util.ArrayList;
+import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Set;
 
 import nl.tudelft.bw4t.client.environment.PerceptsHandler;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.gui.BW4TClientGUI;
 import nl.tudelft.bw4t.client.message.BW4TMessage;
 import nl.tudelft.bw4t.client.message.MessageTranslator;
+import nl.tudelft.bw4t.map.view.ViewBlock;
 import nl.tudelft.bw4t.map.view.ViewEntity;
 import nl.tudelft.bw4t.scenariogui.BotConfig;
 import nl.tudelft.bw4t.scenariogui.EPartnerConfig;
@@ -54,6 +58,118 @@ public class BW4TAgent extends Thread implements ActionInterface {
         this.bw4tenv = env;
     }
     
+    private final List<String> places = new ArrayList<String>();
+    
+    private String state = "arrived"; // [ arrived | collided | traveling ]
+    
+    private int nextDestination = 0;
+    
+    private int colorSequenceIndex = 0;
+    
+    private final Set<ViewBlock> visibleBlocks = new HashSet<>();
+    
+    private final List<String> colorSequence = new LinkedList<>();
+    
+    private boolean holding = false;
+    
+    private boolean isActionPerforming = false;
+    
+    public List<String> getPlaces() {
+        return places;
+    }
+    
+    public void setState(String state) {
+        this.state = state;
+    }
+
+    public void setColorSequenceIndex(int colorSequenceIndex) {
+        this.colorSequenceIndex = colorSequenceIndex;
+    }
+
+    public Set<ViewBlock> getVisibleBlocks() {
+        return visibleBlocks;
+    }
+    
+    public List<String> getColorSequence() {
+        return colorSequence;
+    }
+
+    public void setHolding(boolean holding) {
+        this.holding = holding;
+    }
+    
+    private boolean isArrived() {
+        while (true) {
+            if (state.equals("arrived"))
+                return true;
+            if (state.equals("collided"))
+                return false;
+            
+            try {
+                Thread.sleep(41);
+            } catch (Exception ex) {}
+        }
+    }
+    
+    private boolean isHolding() {
+        while (true) {
+            if (holding) {
+                holding = false;
+                return true;
+            }
+            
+            try {
+                Thread.sleep(41);
+            } catch (Exception ex) {}
+        }
+    }
+    
+    public void traverse() throws ActException {
+        if (!"traveling".equals(state) && !places.isEmpty()) {
+            goTo(places.get(nextDestination));
+            nextDestination++;
+            if (nextDestination == places.size()) {
+                nextDestination = 0;
+            }
+        }
+    }
+    
+    public void traverseAndGetBlocks() throws ActException, InterruptedException {
+        isActionPerforming = true;
+        
+        // stop traversal
+        //if (colorSequenceIndex >= colorSequence.size())
+        //    return;
+        
+        goTo(places.get(nextDestination++ % places.size()));
+
+        if (isArrived()) {
+            Thread.sleep(200);
+            for (ViewBlock b: visibleBlocks)
+                if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(colorSequenceIndex))) {
+                    
+                    System.out.println(colorSequence.get(colorSequenceIndex) + ":" + colorSequenceIndex);
+                    System.out.println(b.getColor().getName());
+                    
+                    goToBlock(b.getObjectId());
+                    isArrived();
+                    Thread.sleep(8000);
+                    pickUp();
+                    isHolding();
+                    Thread.sleep(8000);
+                    do {
+                        goTo("DropZone");
+                    } while (!isArrived());
+                    Thread.sleep(8000);
+                    putDown();
+                    Thread.sleep(8000);
+                    break;
+                }
+        }
+        
+        isActionPerforming = false;
+    }
+    
     /**
      * Register an entity to this agent.
      *
@@ -68,9 +184,20 @@ public class BW4TAgent extends Thread implements ActionInterface {
      */
     @Override
     public void run() {
-        if (environmentKilled) {
+        try {
+            Thread.sleep(5000); // for initialization
+            
+            while (!environmentKilled) {
+                if (!isActionPerforming) {
+                    state = "traveling";
+                    traverseAndGetBlocks();
+                }
+                Thread.sleep(200);
+            }
+        } catch (Exception ex) {}
+        /*if (environmentKilled) {
             return;
-        }
+        }*/
     }
     
     /**

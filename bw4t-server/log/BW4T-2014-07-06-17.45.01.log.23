@@ -1,0 +1,20 @@
+10:02:08,536 - sequence
+10:02:08,536 - room RoomA3 contains blocks:  G O
+10:02:08,536 - room RoomA2 contains blocks:  W Y O
+10:02:08,536 - room RoomB3 contains blocks:  R B R P
+10:02:08,536 - room RoomC1 contains blocks: 
+10:02:08,536 - room RoomA1 contains blocks:  R O R Y
+10:02:08,536 - room RoomB2 contains blocks:  P R P
+10:02:08,537 - room RoomC3 contains blocks:  W B R Y G
+10:02:08,537 - room RoomB1 contains blocks:  B W O O R W
+10:02:08,537 - room RoomC2 contains blocks:  O
+10:02:08,537 - sequence W B R B W P
+10:02:29,327 - action Human_1 goTo(RoomA1)
+10:02:29,531 - action Human_1 goTo(RoomA2)
+10:22:28,096 - total time is 996 minutes and 45 seconds
+10:22:28,097 - agentsummary Human_1 handicaps Human
+10:22:28,097 - agentsummary Human0 gooddrops 0
+10:22:28,097 - agentsummary Human0 wrongdrops 0
+10:22:28,097 - agentsummary Human0 nmessage 0
+10:22:28,097 - agentsummary Human0 idletime 5.553
+10:22:28,097 - agentsummary Human0 nroomsentered 1

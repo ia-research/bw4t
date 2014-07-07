@@ -1,0 +1,12 @@
+11:36:44,059 - sequence
+11:36:44,059 - room RoomA3 contains blocks:  R W G
+11:36:44,059 - room RoomA2 contains blocks:  R Y W
+11:36:44,060 - room RoomB3 contains blocks:  G G B
+11:36:44,060 - room RoomC1 contains blocks:  R G W
+11:36:44,060 - room RoomA1 contains blocks:  G B
+11:36:44,060 - room RoomB2 contains blocks:  Y G O W
+11:36:44,060 - room RoomC3 contains blocks:  Y B G
+11:36:44,060 - room RoomB1 contains blocks:  W R
+11:36:44,060 - room RoomC2 contains blocks:  B G O W G
+11:36:44,060 - sequence W Y R G G R
+11:37:00,759 - total time is 1071 minutes and 18 seconds

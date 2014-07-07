@@ -1,0 +1,13 @@
+10:44:15,532 - sequence
+10:44:15,533 - room RoomA3 contains blocks:  B P
+10:44:15,533 - room RoomA2 contains blocks: 
+10:44:15,533 - room RoomB3 contains blocks:  P W Y O B R B O
+10:44:15,533 - room RoomC1 contains blocks:  W Y Y
+10:44:15,533 - room RoomA1 contains blocks:  R P G Y O
+10:44:15,533 - room RoomB2 contains blocks:  Y Y
+10:44:15,533 - room RoomC3 contains blocks:  W R P P
+10:44:15,533 - room RoomB1 contains blocks:  G P B
+10:44:15,533 - room RoomC2 contains blocks:  B
+10:44:15,533 - sequence R W R P G W
+10:44:23,846 - action Human_1 goTo(RoomA1)
+10:45:18,724 - total time is 1019 minutes and 36 seconds
