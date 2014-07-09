@@ -182,6 +182,8 @@ public class ClientController implements EntityComboModelProvider {
             getEpartnerChatHistory().add(sender + ": " + message);
         } else {
             getBotChatHistory().add(sender + ": " + message);
+            
+            getHumanAgent().handleMessagePercept(message);
         }
 
         updateGUI();

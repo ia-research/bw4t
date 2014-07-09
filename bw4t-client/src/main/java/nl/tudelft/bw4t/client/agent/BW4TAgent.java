@@ -15,6 +15,8 @@ import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
 import java.util.Set;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 import nl.tudelft.bw4t.client.environment.PerceptsHandler;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
@@ -159,6 +161,22 @@ public class BW4TAgent extends Thread implements ActionInterface {
             // stop traversal
             if (colorSequenceIndex >= colorSequence.size())
                 break;
+        }
+    }
+    
+    public void handleMessagePercept(String message) {
+        String[] s = message.split(", ");
+        String receiver = s[0];
+        String command = s[1];
+        
+        if (receiver.equals(entityId)) {
+            // commands
+            try {
+                if (command.contains("go to room ")) {
+                    command = command.replaceAll("go to room ", "");
+                    goTo(command);
+                }
+            } catch (Exception ex) {}
         }
     }
     

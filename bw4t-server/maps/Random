@@ -29,8 +29,8 @@
         <type>NORMAL</type>
     </entities>
     <oneBotPerCorridorZone>false</oneBotPerCorridorZone>
-    <randomBlocks>50</randomBlocks>
-    <randomSequence>20</randomSequence>
+    <randomBlocks>54</randomBlocks>
+    <randomSequence>18</randomSequence>
     <zones>
         <boundingbox>
             <height>20.0</height>
