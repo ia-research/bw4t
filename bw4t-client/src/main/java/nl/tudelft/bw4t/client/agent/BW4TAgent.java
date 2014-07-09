@@ -133,8 +133,8 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public void traverseAndGetBlocks() throws ActException {
         state = "traveling";
         while (true) {
-            goTo(places.get((int) (Math.random() * places.size())));
-            // goTo(places.get(nextDestination++ % places.size()));
+            //goTo(places.get((int) (Math.random() * places.size())));
+            goTo(places.get(nextDestination++ % places.size()));
 
             if (isArrived()) {
                 for (ViewBlock b: visibleBlocks) {
@@ -180,7 +180,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
             Thread.sleep(5000); // for initialization
             
             if (!environmentKilled) {
-                traverseAndGetBlocks();
+                //traverseAndGetBlocks();
             }
         } catch (Exception ex) {}
         /*if (environmentKilled) {
