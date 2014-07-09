@@ -173,8 +173,8 @@ public class BW4TAgent extends Thread implements ActionInterface {
             // commands
             try {
                 if (command.contains("go to room ")) {
-                    command = command.replaceAll("go to room ", "");
-                    goTo(command);
+                    String room = command.replaceAll("go to room ", "");
+                    goTo(room);
                 }
             } catch (Exception ex) {}
         }
