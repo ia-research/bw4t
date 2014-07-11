@@ -377,13 +377,14 @@ public class RemoteEnvironment implements EnvironmentInterfaceStandard, Environm
             if ("human".equals(getType(entityId))) {
                 HumanAgent agent = (HumanAgent) getRunningAgent(agentId);
                 if (agent == null) {
-                    agent = new HumanAgent("Human" + getAgents().size(), this);
+                    agent = new HumanAgent("Human" + getAgents().size(), this,client.getServer());
                     agent.registerEntity(entityId);
                     addRunningAgent(agent);
                     associateEntity(agent.getAgentId(), entityId);
                     agent.start();
                     return;
                 }
+		client.addAgent(agentId,agent);
                 control = new ClientController(this, entityId, agent);
             } else {
                 control = new ClientController(this, entityId);

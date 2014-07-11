@@ -19,8 +19,6 @@ public class SequenceProcessor implements PerceptProcessor {
             for (Parameter j : list) {
                 char letter = ((Identifier) j).getValue().charAt(0);
                 clientMapController.getSequence().add(BlockColor.toAvailableColor(letter));
-                
-                clientMapController.getClientController().getHumanAgent().getColorSequence().add(((Identifier) j).getValue());
             }
         }
     }

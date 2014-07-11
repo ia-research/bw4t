@@ -9,6 +9,7 @@ import eis.iilang.Percept;
 
 import java.util.ArrayList;
 import java.util.List;
+import nl.tudelft.bw4t.client.IAServerInterface;
 
 import nl.tudelft.bw4t.client.environment.PerceptsHandler;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
@@ -38,8 +39,8 @@ public class TestAgent extends BW4TAgent {
      * @param agentId the agent id for the new agent.
      * @param env the remote environment on which the agent should "live".
      */
-    public TestAgent(String agentId, RemoteEnvironment env) {
-        super(agentId, env);
+    public TestAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
+        super(agentId, env,server);
         places = new ArrayList<String>();
     }
 

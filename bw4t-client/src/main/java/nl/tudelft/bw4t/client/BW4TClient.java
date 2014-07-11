@@ -1,6 +1,5 @@
 package nl.tudelft.bw4t.client;
 
-import eis.EnvironmentInterfaceStandard;
 import eis.EnvironmentListener;
 import eis.exceptions.AgentException;
 import eis.exceptions.EntityException;
@@ -21,8 +20,11 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
+import nl.tudelft.bw4t.client.agent.BW4TAgent;
 
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.startup.ConfigFile;
@@ -50,15 +52,25 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     private String bindAddress;
 
     private BW4TServerActions server;
-
+	private IAServerInterface server2;
+	
     private static final Logger LOGGER = Logger.getLogger(BW4TClient.class);
 
     /**
      * the map that the server uses.
      */
     private NewMap map;
-
+	private Map<String, BW4TAgent> agents;
+	
+	public void addAgent(String agentId,BW4TAgent agent){
+		if(agents == null)
+			agents = new HashMap<>();
+		agents.put(agentId, agent);
+	}
     
+	public IAServerInterface getServer(){
+		return this.server2;
+	}
     /**
      * Create a listener for the server.
      * 
@@ -117,6 +129,8 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
         String address = "//" + InitParam.SERVERIP.getValue() + ":" + InitParam.SERVERPORT.getValue() + "/BW4TServer";
         try {
             server = (BW4TServerActions) Naming.lookup(address);
+			Registry r = LocateRegistry.getRegistry(8001);
+			server2 = (IAServerInterface) r.lookup("IAServer");
         } catch (Exception e) {
             LOGGER.error("The BW4T Client failed to connect to the server: " + address);
             throw new NoEnvironmentException("Failed to connect " + address, e);

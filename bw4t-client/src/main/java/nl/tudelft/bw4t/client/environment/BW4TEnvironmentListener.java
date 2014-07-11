@@ -91,7 +91,7 @@ public class BW4TEnvironmentListener implements EnvironmentListener {
             BW4TAgent agent = null;
 
             if (isHuman) {
-                agent = new HumanAgent("Human" + agentCount, environment);
+                agent = new HumanAgent("Human" + agentCount, environment,environment.getClient().getServer());
             } else {
                 agent = newAgent(InitParam.AGENTCLASS.getValue(), entity);
             }

@@ -11,12 +11,19 @@ import eis.iilang.Percept;
 
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import nl.tudelft.bw4t.client.Compare;
+import nl.tudelft.bw4t.client.IAControllerInterface;
+import nl.tudelft.bw4t.client.IAServerInterface;
+import nl.tudelft.bw4t.client.RoomTime;
 
 import nl.tudelft.bw4t.client.environment.PerceptsHandler;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
@@ -31,57 +38,61 @@ import nl.tudelft.bw4t.scenariogui.EPartnerConfig;
 /**
  * Java agent that can control an entity.
  */
-public class BW4TAgent extends Thread implements ActionInterface {
+public class BW4TAgent extends Thread implements ActionInterface, IAControllerInterface {
 
-    /** The agent id. */
+    /**
+     * The agent id.
+     */
     protected String agentId;
-    /** The entity id */
+    /**
+     * The entity id
+     */
     protected String entityId;
-    
-    /** The environment killed. */
+    /**
+     * The environment killed.
+     */
     protected boolean environmentKilled;
-    
-    /** The bw4tenv. */
+    /**
+     * The bw4tenv.
+     */
     private final RemoteEnvironment bw4tenv;
-    
     private BotConfig botConfig;
     private EPartnerConfig epartnerConfig;
+    private IAServerInterface server;
 
     /**
      * Create a new BW4TAgent that can be registered to an entity.
-     * 
-     * @param agentId
-     *            , the id of this agent used for registering to an entity.
-     * @param env
-     *            the remote environment.
+     *
+     * @param agentId , the id of this agent used for registering to an entity.
+     * @param env the remote environment.
      */
-    public BW4TAgent(String agentId, RemoteEnvironment env) {
+    public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
         this.agentId = agentId;
         this.bw4tenv = env;
+        this.server = server;
     }
-    
     private final List<String> places = new ArrayList<String>();
-    
     private String state = "arrived"; // [ arrived | collided | traveling ]
-    
     private int nextDestination = 0;
-    
     private int colorSequenceIndex = 0;
-    
     private final Set<ViewBlock> visibleBlocks = new HashSet<>();
-    
     private final List<String> colorSequence = new LinkedList<>();
-    
     private boolean holding = false;
-    
     private boolean isActionPerforming = false;
-    
     private int updateDelay = 41;
-    
+    protected Map<String, Integer> nameToIndex;
+    protected Map<String, Set<String>> memory;
+    protected static String[] rooms = new String[]{"RoomA1", "RoomA2", "RoomA3",
+        "RoomB1", "RoomB2", "RoomB3",
+        "RoomC1", "RoomC2", "RoomC3"};
+    public static final int ROOMS = rooms.length;
+    protected long[] timeStamp = new long[ROOMS];
+    protected int next = 0;
+
     public List<String> getPlaces() {
         return places;
     }
-    
+
     public void setState(String state) {
         this.state = state;
     }
@@ -93,7 +104,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public Set<ViewBlock> getVisibleBlocks() {
         return visibleBlocks;
     }
-    
+
     public List<String> getColorSequence() {
         return colorSequence;
     }
@@ -101,13 +112,14 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public void setHolding(boolean holding) {
         this.holding = holding;
     }
-    
+
     private boolean isArrived() {
         while (true) {
             try {
                 Thread.sleep(updateDelay);
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
             if (state.equals("arrived")) {
                 state = "traveling";
                 return true;
@@ -118,20 +130,21 @@ public class BW4TAgent extends Thread implements ActionInterface {
             }
         }
     }
-    
+
     private boolean isHolding() {
         while (true) {
             try {
                 Thread.sleep(updateDelay);
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
             if (holding) {
                 holding = false;
                 return true;
             }
         }
     }
-    
+
     public void traverseAndGetBlocks() throws ActException {
         state = "traveling";
         while (true) {
@@ -139,7 +152,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
             goTo(places.get(nextDestination++ % places.size()));
 
             if (isArrived()) {
-                for (ViewBlock b: visibleBlocks) {
+                for (ViewBlock b : visibleBlocks) {
                     if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(colorSequenceIndex))) {
                         goToBlock(b.getObjectId());
                         isArrived();
@@ -153,22 +166,24 @@ public class BW4TAgent extends Thread implements ActionInterface {
                     }
                 }
             }
-            
+
             try {
                 Thread.sleep(updateDelay);
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
             // stop traversal
-            if (colorSequenceIndex >= colorSequence.size())
+            if (colorSequenceIndex >= colorSequence.size()) {
                 break;
+            }
         }
     }
-    
+
     public void handleMessagePercept(String message) {
         String[] s = message.split(", ");
         String receiver = s[0];
         String command = s[1];
-        
+
         if (receiver.equals(entityId)) {
             // commands
             try {
@@ -176,14 +191,15 @@ public class BW4TAgent extends Thread implements ActionInterface {
                     String room = command.replaceAll("go to room ", "");
                     goTo(room);
                 }
-            } catch (Exception ex) {}
+            } catch (Exception ex) {
+            }
         }
     }
-    
+
     /**
      * Register an entity to this agent.
      *
-     * @param entityId            , the Id of the entity
+     * @param entityId , the Id of the entity
      */
     public void registerEntity(String entityId) {
         this.entityId = entityId;
@@ -196,18 +212,21 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public void run() {
         try {
             Thread.sleep(5000); // for initialization
-            
+
             if (!environmentKilled) {
                 //traverseAndGetBlocks();
+                traverse();
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+        }
         /*if (environmentKilled) {
-            return;
-        }*/
+         return;
+         }*/
     }
-    
+
     /**
      * Gets all agent with this type.
+     *
      * @param type The type of the agent.
      * @return A list with the agents.
      */
@@ -274,7 +293,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
             throw ex;
         }
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -328,9 +347,10 @@ public class BW4TAgent extends Thread implements ActionInterface {
     /**
      * Sends a message to certain other agents.
      *
-     * @param receiver            , a receiver (can be either all or the id of another agent)
-     * @param message            , the translated message (as String)
-     * @throws ActException               , if an attempt to perform an action has failed.
+     * @param receiver , a receiver (can be either all or the id of another
+     * agent)
+     * @param message , the translated message (as String)
+     * @throws ActException , if an attempt to perform an action has failed.
      */
     private void sendMessage(String receiver, String message) throws ActException {
         try {
@@ -363,7 +383,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public void setKilled() {
         environmentKilled = true;
     }
-    
+
     /**
      * Gets the agent id.
      *
@@ -372,7 +392,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public String getAgentId() {
         return agentId;
     }
-    
+
     /**
      * Gets the entity id.
      *
@@ -390,11 +410,11 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public RemoteEnvironment getEnvironment() {
         return bw4tenv;
     }
-    
+
     /**
-     * Whether this agent can pick up another box based on their
-     * gripper capacity and the amount of boxes they're already
-     * holding. 
+     * Whether this agent can pick up another box based on their gripper
+     * capacity and the amount of boxes they're already holding.
+     *
      * @param sameEntity The {@link ViewEntity} type of this agent.
      * @return Whether this agent can pick up another object.
      */
@@ -409,18 +429,17 @@ public class BW4TAgent extends Thread implements ActionInterface {
         int grippersInUse = sameEntity.getHolding().size();
         return grippersInUse < grippersTotal;
     }
-    
+
     /**
      * Checks if the bot controlled by the GUI can pick up another object
-     * @param gui
-     *         The GUI controlling the bot that needs to be checked
-     * @return
-     *         Returns true if the bot can pick up another object
+     *
+     * @param gui The GUI controlling the bot that needs to be checked
+     * @return Returns true if the bot can pick up another object
      */
     public boolean canPickupAnotherObject(BW4TClientGUI gui) {
         return canPickupAnotherObject(gui.getController().getMapController().getTheBot());
     }
-    
+
     public boolean isColorBlind() {
         return getBotConfig() != null && getBotConfig().getColorBlindHandicap();
     }
@@ -432,7 +451,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public void setBotConfig(BotConfig botConfig) {
         this.botConfig = botConfig;
     }
-    
+
     public boolean isGps() {
         return getEpartnerConfig() != null && getEpartnerConfig().isGps();
     }
@@ -445,4 +464,204 @@ public class BW4TAgent extends Thread implements ActionInterface {
         this.epartnerConfig = epartnerConfig;
     }
 
+    @Override
+    public String getBot() throws RemoteException {
+        return this.agentId;
+    }
+
+    @Override
+    public void receiveMessage(String s, String sender) throws RemoteException {
+        String action = s.substring(0, 2);
+        if (action.equals("00")) // display message
+        {
+            System.out.println(sender + ":" + s.substring(3));
+        }
+        if (action.equals("01")) // go to rooms
+        {
+            try {
+                goTo(s.substring(3));
+            } catch (Exception ex) {
+            }
+        }
+    }
+
+    @Override
+    public RoomTime colorInRoom(String color) throws RemoteException {
+        PriorityQueue<RoomTime> queue = new PriorityQueue<RoomTime>(1, new Compare());
+        for (int i = 0; i < rooms.length; i++) {
+            try {
+                if (memory.get(rooms[i]).contains(color)) {
+                    RoomTime temp = new RoomTime(rooms[i], Calendar.getInstance().getTimeInMillis() - timeStamp[nameToIndex.get(rooms[i])]);
+                    queue.add(temp);
+                }
+            } catch (NullPointerException npe) {
+            }
+        }
+        return queue.peek();
+    }
+
+    @Override
+    public void goToMostPossibleExistRoom(String room) throws RemoteException {
+        if (room == null) {
+            throw new NullPointerException();
+        }
+        System.out.println(room);
+        try {
+            goTo(room);
+        } catch (Exception ex) {
+        }
+    }
+
+    public void addToMemory(List<Percept> percepts, String room) {
+        if (nameToIndex.containsKey(room)) {
+            timeStamp[nameToIndex.get(room)] = Calendar.getInstance().getTimeInMillis();
+        } else {
+            timeStamp[next] = Calendar.getInstance().getTimeInMillis();
+            nameToIndex.put(room, next++);
+        }
+        if (memory.keySet().contains(room)) {
+            memory.get(room).clear();
+        } else {
+            memory.put(room, new HashSet<String>());
+        }
+        for (Percept p : percepts) {
+            //System.out.println(p.toProlog());
+            String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")"));
+            memory.get(room).add(color);
+        }
+    }
+
+    @Override
+    public void removeFromMemory(String room, String color) throws RemoteException {
+        memory.get(room).remove(color);
+    }
+
+    public boolean goToBlock(List<Percept> percepts, String color) throws Exception {
+        for (Percept p : percepts) {
+            if (color.equals(getBlockColor(p.toProlog()))) {
+
+                //PrintWriter pw = new PrintWriter("log.txt");
+                //pw.println(bot + ":" + p.toProlog());
+                //pw.close();
+
+                goToBlock(getBlockId(p.toProlog()));
+                Thread.sleep(200);
+                pickUp();
+                Thread.sleep(200);
+
+                do {
+                    goTo("DropZone");
+                } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
+
+                putDown();
+                server.putBox(getBlockColor(p.toProlog()));
+                Thread.sleep(200);
+                //break;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public long getBlockId(String block) {
+        if (block == null) {
+            return -1;
+        }
+        return Long.parseLong(block.substring(6, block.indexOf(",")));
+    }
+
+    public String getBlockColor(String block) {
+        if (block == null) {
+            return null;
+        }
+        return block.substring(block.indexOf(",") + 1, block.length() - 1);
+    }
+    
+    public void askAllBotForColor(String color) throws RemoteException{
+        server.askForColor(this, color);
+    }
+    
+    public void traverse() {
+        int i = 0;
+        String room=null;
+        List<Percept> percepts = null;
+        String color=null;
+        int impossibleCount=0;
+        try {
+            //System.setErr(new PrintStream("IA_err.txt"));
+        } catch (Exception ex) {
+        }
+
+        while (true) {
+            // stop traversal (prevent from exception)
+            try {
+                if (server.getCurrent() >= server.getColors().length) {
+                    break;
+                }
+                color = server.getCurrentColor();
+                System.out.println(agentId + " need: " + color);
+            } catch (Exception ex) {
+            }
+            
+            try{
+                room = server.askForColor(this,color);
+            }catch(Exception ex){
+                try {
+                    goTo(rooms[i++ % rooms.length]);
+                } catch (ActException ex1) {}
+                room=rooms[(i-1)%rooms.length];
+            }
+            if (!isArrived()) {
+                try {
+                    //retry
+                    goTo(room);
+                } catch (ActException ex) {}
+                if(!isArrived())
+                    continue;
+            }
+            // for memory
+
+            // get all colors from room
+            try {
+                percepts = getPercepts();
+                /*for (Percept p : percepts) {
+                    //System.out.println(p.toProlog());
+                    String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")"));
+                    addToMemory(percepts, i - 1);
+                }*/
+            } catch (Exception ex) {
+                System.err.println("Exception: traverse() - 1 " + agentId);
+            }
+            // pick & drop color
+            try {
+                
+                if(!goToBlock(percepts,color)){
+                    //reset
+                    impossibleCount++;
+                    server.noSuchColor(room,color);
+                    goTo("FrontDropZone");
+                    Thread.sleep(300);
+                }else{
+                    impossibleCount=0;
+                }
+                
+                if(impossibleCount>=rooms.length){
+                    System.out.println("Impossible");
+                    break;
+                }
+                /*
+                 // stop traversal
+                 if (ias.getCurrent() >= ias.getColors().length)
+                 break;
+                 */
+            } catch (Exception ex) {
+                System.err.println("Exception: traverse() - 2 " + agentId);
+            }finally{
+                addToMemory(percepts, room);
+            }
+        }
+        try {
+            goTo("FrontDropZone");
+        } catch (ActException ex) {}
+    }
 }

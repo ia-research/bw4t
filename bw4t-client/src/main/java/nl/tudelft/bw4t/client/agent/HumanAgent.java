@@ -5,6 +5,7 @@ import eis.iilang.Action;
 
 import java.rmi.RemoteException;
 import java.util.List;
+import nl.tudelft.bw4t.client.IAServerInterface;
 
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.gui.BW4TClientGUI;
@@ -22,8 +23,8 @@ public class HumanAgent extends BW4TAgent {
      * @param env
      *            , the remote environment to which the human agent should connect.
      */
-    public HumanAgent(String agentId, RemoteEnvironment env) {
-        super(agentId, env);
+    public HumanAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
+        super(agentId, env,server);
     }
 
     /**
