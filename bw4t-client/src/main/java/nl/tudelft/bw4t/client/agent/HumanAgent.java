@@ -2,12 +2,11 @@ package nl.tudelft.bw4t.client.agent;
 
 import eis.exceptions.ActException;
 import eis.iilang.Action;
-
 import java.rmi.RemoteException;
 import java.util.List;
-
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.gui.BW4TClientGUI;
+import nl.tudelft.bw4t.server.IAServerInterface;
 
 /**
  * Class that represents an agent that is controlled via the BW4TRenderer
@@ -25,7 +24,14 @@ public class HumanAgent extends BW4TAgent {
     public HumanAgent(String agentId, RemoteEnvironment env) {
         super(agentId, env);
     }
+    
+    public HumanAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
+        super(agentId, env,server);
+    }
 
+    public void setServer(IAServerInterface server){
+        super.setServer(server);
+    }
     /**
      * Pick up a certain epartner in the world
      * 

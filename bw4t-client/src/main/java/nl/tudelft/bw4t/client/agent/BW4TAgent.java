@@ -8,16 +8,20 @@ import eis.exceptions.PerceiveException;
 import eis.iilang.Action;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
-
 import java.rmi.RemoteException;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.HashSet;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Map;
+import java.util.PriorityQueue;
 import java.util.Set;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
+import nl.tudelft.bw4t.Compare;
+import nl.tudelft.bw4t.RoomTime;
 import nl.tudelft.bw4t.client.environment.PerceptsHandler;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.gui.BW4TClientGUI;
@@ -27,6 +31,7 @@ import nl.tudelft.bw4t.map.view.ViewBlock;
 import nl.tudelft.bw4t.map.view.ViewEntity;
 import nl.tudelft.bw4t.scenariogui.BotConfig;
 import nl.tudelft.bw4t.scenariogui.EPartnerConfig;
+import nl.tudelft.bw4t.server.IAServerInterface;
 
 /**
  * Java agent that can control an entity.
@@ -46,6 +51,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
     
     private BotConfig botConfig;
     private EPartnerConfig epartnerConfig;
+    private IAServerInterface server;
 
     /**
      * Create a new BW4TAgent that can be registered to an entity.
@@ -58,6 +64,16 @@ public class BW4TAgent extends Thread implements ActionInterface {
     public BW4TAgent(String agentId, RemoteEnvironment env) {
         this.agentId = agentId;
         this.bw4tenv = env;
+    }
+    
+    public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
+        this.agentId = agentId;
+        this.bw4tenv = env;
+        this.server = server;
+    }
+    
+    public void setServer(IAServerInterface server){
+        this.server = server;
     }
     
     private final List<String> places = new ArrayList<String>();
@@ -77,6 +93,15 @@ public class BW4TAgent extends Thread implements ActionInterface {
     private boolean isActionPerforming = false;
     
     private int updateDelay = 41;
+    
+    protected Map<String, Integer> nameToIndex;
+    protected Map<String, Set<String>> memory;
+    protected static String[] rooms = new String[]{"RoomA1", "RoomA2", "RoomA3",
+        "RoomB1", "RoomB2", "RoomB3",
+        "RoomC1", "RoomC2", "RoomC3"};
+    public static final int ROOMS = rooms.length;
+    protected long[] timeStamp = new long[ROOMS];
+    protected int next = 0;
     
     public List<String> getPlaces() {
         return places;
@@ -199,6 +224,7 @@ public class BW4TAgent extends Thread implements ActionInterface {
             
             if (!environmentKilled) {
                 //traverseAndGetBlocks();
+                System.out.println(agentId + ":" + this.server.getCurrentColor());
             }
         } catch (Exception ex) {}
         /*if (environmentKilled) {
@@ -445,4 +471,200 @@ public class BW4TAgent extends Thread implements ActionInterface {
         this.epartnerConfig = epartnerConfig;
     }
 
+    //
+    public String getBot() throws RemoteException {
+        return this.agentId;
+    }
+
+    public void receiveMessage(String s, String sender) throws RemoteException {
+        String action = s.substring(0, 2);
+        if (action.equals("00")) // display message
+        {
+            System.out.println(sender + ":" + s.substring(3));
+        }
+        if (action.equals("01")) // go to rooms
+        {
+            try {
+                goTo(s.substring(3));
+            } catch (Exception ex) {
+            }
+        }
+    }
+
+    public RoomTime colorInRoom(String color) throws RemoteException {
+        PriorityQueue<RoomTime> queue = new PriorityQueue<RoomTime>(1, new Compare());
+        for (int i = 0; i < rooms.length; i++) {
+            try {
+                if (memory.get(rooms[i]).contains(color)) {
+                    RoomTime temp = new RoomTime(rooms[i], Calendar.getInstance().getTimeInMillis() - timeStamp[nameToIndex.get(rooms[i])]);
+                    queue.add(temp);
+                }
+            } catch (NullPointerException npe) {
+            }
+        }
+        return queue.peek();
+    }
+
+    public void goToMostPossibleExistRoom(String room) throws RemoteException {
+        if (room == null) {
+            throw new NullPointerException();
+        }
+        System.out.println(room);
+        try {
+            goTo(room);
+        } catch (Exception ex) {
+        }
+    }
+
+    public void addToMemory(List<Percept> percepts, String room) {
+        if (nameToIndex.containsKey(room)) {
+            timeStamp[nameToIndex.get(room)] = Calendar.getInstance().getTimeInMillis();
+        } else {
+            timeStamp[next] = Calendar.getInstance().getTimeInMillis();
+            nameToIndex.put(room, next++);
+        }
+        if (memory.keySet().contains(room)) {
+            memory.get(room).clear();
+        } else {
+            memory.put(room, new HashSet<String>());
+        }
+        for (Percept p : percepts) {
+            //System.out.println(p.toProlog());
+            String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")"));
+            memory.get(room).add(color);
+        }
+    }
+
+    public void removeFromMemory(String room, String color) throws RemoteException {
+        memory.get(room).remove(color);
+    }
+
+    public boolean goToBlock(List<Percept> percepts, String color) throws Exception {
+        for (Percept p : percepts) {
+            if (color.equals(getBlockColor(p.toProlog()))) {
+
+                //PrintWriter pw = new PrintWriter("log.txt");
+                //pw.println(bot + ":" + p.toProlog());
+                //pw.close();
+
+                goToBlock(getBlockId(p.toProlog()));
+                Thread.sleep(200);
+                pickUp();
+                Thread.sleep(200);
+
+                do {
+                    goTo("DropZone");
+                } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
+
+                putDown();
+                server.putBox(getBlockColor(p.toProlog()));
+                Thread.sleep(200);
+                //break;
+                return true;
+            }
+        }
+        return false;
+    }
+
+    public long getBlockId(String block) {
+        if (block == null) {
+            return -1;
+        }
+        return Long.parseLong(block.substring(6, block.indexOf(",")));
+    }
+
+    public String getBlockColor(String block) {
+        if (block == null) {
+            return null;
+        }
+        return block.substring(block.indexOf(",") + 1, block.length() - 1);
+    }
+    
+    public void askAllBotForColor(String color) throws RemoteException{
+        server.askForColor(agentId, color);
+    }
+    
+    public void traverse() {
+        int i = 0;
+        String room=null;
+        List<Percept> percepts = null;
+        String color=null;
+        int impossibleCount=0;
+        try {
+            //System.setErr(new PrintStream("IA_err.txt"));
+        } catch (Exception ex) {
+        }
+
+        while (true) {
+            // stop traversal (prevent from exception)
+            try {
+                if (server.getCurrent() >= server.getColors().length) {
+                    break;
+                }
+                color = server.getCurrentColor();
+                System.out.println(agentId + " need: " + color);
+            } catch (Exception ex) {
+            }
+            
+            try{
+                room = server.askForColor(agentId,color);
+            }catch(Exception ex){
+                try {
+                    goTo(rooms[i++ % rooms.length]);
+                } catch (ActException ex1) {}
+                room=rooms[(i-1)%rooms.length];
+            }
+            if (!isArrived()) {
+                try {
+                    //retry
+                    goTo(room);
+                } catch (ActException ex) {}
+                if(!isArrived())
+                    continue;
+            }
+            // for memory
+
+            // get all colors from room
+            try {
+                percepts = getPercepts();
+                /*for (Percept p : percepts) {
+                    //System.out.println(p.toProlog());
+                    String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")"));
+                    addToMemory(percepts, i - 1);
+                }*/
+            } catch (Exception ex) {
+                System.err.println("Exception: traverse() - 1 " + agentId);
+            }
+            // pick & drop color
+            try {
+                
+                if(!goToBlock(percepts,color)){
+                    //reset
+                    impossibleCount++;
+                    server.noSuchColor(room,color);
+                    goTo("FrontDropZone");
+                    Thread.sleep(300);
+                }else{
+                    impossibleCount=0;
+                }
+                
+                if(impossibleCount>=rooms.length){
+                    System.out.println("Impossible");
+                    break;
+                }
+                /*
+                 // stop traversal
+                 if (ias.getCurrent() >= ias.getColors().length)
+                 break;
+                 */
+            } catch (Exception ex) {
+                System.err.println("Exception: traverse() - 2 " + agentId);
+            }finally{
+                addToMemory(percepts, room);
+            }
+        }
+        try {
+            goTo("FrontDropZone");
+        } catch (ActException ex) {}
+    }
 }

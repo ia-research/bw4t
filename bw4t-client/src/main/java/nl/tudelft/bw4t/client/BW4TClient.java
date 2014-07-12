@@ -1,5 +1,6 @@
 package nl.tudelft.bw4t.client;
 
+import nl.tudelft.bw4t.RoomTime;
 import eis.EnvironmentInterfaceStandard;
 import eis.EnvironmentListener;
 import eis.exceptions.AgentException;
@@ -12,7 +13,6 @@ import eis.iilang.Action;
 import eis.iilang.EnvironmentState;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
-
 import java.net.MalformedURLException;
 import java.rmi.Naming;
 import java.rmi.NotBoundException;
@@ -21,9 +21,11 @@ import java.rmi.registry.LocateRegistry;
 import java.rmi.registry.Registry;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.Collection;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 import java.util.Set;
-
+import nl.tudelft.bw4t.client.agent.BW4TAgent;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.startup.ConfigFile;
 import nl.tudelft.bw4t.client.startup.InitParam;
@@ -32,7 +34,7 @@ import nl.tudelft.bw4t.network.BW4TClientActions;
 import nl.tudelft.bw4t.network.BW4TServerActions;
 import nl.tudelft.bw4t.network.BW4TServerHiddenActions;
 import nl.tudelft.bw4t.scenariogui.BW4TClientConfig;
-
+import nl.tudelft.bw4t.server.IAServerInterface;
 import org.apache.log4j.Logger;
 
 /**
@@ -50,6 +52,7 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     private String bindAddress;
 
     private BW4TServerActions server;
+	private IAServerInterface server2;
 
     private static final Logger LOGGER = Logger.getLogger(BW4TClient.class);
 
@@ -57,8 +60,17 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
      * the map that the server uses.
      */
     private NewMap map;
-
+	private Map<String, BW4TAgent> agents; // agentId
+	
+	public void addAgent(String agentId,BW4TAgent agent){
+		if(agents == null)
+			agents = new HashMap<>();
+		agents.put(agentId, agent);
+	}
     
+	public IAServerInterface getServer(){
+		return this.server2;
+	}
     /**
      * Create a listener for the server.
      * 
@@ -117,6 +129,8 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
         String address = "//" + InitParam.SERVERIP.getValue() + ":" + InitParam.SERVERPORT.getValue() + "/BW4TServer";
         try {
             server = (BW4TServerActions) Naming.lookup(address);
+			Registry r = LocateRegistry.getRegistry(8000);
+			server2 = (IAServerInterface) r.lookup("IAServer");
         } catch (Exception e) {
             LOGGER.error("The BW4T Client failed to connect to the server: " + address);
             throw new NoEnvironmentException("Failed to connect " + address, e);
@@ -544,4 +558,26 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
         return map;
     }
 
+    @Override
+    public String getBot()throws RemoteException {
+        return null;
+    }
+    @Override
+    public void receiveMessage(String s,String sender) throws RemoteException {}
+    @Override
+    public RoomTime colorInRoom(String color) throws RemoteException {
+        return null;
+    }
+    @Override
+    public void goToMostPossibleExistRoom(String room) throws RemoteException {}
+    @Override
+    public void removeFromMemory(String room,String color) throws RemoteException {}
+    
+    public BW4TAgent getBW4TAgent(String agentId) {
+        for (String key: this.agents.keySet()) {
+            if (key.equals(agentId))
+                return agents.get(key);
+        }
+        return null;
+    }
 }
