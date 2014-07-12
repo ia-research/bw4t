@@ -13,6 +13,8 @@ public class SequenceIndexProcessor implements PerceptProcessor {
     public void process(List<Parameter> parameters, ClientMapController clientMapController) {
         int index = ((Numeral) parameters.get(0)).getValue().intValue();
         clientMapController.setSequenceIndex(index);
+        
+        clientMapController.getClientController().getHumanAgent().setColorSequenceIndex(index);
     }
 
 }

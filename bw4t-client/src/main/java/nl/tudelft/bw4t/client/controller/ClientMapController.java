@@ -15,6 +15,7 @@ import nl.tudelft.bw4t.client.controller.percept.processors.LocationProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.NegationProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.OccupiedProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.PerceptProcessor;
+import nl.tudelft.bw4t.client.controller.percept.processors.PlaceProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.PositionProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.RobotBatteryProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.RobotOldTargetUnreachableProcessor;
@@ -22,6 +23,7 @@ import nl.tudelft.bw4t.client.controller.percept.processors.RobotProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.RobotSizeProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.SequenceIndexProcessor;
 import nl.tudelft.bw4t.client.controller.percept.processors.SequenceProcessor;
+import nl.tudelft.bw4t.client.controller.percept.processors.StateProcessor;
 import nl.tudelft.bw4t.map.BlockColor;
 import nl.tudelft.bw4t.map.NewMap;
 import nl.tudelft.bw4t.map.Zone;
@@ -103,8 +105,14 @@ public class ClientMapController extends AbstractMapController {
         perceptProcessors.put("bumped", new BumpedProcessor());
         perceptProcessors.put("battery", new RobotBatteryProcessor());
         perceptProcessors.put("oldTargetUnreachable", new RobotOldTargetUnreachableProcessor());
+        perceptProcessors.put("place", new PlaceProcessor());
+        perceptProcessors.put("state", new StateProcessor());
     }
 
+    public ClientController getClientController() {
+        return clientController;
+    }
+    
     @Override
     public List<BlockColor> getSequence() {
         return colorSequence;

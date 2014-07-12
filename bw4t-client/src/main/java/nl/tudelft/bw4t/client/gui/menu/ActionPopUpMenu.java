@@ -4,8 +4,10 @@ import java.awt.Shape;
 import java.awt.geom.Point2D;
 import java.awt.geom.Rectangle2D;
 
+import javax.swing.JMenuItem;
 import nl.tudelft.bw4t.client.controller.ClientMapController;
 import nl.tudelft.bw4t.client.gui.BW4TClientGUI;
+import nl.tudelft.bw4t.client.gui.listeners.TraverseAndGetBlocksActionListener;
 import nl.tudelft.bw4t.map.BlockColor;
 import nl.tudelft.bw4t.map.Zone;
 import nl.tudelft.bw4t.map.renderer.MapRenderSettings;
@@ -237,6 +239,12 @@ public class ActionPopUpMenu {
      *            the gui
      */
     public static void showJPopupMenu(BW4TClientGUI gui) {
+        gui.getjPopupMenu().addSeparator();
+
+        JMenuItem menuItem = new JMenuItem("traverseAndGetBlocks");
+        menuItem.addActionListener(new TraverseAndGetBlocksActionListener(gui.getController()));
+        gui.getjPopupMenu().add(menuItem);
+        
         gui.getjPopupMenu().show(gui, (int) gui.getSelectedLocation().getX(),
                 (int) gui.getSelectedLocation().getY());
     }
