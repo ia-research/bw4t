@@ -41,3 +41,4 @@ Icon
 /bw4t-integration-test/target/
 /bw4t-scenario-editor/target/
 /bw4t-environment-store/target/
+*.log

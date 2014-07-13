@@ -558,19 +558,19 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
         return map;
     }
 
-    @Override
+//    @Override
     public String getBot()throws RemoteException {
         return null;
     }
-    @Override
+//    @Override
     public void receiveMessage(String s,String sender) throws RemoteException {}
-    @Override
+//    @Override
     public RoomTime colorInRoom(String color) throws RemoteException {
         return null;
     }
-    @Override
+//    @Override
     public void goToMostPossibleExistRoom(String room) throws RemoteException {}
-    @Override
+//    @Override
     public void removeFromMemory(String room,String color) throws RemoteException {}
     
     public BW4TAgent getBW4TAgent(String agentId) {
