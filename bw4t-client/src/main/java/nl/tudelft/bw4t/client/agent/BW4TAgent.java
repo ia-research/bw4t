@@ -8,6 +8,10 @@ import eis.exceptions.PerceiveException;
 import eis.iilang.Action;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -38,62 +42,56 @@ import nl.tudelft.bw4t.IAServerInterface;
  */
 public class BW4TAgent extends Thread implements ActionInterface, IAControllerInterface {
 
-    /** The agent id. */
+    /**
+     * The agent id.
+     */
     protected String agentId;
-    /** The entity id */
+    /**
+     * The entity id
+     */
     protected String entityId;
-    
-    /** The environment killed. */
+    /**
+     * The environment killed.
+     */
     protected boolean environmentKilled;
-    
-    /** The bw4tenv. */
+    /**
+     * The bw4tenv.
+     */
     private final RemoteEnvironment bw4tenv;
-    
     private BotConfig botConfig;
     private EPartnerConfig epartnerConfig;
     private IAServerInterface server;
+    private int goToCount, pickUpCount, putDownCount, askForCount, responceCount;
 
     /**
      * Create a new BW4TAgent that can be registered to an entity.
-     * 
-     * @param agentId
-     *            , the id of this agent used for registering to an entity.
-     * @param env
-     *            the remote environment.
+     *
+     * @param agentId , the id of this agent used for registering to an entity.
+     * @param env the remote environment.
      */
     public BW4TAgent(String agentId, RemoteEnvironment env) {
         this.agentId = agentId;
         this.bw4tenv = env;
     }
-    
+
     public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
         this.agentId = agentId;
         this.bw4tenv = env;
         this.server = server;
     }
-    
-    public void setServer(IAServerInterface server){
+
+    public void setServer(IAServerInterface server) {
         this.server = server;
     }
-    
     private final List<String> places = new ArrayList<String>();
-    
     private String state = "arrived"; // [ arrived | collided | traveling ]
-    
     private int nextDestination = 0;
-    
     private int colorSequenceIndex = 0;
-    
     private final Set<ViewBlock> visibleBlocks = new HashSet<>();
-    
     private final List<String> colorSequence = new LinkedList<>();
-    
     private boolean holding = false;
-    
     private boolean isActionPerforming = false;
-    
     private int updateDelay = 41;
-    
     protected Map<String, Integer> nameToIndex = new HashMap<>();
     protected Map<String, Set<String>> memory = new HashMap<>();
     protected static String[] rooms = new String[]{"RoomA1", "RoomA2", "RoomA3",
@@ -103,11 +101,11 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     protected long[] timeStamp = new long[ROOMS];
     protected int next = 0;
     protected PriorityQueue<RoomTime> queue;
-    
+
     public List<String> getPlaces() {
         return places;
     }
-    
+
     public void setState(String state) {
         this.state = state;
     }
@@ -119,7 +117,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public Set<ViewBlock> getVisibleBlocks() {
         return visibleBlocks;
     }
-    
+
     public List<String> getColorSequence() {
         return colorSequence;
     }
@@ -127,13 +125,14 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public void setHolding(boolean holding) {
         this.holding = holding;
     }
-    
+
     private boolean isArrived() {
         while (true) {
             try {
                 Thread.sleep(updateDelay);
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
             if (state.equals("arrived")) {
                 state = "traveling";
                 return true;
@@ -144,20 +143,21 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             }
         }
     }
-    
+
     private boolean isHolding() {
         while (true) {
             try {
                 Thread.sleep(updateDelay);
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
             if (holding) {
                 holding = false;
                 return true;
             }
         }
     }
-    
+
     public void traverseAndGetBlocks() throws ActException {
         state = "traveling";
         while (true) {
@@ -165,7 +165,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             goTo(places.get(nextDestination++ % places.size()));
 
             if (isArrived()) {
-                for (ViewBlock b: visibleBlocks) {
+                for (ViewBlock b : visibleBlocks) {
                     if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(colorSequenceIndex))) {
                         goToBlock(b.getObjectId());
                         isArrived();
@@ -179,22 +179,24 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                     }
                 }
             }
-            
+
             try {
                 Thread.sleep(updateDelay);
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
             // stop traversal
-            if (colorSequenceIndex >= colorSequence.size())
+            if (colorSequenceIndex >= colorSequence.size()) {
                 break;
+            }
         }
     }
-    
+
     public void handleMessagePercept(String message) {
         String[] s = message.split(", ");
         String receiver = s[0];
         String command = s[1];
-        
+
         if (receiver.equals(entityId)) {
             // commands
             try {
@@ -202,14 +204,15 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                     String room = command.replaceAll("go to room ", "");
                     goTo(room);
                 }
-            } catch (Exception ex) {}
+            } catch (Exception ex) {
+            }
         }
     }
-    
+
     /**
      * Register an entity to this agent.
      *
-     * @param entityId            , the Id of the entity
+     * @param entityId , the Id of the entity
      */
     public void registerEntity(String entityId) {
         this.entityId = entityId;
@@ -220,22 +223,25 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
      */
     @Override
     public void run() {
+        goToCount = pickUpCount = putDownCount = askForCount = responceCount = 0;
         try {
             Thread.sleep(5000); // for initialization
-            
+
             if (!environmentKilled) {
                 //traverseAndGetBlocks();
                 //System.out.println(agentId + ":" + this.server.getCurrentColor());
                 traverse();
             }
-        } catch (Exception ex) {}
+        } catch (Exception ex) {
+        }
         /*if (environmentKilled) {
-            return;
-        }*/
+         return;
+         }*/
     }
-    
+
     /**
      * Gets all agent with this type.
+     *
      * @param type The type of the agent.
      * @return A list with the agents.
      */
@@ -270,6 +276,8 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             ActException ex = new ActException("goTo", e);
             ex.setType(ActException.FAILURE);
             throw ex;
+        } finally {
+            goToCount++;
         }
     }
 
@@ -285,6 +293,8 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             ActException ex = new ActException("goToBlock failed", e);
             ex.setType(ActException.FAILURE);
             throw ex;
+        } finally {
+            goToCount++;
         }
     }
 
@@ -300,9 +310,11 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             ActException ex = new ActException("goTo failed", e);
             ex.setType(ActException.FAILURE);
             throw ex;
+        } finally {
+            goToCount++;
         }
     }
-    
+
     /**
      * {@inheritDoc}
      */
@@ -328,6 +340,8 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             ActException ex = new ActException("pickUp failed", e);
             ex.setType(ActException.FAILURE);
             throw ex;
+        } finally {
+            pickUpCount++;
         }
     }
 
@@ -342,6 +356,8 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             ActException ex = new ActException("putDown failed", e);
             ex.setType(ActException.FAILURE);
             throw ex;
+        } finally {
+            putDownCount++;
         }
     }
 
@@ -356,9 +372,10 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     /**
      * Sends a message to certain other agents.
      *
-     * @param receiver            , a receiver (can be either all or the id of another agent)
-     * @param message            , the translated message (as String)
-     * @throws ActException               , if an attempt to perform an action has failed.
+     * @param receiver , a receiver (can be either all or the id of another
+     * agent)
+     * @param message , the translated message (as String)
+     * @throws ActException , if an attempt to perform an action has failed.
      */
     private void sendMessage(String receiver, String message) throws ActException {
         try {
@@ -391,7 +408,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public void setKilled() {
         environmentKilled = true;
     }
-    
+
     /**
      * Gets the agent id.
      *
@@ -400,7 +417,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public String getAgentId() {
         return agentId;
     }
-    
+
     /**
      * Gets the entity id.
      *
@@ -418,11 +435,11 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public RemoteEnvironment getEnvironment() {
         return bw4tenv;
     }
-    
+
     /**
-     * Whether this agent can pick up another box based on their
-     * gripper capacity and the amount of boxes they're already
-     * holding. 
+     * Whether this agent can pick up another box based on their gripper
+     * capacity and the amount of boxes they're already holding.
+     *
      * @param sameEntity The {@link ViewEntity} type of this agent.
      * @return Whether this agent can pick up another object.
      */
@@ -437,18 +454,17 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
         int grippersInUse = sameEntity.getHolding().size();
         return grippersInUse < grippersTotal;
     }
-    
+
     /**
      * Checks if the bot controlled by the GUI can pick up another object
-     * @param gui
-     *         The GUI controlling the bot that needs to be checked
-     * @return
-     *         Returns true if the bot can pick up another object
+     *
+     * @param gui The GUI controlling the bot that needs to be checked
+     * @return Returns true if the bot can pick up another object
      */
     public boolean canPickupAnotherObject(BW4TClientGUI gui) {
         return canPickupAnotherObject(gui.getController().getMapController().getTheBot());
     }
-    
+
     public boolean isColorBlind() {
         return getBotConfig() != null && getBotConfig().getColorBlindHandicap();
     }
@@ -460,7 +476,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public void setBotConfig(BotConfig botConfig) {
         this.botConfig = botConfig;
     }
-    
+
     public boolean isGps() {
         return getEpartnerConfig() != null && getEpartnerConfig().isGps();
     }
@@ -519,33 +535,22 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     }
 
     public void addToMemory(List<Percept> percepts, String room) {
-        System.out.println("in addToMemroy for "+room);
-        System.out.println("testing percepts");
-        for(Percept p : percepts){
-            System.out.println(p.toProlog());
-        }
         if (nameToIndex.containsKey(room)) {
-            System.out.println("Updating Timestamp");
             timeStamp[nameToIndex.get(room)] = Calendar.getInstance().getTimeInMillis();
         } else {
-            System.out.println("Creating new Timestamp");
             timeStamp[next] = Calendar.getInstance().getTimeInMillis();
             nameToIndex.put(room, next++);
         }
         if (memory.keySet().contains(room)) {
-            System.out.println("clearing memory of "+room);
             memory.get(room).clear();
         } else {
-            System.out.println("Creating new memory for "+room);
             memory.put(room, new HashSet<String>());
         }
         for (Percept p : percepts) {
             //System.out.println(p.toProlog());
             String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")"));
-            System.out.println("adding color "+color+" to memory");
             memory.get(room).add(color);
         }
-        System.out.println("Finish adding");
     }
 
     public void removeFromMemory(String room, String color) throws RemoteException {
@@ -553,7 +558,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     }
 
     public boolean goToBlock() throws Exception {
-        for (ViewBlock b: visibleBlocks) {
+        for (ViewBlock b : visibleBlocks) {
             if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(colorSequenceIndex))) {
                 goToBlock(b.getObjectId());
 
@@ -588,16 +593,17 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
         }
         return block.substring(block.indexOf(",") + 1, block.length() - 1);
     }
-    
-    public void askAllBotForColor(String color) throws RemoteException{
+
+    public void askAllBotForColor(String color) throws RemoteException {
+        askForCount++;
         server.askForColor(this, color);
     }
-    
+
     public void traverse() {
-        String room=null;
+        String room = null;
         List<Percept> percepts = null;
-        String color=null;
-        int impossibleCount=0;
+        String color = null;
+        int impossibleCount = 0;
         try {
             //System.setErr(new PrintStream("IA_err.txt"));
         } catch (Exception ex) {
@@ -612,48 +618,53 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                 System.out.println("Finish taking all blocks");
                 break;
             }
-            
-            try{
-                RoomTime temp=null;
-                try{
+
+            try {
+                RoomTime temp = null;
+                try {
                     //ask for self-memory
                     temp = colorInRoom(color);
-                    System.out.println("in room "+temp.getRoom());
-                }catch(Exception ex){}
-                
-                if(temp==null) {
+                    System.out.println("in room " + temp.getRoom());
+                } catch (Exception ex) {
+                }
+
+                if (temp == null) {
                     //ask for single bot's memory, default as Bot1
                     queue.clear();
-                    server.askForColor(this,color, "Human_1");
+                    askForCount++;
+                    server.askForColor(this, color, "Human_1");
                     //wait for 1s responce from bot Human_1
                     Thread.sleep(1000);
-                    room=queue.peek().getRoom();
-                    System.out.println("Bot1: in room "+room);
+                    room = queue.peek().getRoom();
+                    System.out.println("Bot1: in room " + room);
                     //ask for other bots' memory
                     /*
-                    queue.clear();
-                    server.askForColor(this,color);
-                    //wait for 3s responce
-                    Thread.sleep(3000);
-                    room=queue.peek().getRoom();
-                    */
-                }else {
-                    room=temp.getRoom();
+                     queue.clear();
+                     server.askForColor(this,color);
+                     //wait for 3s responce
+                     Thread.sleep(3000);
+                     room=queue.peek().getRoom();
+                     */
+                } else {
+                    room = temp.getRoom();
                 }
                 goTo(room);
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 try {
                     goTo(rooms[nextDestination++ % rooms.length]);
-                } catch (ActException ex1) {}
-                room=rooms[(nextDestination-1)%rooms.length];
+                } catch (ActException ex1) {
+                }
+                room = rooms[(nextDestination - 1) % rooms.length];
             }
             if (!isArrived()) {
                 try {
                     //retry
                     goTo(room);
-                } catch (ActException ex) {}
-                if(!isArrived())
+                } catch (ActException ex) {
+                }
+                if (!isArrived()) {
                     continue;
+                }
             }
 
             // get all colors from room
@@ -664,20 +675,20 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
             }
             // pick & drop color
             try {
-                
-                if(!goToBlock()){
+
+                if (!goToBlock()) {
                     //reset
                     impossibleCount++;
                     /*comment out due to boardcasting method
-                        server.noSuchColor(room,color);
-                    */
+                     server.noSuchColor(room,color);
+                     */
                     goTo("FrontDropZone");
                     Thread.sleep(updateDelay);
-                }else{
-                    impossibleCount=0;
+                } else {
+                    impossibleCount = 0;
                 }
-                
-                if(impossibleCount>=rooms.length){
+
+                if (impossibleCount >= rooms.length) {
                     System.out.println("Impossible");
                     break;
                 }
@@ -688,21 +699,35 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                  */
             } catch (Exception ex) {
                 System.err.println("Exception: traverse() - 2 " + agentId);
-            }finally{
+            } finally {
                 System.out.println("adding to memory");
                 addToMemory(percepts, room);
                 System.out.println("finish add to memory");
                 try {
                     Thread.sleep(updateDelay);
-                } catch (Exception ex) {}
+                } catch (Exception ex) {
+                }
             }
         }
         try {
             goTo("FrontDropZone");
-        } catch (ActException ex) {}
+        } catch (ActException ex) {
+        }
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("log.txt", true)));
+            out.println(entityId + " goTo: " + goToCount + " pickUp: " + pickUpCount + " putDown: " + putDownCount + " askFor: " + askForCount + " responce: " + responceCount);
+            out.close();
+        } catch (IOException e) {
+            System.err.println("IOException occur, log may not be saved into log.txt");
+        }
+
     }
-    
-    public void receiveFromRoom(RoomTime r) throws RemoteException{
+
+    public void receiveFromRoom(RoomTime r) throws RemoteException {
         queue.add(r);
+    }
+
+    public synchronized void addResponceCount() throws RemoteException {
+        responceCount++;
     }
 }

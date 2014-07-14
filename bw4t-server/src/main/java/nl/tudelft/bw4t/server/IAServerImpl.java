@@ -75,14 +75,17 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
 
     public synchronized void askForColor(IAControllerInterface self, String color, String bot)throws RemoteException{
         self.receiveFromRoom((RoomTime)bots.get(bot).colorInRoom(color));
+        bots.get(bot).addResponceCount();
     }
     
     public synchronized void askForColor(IAControllerInterface self, String color) throws RemoteException{
         for (IAControllerInterface bot : bots.values()) {
-            if(!bot.equals(self))
-            try{
-                self.receiveFromRoom((RoomTime)(bot.colorInRoom(color)));
-            }catch(Exception e){}
+            if(!bot.equals(self)) {
+                try{
+                    self.receiveFromRoom((RoomTime)(bot.colorInRoom(color)));
+                    bot.addResponceCount();
+                }catch(Exception e){}
+            }
         }
         /*
         try{

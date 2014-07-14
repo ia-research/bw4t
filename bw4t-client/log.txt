@@ -1,0 +1,2 @@
+Human_1 goTo: 67 pickUp: 16 putDown: 16 askFor: 0 responce: 0
+Human_2 goTo: 65 pickUp: 15 putDown: 15 askFor: 0 responce: 0
