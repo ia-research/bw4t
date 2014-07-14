@@ -36,7 +36,7 @@ import nl.tudelft.bw4t.IAServerInterface;
 /**
  * Java agent that can control an entity.
  */
-public class BW4TAgent extends Thread implements ActionInterface,IAControllerInterface {
+public class BW4TAgent extends Thread implements ActionInterface, IAControllerInterface {
 
     /** The agent id. */
     protected String agentId;
