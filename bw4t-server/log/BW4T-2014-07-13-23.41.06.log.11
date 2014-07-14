@@ -1,0 +1,31 @@
+23:50:43,191 - sequence
+23:50:43,192 - room RoomC2 contains blocks:  W P R R
+23:50:43,192 - room RoomC3 contains blocks:  R O P P O G W
+23:50:43,193 - room RoomC1 contains blocks:  R R W B P B P P O
+23:50:43,194 - room RoomA1 contains blocks:  P B O B B Y R W
+23:50:43,195 - room RoomB2 contains blocks:  P B Y B P O R R G O
+23:50:43,195 - room RoomB1 contains blocks:  G G B G R P R G
+23:50:43,195 - room RoomB3 contains blocks:  O W W P W W
+23:50:43,195 - room RoomA3 contains blocks:  P G Y G O G Y B Y Y
+23:50:43,196 - room RoomA2 contains blocks:  G P B W B P R G W G
+23:50:43,197 - sequence P P R O R R W G B O G G G P P B B W
+23:50:57,309 - action Human_1 goTo(RoomA1)
+23:50:57,354 - action Human_1 goTo(FrontDropZone)
+23:51:19,475 - action Human_2 goTo(RoomA1)
+23:51:22,167 - action Human_2 goToBlock(58)
+23:51:22,370 - action Human_2 pickUp
+23:51:22,581 - action Human_2 goTo(DropZone)
+23:51:25,381 - action Human_2 putDown
+23:52:10,785 - total time is 10 minutes and 48 seconds
+23:52:10,785 - agentsummary Human_1 handicaps Human
+23:52:10,785 - agentsummary Human0 gooddrops 0
+23:52:10,785 - agentsummary Human0 wrongdrops 0
+23:52:10,785 - agentsummary Human0 nmessage 0
+23:52:10,785 - agentsummary Human0 idletime 5.538
+23:52:10,785 - agentsummary Human0 nroomsentered 0
+23:52:10,785 - agentsummary Human_2 handicaps Human
+23:52:10,785 - agentsummary Human1 gooddrops 1
+23:52:10,785 - agentsummary Human1 wrongdrops 0
+23:52:10,786 - agentsummary Human1 nmessage 0
+23:52:10,786 - agentsummary Human1 idletime 6.211
+23:52:10,786 - agentsummary Human1 nroomsentered 2

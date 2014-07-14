@@ -6,7 +6,7 @@ import java.rmi.RemoteException;
 import java.util.List;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
 import nl.tudelft.bw4t.client.gui.BW4TClientGUI;
-import nl.tudelft.bw4t.server.IAServerInterface;
+import nl.tudelft.bw4t.IAServerInterface;
 
 /**
  * Class that represents an agent that is controlled via the BW4TRenderer

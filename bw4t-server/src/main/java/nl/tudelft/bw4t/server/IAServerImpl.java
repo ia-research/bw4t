@@ -1,14 +1,16 @@
 package nl.tudelft.bw4t.server;
 
-import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.HashMap;
 import java.util.Map;
+import nl.tudelft.bw4t.IAControllerInterface;
+import nl.tudelft.bw4t.IAServerInterface;
+import nl.tudelft.bw4t.RoomTime;
 
 
-import java.util.PriorityQueue;
 import nl.tudelft.bw4t.network.BW4TClientActions;
+
 
 //import nl.tudelft.bw4t.client.environment.BW4TEnvironmentListener;
 //import nl.tudelft.bw4t.client.environment.Launcher;
@@ -25,12 +27,14 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     // ORANGE
     /*private String[] colors = new String[] {"YELLOW", "PINK", "YELLOW", "WHITE", "WHITE", "RED"};*/
 
+    /*
     private String[] colors = new String[]{"ORANGE", "RED", "YELLOW", "BLUE", "WHITE",
         "YELLOW", "GREEN", "PINK", "WHITE", "RED",
         "BLUE", "YELLOW", "YELLOW", "WHITE", "YELLOW",
         "ORANGE", "ORANGE", "PINK", "WHITE", "GREEN"};
-    private int current = 0;
-    //private Map<String, IAControllerInterface> bots = new HashMap<String, IAControllerInterface>();
+    */
+    //private int current = 0;
+    private Map<String, IAControllerInterface> bots = new HashMap<String, IAControllerInterface>();
     long t = 0;
     //PrintWriter pw;
 
@@ -46,58 +50,7 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         this.client = client;
     }
 
-    @Override
-    synchronized public String[] getColors() throws RemoteException {
-        return colors;
-    }
 
-    @Override
-    synchronized public void setColors(String[] colors) throws RemoteException {
-        this.colors = colors;
-    }
-
-    @Override
-    synchronized public int getCurrent() throws RemoteException {
-        System.out.println("getCurrent() : " + current);
-        return current;
-    }
-
-    @Override
-    synchronized public void setCurrent(int current) throws RemoteException {
-        this.current = current;
-    }
-
-    @Override
-    synchronized public void putBox(String color) throws RemoteException {
-        System.out.println(color + "(current: " + current + ")");
-        if (current < colors.length && color.equals(colors[current])) {
-            current++;
-        }
-        if (current == colors.length) {
-            try {
-                //pw.println((System.currentTimeMillis() - t) / 1000.0 + "sec(s)");
-                //pw.close();
-            } catch (Exception ex) {
-            }
-            //System.out.println((System.currentTimeMillis() - t) / 1000.0 + "sec(s)");
-        }
-    }
-
-    @Override
-    synchronized public String getCurrentColor() throws RemoteException {
-        /*if (t == 0) {
-            t = System.currentTimeMillis();
-            System.out.println("Stopwatch starts");
-        }
-
-        System.out.println("getCurrentColor()" + "(current: " + current + ")");
-        if (current < colors.length) {
-            return colors[current];
-        }
-        return null;*/
-        System.out.println("Server: getCurrentColor()");
-        return "getCurrentColor()";
-    }
 
     /*@Override
     synchronized public void registerBot(String botName, IAControllerInterface bot) throws RemoteException {
@@ -106,36 +59,40 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
 
     @Override
     synchronized public void sendMessage(String s, String sender) throws RemoteException {
-        /*for (IAControllerInterface bot : bots.values()) {
+        for (IAControllerInterface bot : bots.values()) {
             bot.receiveMessage(s,sender);
-        }*/
+        }
     }
 
     @Override
     public void sendMessage(String botName, String sender , String s) throws RemoteException {
-        /*for (String bot : bots.keySet()) {
+        for (String bot : bots.keySet()) {
             if (bot.equals(botName)) {
                 bots.get(bot).receiveMessage(s,sender);
             }
-        }*/
+        }
     }
 
-    public synchronized String askForColor(String self, String color) throws RemoteException{
-        /*PriorityQueue<RoomTime> queue = new PriorityQueue<RoomTime>(1,new Compare());
+    public synchronized void askForColor(IAControllerInterface self, String color, String bot)throws RemoteException{
+        self.receiveFromRoom((RoomTime)bots.get(bot).colorInRoom(color));
+    }
+    
+    public synchronized void askForColor(IAControllerInterface self, String color) throws RemoteException{
         for (IAControllerInterface bot : bots.values()) {
-            //if(!bot.equals(self))
+            if(!bot.equals(self))
             try{
-                queue.add((RoomTime)(bot.colorInRoom(color)));
+                self.receiveFromRoom((RoomTime)(bot.colorInRoom(color)));
             }catch(Exception e){}
         }
+        /*
         try{
             self.goToMostPossibleExistRoom(queue.peek().getRoom());
             return queue.peek().getRoom();
         }catch(NullPointerException npe){
             self.goToMostPossibleExistRoom(null);
             return null;
-        }*/
-        return null;
+        }
+        */
     }
     
     public synchronized void noSuchColor(String room, String color) throws RemoteException{

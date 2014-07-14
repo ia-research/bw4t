@@ -1,0 +1,47 @@
+23:41:08,527 - sequence
+23:41:08,529 - room RoomC2 contains blocks:  P R B P B Y Y G P Y
+23:41:08,532 - room RoomC3 contains blocks:  R B O W G R
+23:41:08,533 - room RoomC1 contains blocks:  G W O P R B W R W
+23:41:08,536 - room RoomA1 contains blocks:  G Y W R G B G O Y
+23:41:08,539 - room RoomB2 contains blocks:  O B R G R
+23:41:08,540 - room RoomB1 contains blocks:  B Y R B O G B Y
+23:41:08,541 - room RoomB3 contains blocks:  R G G G W P P G R
+23:41:08,543 - room RoomA3 contains blocks:  O W R R R Y W P B G
+23:41:08,546 - room RoomA2 contains blocks:  G P G P W R
+23:41:08,551 - sequence G O W B R P G G R R R O B P R B R Y
+23:41:22,605 - action Human_1 goTo(RoomA1)
+23:41:27,140 - action Human_1 goToBlock(69)
+23:41:27,343 - action Human_1 pickUp
+23:41:27,558 - action Human_1 goTo(DropZone)
+23:41:32,560 - action Human_1 putDown
+23:44:44,859 - action Human_1 goTo(24.0,65.0)
+23:45:55,453 - action Human_2 goTo(RoomA1)
+23:45:58,265 - action Human_2 goToBlock(70)
+23:45:58,468 - action Human_2 pickUp
+23:45:58,688 - action Human_2 goTo(DropZone)
+23:46:01,650 - action Human_2 putDown
+23:49:24,045 - action Human_3 goTo(RoomA1)
+23:49:26,513 - action Human_3 goToBlock(65)
+23:49:26,716 - action Human_3 pickUp
+23:49:26,939 - action Human_3 goTo(DropZone)
+23:49:26,982 - action Human_3 putDown
+23:49:29,414 - Bot Human_3 collided.
+23:49:35,862 - total time is 8 minutes and 13 seconds
+23:49:35,862 - agentsummary Human_1 handicaps Human
+23:49:35,862 - agentsummary Human0 gooddrops 1
+23:49:35,862 - agentsummary Human0 wrongdrops 0
+23:49:35,862 - agentsummary Human0 nmessage 0
+23:49:35,862 - agentsummary Human0 idletime 198.821
+23:49:35,862 - agentsummary Human0 nroomsentered 2
+23:49:35,862 - agentsummary Human_2 handicaps Human
+23:49:35,862 - agentsummary Human1 gooddrops 1
+23:49:35,862 - agentsummary Human1 wrongdrops 0
+23:49:35,862 - agentsummary Human1 nmessage 0
+23:49:35,862 - agentsummary Human1 idletime 6.207
+23:49:35,862 - agentsummary Human1 nroomsentered 2
+23:49:35,862 - agentsummary Human_3 handicaps Human
+23:49:35,862 - agentsummary Human2 gooddrops 0
+23:49:35,862 - agentsummary Human2 wrongdrops 0
+23:49:35,862 - agentsummary Human2 nmessage 0
+23:49:35,862 - agentsummary Human2 idletime 6.14
+23:49:35,862 - agentsummary Human2 nroomsentered 1

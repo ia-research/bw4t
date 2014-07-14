@@ -1,6 +1,7 @@
 package nl.tudelft.bw4t.server.repast;
 
 import java.awt.geom.Rectangle2D;
+import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Collection;
 import java.util.HashMap;
@@ -116,7 +117,7 @@ public class MapLoader implements BW4TServerMapListerner {
 
         BW4TEnvironment.getInstance().setMapFullyLoaded();
     }
-
+    
     /**
      * Creates the {@link ContinuousSpace} in which all objects will be placed.
      * 

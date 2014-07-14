@@ -59,7 +59,7 @@ public class BW4TServer extends UnicastRemoteObject implements BW4TServerHiddenA
     private String servername;
     private String messageOfTheDay = "";
     private Registry registry;
-
+    private IAServerImpl newServer;
     /**
      * Create a new instance of the server
      * 
@@ -84,8 +84,8 @@ public class BW4TServer extends UnicastRemoteObject implements BW4TServerHiddenA
         servername = "rmi://" + serverIp + ":" + serverPort + "/BW4TServer";
         Naming.rebind(servername, this);
         
-        IAServerImpl server = new IAServerImpl();
-        registry.rebind("IAServer", server);
+        newServer = new IAServerImpl();
+        registry.rebind("IAServer", newServer);
         
         LOGGER.debug("Server bound to: " + servername);
     }
@@ -95,6 +95,10 @@ public class BW4TServer extends UnicastRemoteObject implements BW4TServerHiddenA
         messageOfTheDay = motd;
     }
 
+    
+    public IAServerImpl getNewServer(){
+        return this.newServer;
+    }
     /**
      * {@inheritDoc}
      */

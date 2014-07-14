@@ -34,7 +34,7 @@ import nl.tudelft.bw4t.network.BW4TClientActions;
 import nl.tudelft.bw4t.network.BW4TServerActions;
 import nl.tudelft.bw4t.network.BW4TServerHiddenActions;
 import nl.tudelft.bw4t.scenariogui.BW4TClientConfig;
-import nl.tudelft.bw4t.server.IAServerInterface;
+import nl.tudelft.bw4t.IAServerInterface;
 import org.apache.log4j.Logger;
 
 /**
@@ -52,7 +52,7 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     private String bindAddress;
 
     private BW4TServerActions server;
-	private IAServerInterface server2;
+    private IAServerInterface server2;
 
     private static final Logger LOGGER = Logger.getLogger(BW4TClient.class);
 
