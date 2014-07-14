@@ -5,6 +5,7 @@ import eis.iilang.EnvironmentState;
 import java.rmi.Remote;
 import java.rmi.RemoteException;
 import java.util.Collection;
+import nl.tudelft.bw4t.IAControllerInterface;
 import nl.tudelft.bw4t.RoomTime;
 import nl.tudelft.bw4t.map.NewMap;
 
@@ -75,10 +76,11 @@ public interface BW4TClientActions extends Remote {
      *            is the map that is used in the server.
      */
     void useMap(NewMap theMap) throws RemoteException;
-    
     public String getBot()throws RemoteException;
     public void receiveMessage(String s,String sender) throws RemoteException;
     public RoomTime colorInRoom(String color) throws RemoteException;
+    public RoomTime colorInRoom(String bot, String color) throws RemoteException;
     public void goToMostPossibleExistRoom(String room) throws RemoteException;
     public void removeFromMemory(String room,String color) throws RemoteException;
+    public int getAgentSize() throws RemoteException;
 }

@@ -60,7 +60,7 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
      * the map that the server uses.
      */
     private NewMap map;
-	private Map<String, BW4TAgent> agents; // agentId
+	private Map<String, BW4TAgent> agents = new HashMap<>(); // agentId
 	
 	public void addAgent(String agentId,BW4TAgent agent){
 		if(agents == null)
@@ -68,6 +68,10 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
 		agents.put(agentId, agent);
 	}
     
+        public int getAgentSize() throws RemoteException{
+            return agents.size();
+        }
+        
 	public IAServerInterface getServer(){
 		return this.server2;
 	}
@@ -131,6 +135,7 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
             server = (BW4TServerActions) Naming.lookup(address);
 			Registry r = LocateRegistry.getRegistry(8000);
 			server2 = (IAServerInterface) r.lookup("IAServer");
+                        server2.registerClient(this);
         } catch (Exception e) {
             LOGGER.error("The BW4T Client failed to connect to the server: " + address);
             throw new NoEnvironmentException("Failed to connect " + address, e);
@@ -568,12 +573,21 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     public RoomTime colorInRoom(String color) throws RemoteException {
         return null;
     }
+    
+    public RoomTime colorInRoom(String bot, String color) throws RemoteException {
+        getBW4TAgent(bot).addResponceCount();
+        try{
+            return getBW4TAgent(bot).colorInRoom(color);
+        }catch(Exception ex){
+            return null;
+        }
+    }
 //    @Override
     public void goToMostPossibleExistRoom(String room) throws RemoteException {}
 //    @Override
     public void removeFromMemory(String room,String color) throws RemoteException {}
     
-    public BW4TAgent getBW4TAgent(String agentId) {
+    public BW4TAgent getBW4TAgent(String agentId){
         for (String key: this.agents.keySet()) {
             if (key.equals(agentId))
                 return agents.get(key);

@@ -1,15 +1,21 @@
 package nl.tudelft.bw4t.server;
 
+import eis.exceptions.ManagementException;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.HashMap;
-import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import nl.tudelft.bw4t.IAControllerInterface;
 import nl.tudelft.bw4t.IAServerInterface;
+
 import nl.tudelft.bw4t.RoomTime;
-
-
 import nl.tudelft.bw4t.network.BW4TClientActions;
+
+import nl.tudelft.bw4t.server.environment.BW4TEnvironment;
 
 
 //import nl.tudelft.bw4t.client.environment.BW4TEnvironmentListener;
@@ -34,8 +40,9 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         "ORANGE", "ORANGE", "PINK", "WHITE", "GREEN"};
     */
     //private int current = 0;
-    private Map<String, IAControllerInterface> bots = new HashMap<String, IAControllerInterface>();
+    //private Map<String, IAControllerInterface> bots = new HashMap<String, IAControllerInterface>();
     long t = 0;
+    int requestResetCount =0;
     //PrintWriter pw;
 
     public IAServerImpl() throws RemoteException {
@@ -51,12 +58,13 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     }
 
 
-
-    /*@Override
+/*
+    @Override
     synchronized public void registerBot(String botName, IAControllerInterface bot) throws RemoteException {
-        bots.put(botName, bot);
-    }*/
-
+        client.addAgent(botName, bot);
+    }
+*/
+/*
     @Override
     synchronized public void sendMessage(String s, String sender) throws RemoteException {
         for (IAControllerInterface bot : bots.values()) {
@@ -72,12 +80,11 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
             }
         }
     }
-
+*/
     public synchronized void askForColor(IAControllerInterface self, String color, String bot)throws RemoteException{
-        self.receiveFromRoom((RoomTime)bots.get(bot).colorInRoom(color));
-        bots.get(bot).addResponceCount();
+        self.receiveFromRoom((RoomTime)client.colorInRoom(bot,color));
     }
-    
+    /*
     public synchronized void askForColor(IAControllerInterface self, String color) throws RemoteException{
         for (IAControllerInterface bot : bots.values()) {
             if(!bot.equals(self)) {
@@ -87,17 +94,8 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
                 }catch(Exception e){}
             }
         }
-        /*
-        try{
-            self.goToMostPossibleExistRoom(queue.peek().getRoom());
-            return queue.peek().getRoom();
-        }catch(NullPointerException npe){
-            self.goToMostPossibleExistRoom(null);
-            return null;
-        }
-        */
     }
-    
+    */
     public synchronized void noSuchColor(String room, String color) throws RemoteException{
         /*for (IAControllerInterface bot : bots.values()) {
             try{
@@ -107,6 +105,22 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         System.out.println("noSuchColor");
     }
     
+    
+    public synchronized void requestReset()throws RemoteException, ManagementException{
+        requestResetCount++;
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("log.txt", true)));
+            out.println(client.getAgentSize());
+            out.close();
+        } catch (IOException ex) {
+            Logger.getLogger(IAServerImpl.class.getName()).log(Level.SEVERE, null, ex);
+        } 
+        System.out.println("request reset");
+        if(requestResetCount == client.getAgentSize()){
+            BW4TEnvironment.getInstance().reset(true);
+        }
+            
+    }
     /*public static Identifier findParameter(String[] args, InitParam param) {
         for (int i = 0; i < args.length - 1; i++) {
             if (args[i].equalsIgnoreCase("-" + param.nameLower())) {
@@ -164,4 +178,5 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         registry.rebind("IAServer", server);
         System.out.println("IAServer ready");
     }*/
+
 }

@@ -5,6 +5,7 @@ import eis.exceptions.AgentException;
 import eis.exceptions.EntityException;
 import eis.exceptions.RelationException;
 import eis.iilang.EnvironmentState;
+import java.io.Serializable;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;

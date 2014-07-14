@@ -42,6 +42,7 @@ import eis.iilang.EnvironmentState;
 import eis.iilang.Identifier;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
+import java.io.Serializable;
 
 /**
  * A remote BW4TEnvironment that delegates all actions towards the central BW4TEnvironment, through RMI. This is the

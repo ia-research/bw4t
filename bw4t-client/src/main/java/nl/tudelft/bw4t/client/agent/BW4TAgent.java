@@ -12,6 +12,7 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
+import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.util.ArrayList;
 import java.util.Calendar;
@@ -25,6 +26,8 @@ import java.util.Set;
 
 import nl.tudelft.bw4t.Compare;
 import nl.tudelft.bw4t.IAControllerInterface;
+import nl.tudelft.bw4t.IAServerInterface;
+
 import nl.tudelft.bw4t.RoomTime;
 import nl.tudelft.bw4t.client.environment.PerceptsHandler;
 import nl.tudelft.bw4t.client.environment.RemoteEnvironment;
@@ -35,7 +38,7 @@ import nl.tudelft.bw4t.map.view.ViewBlock;
 import nl.tudelft.bw4t.map.view.ViewEntity;
 import nl.tudelft.bw4t.scenariogui.BotConfig;
 import nl.tudelft.bw4t.scenariogui.EPartnerConfig;
-import nl.tudelft.bw4t.IAServerInterface;
+
 
 /**
  * Java agent that can control an entity.
@@ -100,7 +103,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     public static final int ROOMS = rooms.length;
     protected long[] timeStamp = new long[ROOMS];
     protected int next = 0;
-    protected PriorityQueue<RoomTime> queue;
+    protected PriorityQueue<RoomTime> queue = new PriorityQueue<>();
 
     public List<String> getPlaces() {
         return places;
@@ -594,10 +597,10 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
         return block.substring(block.indexOf(",") + 1, block.length() - 1);
     }
 
-    public void askAllBotForColor(String color) throws RemoteException {
+    /*public void askAllBotForColor(String color) throws RemoteException {
         askForCount++;
         server.askForColor(this, color);
-    }
+    }*/
 
     public void traverse() {
         String room = null;
@@ -632,9 +635,9 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                     //ask for single bot's memory, default as Bot1
                     queue.clear();
                     askForCount++;
-                    server.askForColor(this, color, "Human_1");
+                    server.askForColor(this, color, "Human0");
                     //wait for 1s responce from bot Human_1
-                    Thread.sleep(1000);
+                    this.sleep(1000);
                     room = queue.peek().getRoom();
                     System.out.println("Bot1: in room " + room);
                     //ask for other bots' memory
@@ -650,6 +653,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                 }
                 goTo(room);
             } catch (Exception ex) {
+                System.err.println("no responce");
                 try {
                     goTo(rooms[nextDestination++ % rooms.length]);
                 } catch (ActException ex1) {
@@ -720,7 +724,13 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
         } catch (IOException e) {
             System.err.println("IOException occur, log may not be saved into log.txt");
         }
-
+        try{
+            System.out.println("reseting server");
+            server.requestReset();
+        }catch(Exception ex){
+            System.err.println("fail reseting server");
+            ex.printStackTrace();
+        }
     }
 
     public void receiveFromRoom(RoomTime r) throws RemoteException {
