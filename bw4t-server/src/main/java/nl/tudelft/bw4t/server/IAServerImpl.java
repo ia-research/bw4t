@@ -2,6 +2,7 @@ package nl.tudelft.bw4t.server;
 
 import eis.exceptions.ManagementException;
 import java.io.BufferedWriter;
+import java.io.File;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
@@ -9,12 +10,11 @@ import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JOptionPane;
 import nl.tudelft.bw4t.IAControllerInterface;
 import nl.tudelft.bw4t.IAServerInterface;
-
 import nl.tudelft.bw4t.RoomTime;
 import nl.tudelft.bw4t.network.BW4TClientActions;
-
 import nl.tudelft.bw4t.server.environment.BW4TEnvironment;
 
 
@@ -44,7 +44,11 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     long t = 0;
     int requestResetCount =0;
     //PrintWriter pw;
-
+    // bw4t directory
+    private String dir = "E:/IA/bw4t";
+    private int maxTimes = 5;
+    private static int times = 1; // do not modify
+    
     public IAServerImpl() throws RemoteException {
         try {
             //pw = new PrintWriter("IAServer_log.txt");
@@ -116,8 +120,17 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
             Logger.getLogger(IAServerImpl.class.getName()).log(Level.SEVERE, null, ex);
         } 
         System.out.println("request reset");
-        if(requestResetCount == client.getAgentSize()){
+        if(requestResetCount == client.getAgentSize() && times < maxTimes){
             BW4TEnvironment.getInstance().reset(true);
+            try {
+                Thread.sleep(1000);
+                ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c");
+                processBuilder.directory(new File(dir + "/bw4t-client"));
+                processBuilder.command("java", "-cp", "target/bw4t-client-3.5.0-jar-with-dependencies.jar", "nl.tudelft.bw4t.client.environment.RemoteEnvironment");
+                processBuilder.start();
+                times++;
+            } catch (Exception ex) {}
+            
         }
             
     }
