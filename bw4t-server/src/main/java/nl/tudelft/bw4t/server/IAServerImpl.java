@@ -16,6 +16,7 @@ import nl.tudelft.bw4t.IAServerInterface;
 import nl.tudelft.bw4t.RoomTime;
 import nl.tudelft.bw4t.network.BW4TClientActions;
 import nl.tudelft.bw4t.server.environment.BW4TEnvironment;
+import nl.tudelft.bw4t.server.environment.Stepper;
 
 
 //import nl.tudelft.bw4t.client.environment.BW4TEnvironmentListener;
@@ -124,6 +125,7 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
             BW4TEnvironment.getInstance().reset(true);
             try {
                 Thread.sleep(1000);
+                BW4TEnvironment.getInstance().setTps(Stepper.MAX_TPS);
                 ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c");
                 processBuilder.directory(new File(dir + "/bw4t-client"));
                 processBuilder.command("java", "-cp", "target/bw4t-client-3.5.0-jar-with-dependencies.jar", "nl.tudelft.bw4t.client.environment.RemoteEnvironment");

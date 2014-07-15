@@ -1,0 +1,17 @@
+Human_1 goTo: 25 pickUp: 4 putDown: 4 askFor: 7 responce: 0
+Human_1 goTo: 29 pickUp: 4 putDown: 4 askFor: 4 responce: 0
+Human_2 goTo: 30 pickUp: 5 putDown: 5 askFor: 8 responce: 0
+Human_2 goTo: 31 pickUp: 6 putDown: 6 askFor: 8 responce: 0
+Human_1 goTo: 36 pickUp: 3 putDown: 3 askFor: 8 responce: 0
+Human_2 goTo: 25 pickUp: 6 putDown: 6 askFor: 6 responce: 0
+Human_1 goTo: 25 pickUp: 5 putDown: 5 askFor: 5 responce: 0
+Human_2 goTo: 25 pickUp: 6 putDown: 6 askFor: 6 responce: 0
+Human_1 goTo: 30 pickUp: 5 putDown: 5 askFor: 7 responce: 0
+Human_1 goTo: 28 pickUp: 4 putDown: 4 askFor: 7 responce: 0
+Human_2 goTo: 32 pickUp: 4 putDown: 4 askFor: 9 responce: 0
+Human_1 goTo: 25 pickUp: 4 putDown: 4 askFor: 8 responce: 0
+Human_2 goTo: 26 pickUp: 5 putDown: 5 askFor: 8 responce: 0
+Human_1 goTo: 33 pickUp: 5 putDown: 5 askFor: 8 responce: 0
+Human_2 goTo: 26 pickUp: 4 putDown: 4 askFor: 8 responce: 0
+Human_1 goTo: 26 pickUp: 5 putDown: 5 askFor: 7 responce: 0
+Human_2 goTo: 24 pickUp: 5 putDown: 5 askFor: 5 responce: 0
