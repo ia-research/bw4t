@@ -21,11 +21,11 @@ public class HumanAgent extends BW4TAgent {
      * @param env
      *            , the remote environment to which the human agent should connect.
      */
-    public HumanAgent(String agentId, RemoteEnvironment env) {
+    public HumanAgent(String agentId, RemoteEnvironment env) throws RemoteException{
         super(agentId, env);
     }
     
-    public HumanAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
+    public HumanAgent(String agentId, RemoteEnvironment env, IAServerInterface server) throws RemoteException{
         super(agentId, env,server);
     }
 

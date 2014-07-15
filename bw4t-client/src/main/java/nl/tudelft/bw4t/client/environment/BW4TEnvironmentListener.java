@@ -102,7 +102,7 @@ public class BW4TEnvironmentListener implements EnvironmentListener {
             environment.addRunningAgent(agent);
             environment.associateEntity(agent.getAgentId(), entity);
 
-            agent.start();
+            new Thread(agent).start();
         } catch (InstantiationException | AgentException | RelationException | EntityException e) {
             LOGGER.error("Failed to handle new entity event.", e);
         }

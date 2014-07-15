@@ -43,6 +43,7 @@ import eis.iilang.Identifier;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
 import java.io.Serializable;
+import java.util.logging.Level;
 
 /**
  * A remote BW4TEnvironment that delegates all actions towards the central BW4TEnvironment, through RMI. This is the
@@ -378,11 +379,13 @@ public class RemoteEnvironment implements EnvironmentInterfaceStandard, Environm
             if ("human".equals(getType(entityId))) {
                 HumanAgent agent = (HumanAgent) getRunningAgent(agentId);
                 if (agent == null) {
-                    agent = new HumanAgent("Human" + getAgents().size(), this,client.getServer());
+                    try {
+                        agent = new HumanAgent("Human" + getAgents().size(), this,client.getServer());
+                    } catch (RemoteException ex) {}
                     agent.registerEntity(entityId);
                     addRunningAgent(agent);
                     associateEntity(agent.getAgentId(), entityId);
-                    agent.start();
+                    new Thread(agent).start();
                     return;
                 }
                 agent.setServer(client.getServer());
