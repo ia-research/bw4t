@@ -8,9 +8,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.HashMap;
+import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
-import javax.swing.JOptionPane;
 import nl.tudelft.bw4t.IAControllerInterface;
 import nl.tudelft.bw4t.IAServerInterface;
 import nl.tudelft.bw4t.RoomTime;
@@ -23,7 +24,7 @@ import nl.tudelft.bw4t.server.environment.Stepper;
 //import nl.tudelft.bw4t.client.environment.Launcher;
 
 public class IAServerImpl extends UnicastRemoteObject implements IAServerInterface {
-    private BW4TClientActions client;
+    private Map<String, BW4TClientActions> clients = new HashMap<>();
     
     // PINK
     // WHITE
@@ -58,8 +59,8 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     }
     
     @Override
-    public void registerClient(BW4TClientActions client) throws RemoteException {
-        this.client = client;
+    public synchronized void registerClient(String agentId, BW4TClientActions client) throws RemoteException {
+        clients.put(agentId, client);
     }
 
 
@@ -86,8 +87,10 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         }
     }
 */
-    public synchronized void askForColor(IAControllerInterface self, String color, String bot)throws RemoteException{
-        self.receiveFromRoom((RoomTime)client.colorInRoom(bot,color));
+    public synchronized void askForColor(IAControllerInterface self, String color, String agentId)throws RemoteException{
+        clients.get(agentId).addResponceCount();
+        RoomTime temp = (RoomTime)(clients.get(agentId).colorInRoom(color));
+        self.receiveFromRoom(temp);
     }
     /*
     public synchronized void askForColor(IAControllerInterface self, String color) throws RemoteException{
@@ -115,13 +118,16 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         requestResetCount++;
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("log.txt", true)));
-            out.println(client.getAgentSize());
+            out.println(clients.size());
+            for(BW4TClientActions c:clients.values()){
+                out.println(c.getAgentId());
+            }
             out.close();
         } catch (IOException ex) {
             Logger.getLogger(IAServerImpl.class.getName()).log(Level.SEVERE, null, ex);
         } 
         System.out.println("request reset");
-        if(requestResetCount == client.getAgentSize() && times < maxTimes){
+        if(requestResetCount == clients.size() && times < maxTimes){
             BW4TEnvironment.getInstance().reset(true);
             try {
                 Thread.sleep(1000);

@@ -79,8 +79,9 @@ public interface BW4TClientActions extends Remote {
     public String getBot()throws RemoteException;
     public void receiveMessage(String s,String sender) throws RemoteException;
     public RoomTime colorInRoom(String color) throws RemoteException;
-    public RoomTime colorInRoom(String bot, String color) throws RemoteException;
     public void goToMostPossibleExistRoom(String room) throws RemoteException;
     public void removeFromMemory(String room,String color) throws RemoteException;
-    public int getAgentSize() throws RemoteException;
+    public String getAgentId() throws RemoteException;
+    /*public int getAgentSize() throws RemoteException;*/
+    public void addResponceCount() throws RemoteException;
 }

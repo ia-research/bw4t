@@ -60,17 +60,26 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
      * the map that the server uses.
      */
     private NewMap map;
-	private Map<String, BW4TAgent> agents = new HashMap<>(); // agentId
+	//private Map<String, BW4TAgent> agents = new HashMap<>(); // agentId
 	
+    private String agentId;
+    private BW4TAgent agent;
+
+    public String getAgentId() throws RemoteException{
+        return agentId;
+    }
+        
 	public void addAgent(String agentId,BW4TAgent agent){
-		if(agents == null)
+		/*if(agents == null)
 			agents = new HashMap<>();
-		agents.put(agentId, agent);
+		agents.put(agentId, agent);*/
+            this.agentId=agentId;
+            this.agent = agent;
 	}
     
-        public int getAgentSize() throws RemoteException{
+        /*public int getAgentSize() throws RemoteException{
             return agents.size();
-        }
+        }*/
         
 	public IAServerInterface getServer(){
 		return this.server2;
@@ -135,7 +144,7 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
             server = (BW4TServerActions) Naming.lookup(address);
 			Registry r = LocateRegistry.getRegistry(8000);
 			server2 = (IAServerInterface) r.lookup("IAServer");
-                        server2.registerClient(this);
+                        //server2.registerClient(this);
         } catch (Exception e) {
             LOGGER.error("The BW4T Client failed to connect to the server: " + address);
             throw new NoEnvironmentException("Failed to connect " + address, e);
@@ -191,6 +200,7 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
 
             LOGGER.info("Requesting " + agentCountInt + " automated agent(s) and " + humanCountInt + " human agent(s)");
             server.registerClient(this, agentCountInt, humanCountInt);
+            server2.registerClient(agentId, this);
         }
     }
 
@@ -571,9 +581,9 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     public void receiveMessage(String s,String sender) throws RemoteException {}
 //    @Override
     public RoomTime colorInRoom(String color) throws RemoteException {
-        return null;
+        return agent.colorInRoom(color);
     }
-    
+   /*
     public RoomTime colorInRoom(String bot, String color) throws RemoteException {
         getBW4TAgent(bot).addResponceCount();
         try{
@@ -581,17 +591,17 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
         }catch(Exception ex){
             return null;
         }
-    }
+    }*/
 //    @Override
     public void goToMostPossibleExistRoom(String room) throws RemoteException {}
 //    @Override
     public void removeFromMemory(String room,String color) throws RemoteException {}
     
-    public BW4TAgent getBW4TAgent(String agentId){
-        for (String key: this.agents.keySet()) {
-            if (key.equals(agentId))
-                return agents.get(key);
-        }
-        return null;
+    public BW4TAgent getBW4TAgent(){
+        return this.agent;
+    }
+    
+    public synchronized void addResponceCount() throws RemoteException{
+        agent.addResponceCount();
     }
 }

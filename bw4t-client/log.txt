@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 Human_1 goTo: 25 pickUp: 4 putDown: 4 askFor: 7 responce: 0
 Human_1 goTo: 29 pickUp: 4 putDown: 4 askFor: 4 responce: 0
 Human_2 goTo: 30 pickUp: 5 putDown: 5 askFor: 8 responce: 0
@@ -15,3 +16,16 @@ Human_1 goTo: 33 pickUp: 5 putDown: 5 askFor: 8 responce: 0
 Human_2 goTo: 26 pickUp: 4 putDown: 4 askFor: 8 responce: 0
 Human_1 goTo: 26 pickUp: 5 putDown: 5 askFor: 7 responce: 0
 Human_2 goTo: 24 pickUp: 5 putDown: 5 askFor: 5 responce: 0
+=======
+Human_3 goTo: 66 pickUp: 11 putDown: 11 askFor: 15 responce: 0
+Human_1 goTo: 71 pickUp: 10 putDown: 10 askFor: 9 responce: 0
+Human_2 goTo: 75 pickUp: 11 putDown: 11 askFor: 13 responce: 0
+Human_1 goTo: 64 pickUp: 15 putDown: 15 askFor: 7 responce: 0
+Human_2 goTo: 54 pickUp: 12 putDown: 12 askFor: 11 responce: 0
+Human_4 goTo: 1 pickUp: 0 putDown: 0 askFor: 0 responce: 0
+Human_1 goTo: 44 pickUp: 9 putDown: 9 askFor: 6 responce: 52
+Human_5 goTo: 48 pickUp: 5 putDown: 5 askFor: 12 responce: 0
+Human_3 goTo: 42 pickUp: 6 putDown: 6 askFor: 11 responce: 0
+Human_6 goTo: 49 pickUp: 5 putDown: 5 askFor: 14 responce: 0
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 9 responce: 0
+>>>>>>> origin/combineAK

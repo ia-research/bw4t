@@ -8,7 +8,7 @@ import nl.tudelft.bw4t.map.BlockColor;
 import nl.tudelft.bw4t.network.BW4TClientActions;
 
 public interface IAServerInterface extends Remote {
-    public void registerClient(BW4TClientActions client) throws RemoteException;
+    public void registerClient(String agentId, BW4TClientActions client) throws RemoteException;
     //public void registerBot(String botName, IAControllerInterface bot) throws RemoteException;
     /*
     public void sendMessage(String s,String sender) throws RemoteException;

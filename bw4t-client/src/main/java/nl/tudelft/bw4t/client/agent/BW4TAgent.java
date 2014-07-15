@@ -14,6 +14,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.io.Serializable;
 import java.rmi.RemoteException;
+import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
 import java.util.Calendar;
 import java.util.HashMap;
@@ -43,7 +44,7 @@ import nl.tudelft.bw4t.scenariogui.EPartnerConfig;
 /**
  * Java agent that can control an entity.
  */
-public class BW4TAgent extends Thread implements ActionInterface, IAControllerInterface {
+public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, IAControllerInterface, Runnable {
 
     /**
      * The agent id.
@@ -72,12 +73,12 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
      * @param agentId , the id of this agent used for registering to an entity.
      * @param env the remote environment.
      */
-    public BW4TAgent(String agentId, RemoteEnvironment env) {
+    public BW4TAgent(String agentId, RemoteEnvironment env) throws RemoteException{
         this.agentId = agentId;
         this.bw4tenv = env;
     }
 
-    public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) {
+    public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) throws RemoteException{
         this.agentId = agentId;
         this.bw4tenv = env;
         this.server = server;
@@ -637,9 +638,9 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                     askForCount++;
                     server.askForColor(this, color, "Human0");
                     //wait for 1s responce from bot Human_1
-                    this.sleep(1000);
+                    Thread.sleep(1000);
                     room = queue.peek().getRoom();
-                    System.out.println("Bot1: in room " + room);
+                    System.out.println("Human0 : in room " + room);
                     //ask for other bots' memory
                     /*
                      queue.clear();
@@ -654,6 +655,7 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                 goTo(room);
             } catch (Exception ex) {
                 System.err.println("no responce");
+                ex.printStackTrace();
                 try {
                     goTo(rooms[nextDestination++ % rooms.length]);
                 } catch (ActException ex1) {
@@ -661,14 +663,14 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
                 room = rooms[(nextDestination - 1) % rooms.length];
             }
             if (!isArrived()) {
-                try {
+                /*try {
                     //retry
                     goTo(room);
                 } catch (ActException ex) {
                 }
-                if (!isArrived()) {
+                if (!isArrived()) {*/
                     continue;
-                }
+                //}
             }
 
             // get all colors from room
@@ -734,7 +736,8 @@ public class BW4TAgent extends Thread implements ActionInterface, IAControllerIn
     }
 
     public void receiveFromRoom(RoomTime r) throws RemoteException {
-        queue.add(r);
+        if(r!= null)
+            queue.add(r);
     }
 
     public synchronized void addResponceCount() throws RemoteException {

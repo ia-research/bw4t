@@ -6,6 +6,7 @@ import eis.exceptions.PerceiveException;
 import eis.iilang.Identifier;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
+import java.rmi.RemoteException;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,7 +39,7 @@ public class TestAgent extends BW4TAgent {
      * @param agentId the agent id for the new agent.
      * @param env the remote environment on which the agent should "live".
      */
-    public TestAgent(String agentId, RemoteEnvironment env) {
+    public TestAgent(String agentId, RemoteEnvironment env) throws RemoteException{
         super(agentId, env);
         places = new ArrayList<String>();
     }
