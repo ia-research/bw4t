@@ -28,7 +28,7 @@ public enum InitParam {
     /** Launch GUI for entities? (check is this only for humans?) */
     LAUNCHGUI("true"),
     /** Number of human bots (is this to connect GUIs?) */
-    HUMANCOUNT("1"),
+    HUMANCOUNT("2"),
     /**
      * The java agent class to load when new entities appear.
      */
