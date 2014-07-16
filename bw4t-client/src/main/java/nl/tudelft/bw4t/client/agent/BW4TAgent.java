@@ -734,13 +734,6 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
 
             } catch (Exception ex) {
                 System.err.println("Exception: traverse() - 2 " + agentId);
-                try {
-                    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("err.txt", true)));
-                    ex.printStackTrace(out);
-                    out.close();
-                } catch (IOException e) {
-                    System.err.println("IOException occur, log may not be saved into log.txt");
-                }
                 break;
             }
         }

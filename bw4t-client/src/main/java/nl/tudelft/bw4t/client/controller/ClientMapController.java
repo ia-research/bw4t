@@ -38,6 +38,10 @@ import org.apache.log4j.Logger;
 import eis.exceptions.NoEnvironmentException;
 import eis.exceptions.PerceiveException;
 import eis.iilang.Parameter;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.IOException;
+import java.io.PrintWriter;
 
 /**
  * The Client Map Controller.
@@ -264,6 +268,13 @@ public class ClientMapController extends AbstractMapController {
         }
         sb.append("]");
         LOGGER.debug(sb.toString());
+        try {
+            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("precept.txt", true)));
+            out.println(sb.toString());
+            out.close();
+        } catch (IOException e) {
+            System.err.println("IOException occur, log may not be saved into log.txt");
+        }
         PerceptProcessor processor = perceptProcessors.get(name);
         if (processor != null) {
             processor.process(perceptParameters, this);
