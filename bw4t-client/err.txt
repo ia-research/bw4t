@@ -1,0 +1,21 @@
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:592)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:718)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:256)
+	at java.lang.Thread.run(Thread.java:722)
+java.lang.IndexOutOfBoundsException: Index: 6, Size: 6
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:592)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:718)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:256)
+	at java.lang.Thread.run(Thread.java:722)
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:592)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:718)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:256)
+	at java.lang.Thread.run(Thread.java:722)

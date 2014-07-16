@@ -14,9 +14,10 @@ public interface IAServerInterface extends Remote {
     public void sendMessage(String s,String sender) throws RemoteException;
     public void sendMessage(String botName,String sender, String s) throws RemoteException;
     */
-    public void askForColor(IAControllerInterface self, String color, String bot) throws RemoteException;
+    public void askForColor(String self, String color, String bot) throws RemoteException;
     //broadcasting method
-    //public void askForColor(IAControllerInterface self, String color) throws RemoteException;
+    public void askForColor(String self, String color) throws RemoteException;
     public void noSuchColor(String room, String color) throws RemoteException;
     public void requestReset()throws RemoteException, ManagementException;
+    public void addAllAgentIndex() throws RemoteException;
 }

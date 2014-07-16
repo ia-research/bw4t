@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.logging.Level;
@@ -19,13 +20,11 @@ import nl.tudelft.bw4t.network.BW4TClientActions;
 import nl.tudelft.bw4t.server.environment.BW4TEnvironment;
 import nl.tudelft.bw4t.server.environment.Stepper;
 
-
 //import nl.tudelft.bw4t.client.environment.BW4TEnvironmentListener;
 //import nl.tudelft.bw4t.client.environment.Launcher;
-
 public class IAServerImpl extends UnicastRemoteObject implements IAServerInterface {
+
     private Map<String, BW4TClientActions> clients = new HashMap<>();
-    
     // PINK
     // WHITE
     // YELLOW
@@ -36,98 +35,97 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     /*private String[] colors = new String[] {"YELLOW", "PINK", "YELLOW", "WHITE", "WHITE", "RED"};*/
 
     /*
-    private String[] colors = new String[]{"ORANGE", "RED", "YELLOW", "BLUE", "WHITE",
-        "YELLOW", "GREEN", "PINK", "WHITE", "RED",
-        "BLUE", "YELLOW", "YELLOW", "WHITE", "YELLOW",
-        "ORANGE", "ORANGE", "PINK", "WHITE", "GREEN"};
-    */
+     private String[] colors = new String[]{"ORANGE", "RED", "YELLOW", "BLUE", "WHITE",
+     "YELLOW", "GREEN", "PINK", "WHITE", "RED",
+     "BLUE", "YELLOW", "YELLOW", "WHITE", "YELLOW",
+     "ORANGE", "ORANGE", "PINK", "WHITE", "GREEN"};
+     */
     //private int current = 0;
     //private Map<String, IAControllerInterface> bots = new HashMap<String, IAControllerInterface>();
-    long t = 0;
-    int requestResetCount =0;
+    long t = System.currentTimeMillis();
+    static final long TIMELIMIT = 5 * 60 * 1000;
+    int requestResetCount = 0;
     //PrintWriter pw;
     // bw4t directory
-    private String dir = "E:/IA/bw4t";
-    private int maxTimes = 5;
+    private String dir = "D:/Y2_comp/research/sharedFolder/bw4t";
+    private int maxTimes = 20;
     private static int times = 1; // do not modify
-    
+    private int agentNo = 2; //number of agents to be called after reset
+
     public IAServerImpl() throws RemoteException {
         try {
             //pw = new PrintWriter("IAServer_log.txt");
         } catch (Exception ex) {
         }
     }
-    
+
     @Override
     public synchronized void registerClient(String agentId, BW4TClientActions client) throws RemoteException {
         clients.put(agentId, client);
     }
 
 
-/*
-    @Override
-    synchronized public void registerBot(String botName, IAControllerInterface bot) throws RemoteException {
-        client.addAgent(botName, bot);
+    /*
+     @Override
+     synchronized public void registerBot(String botName, IAControllerInterface bot) throws RemoteException {
+     client.addAgent(botName, bot);
+     }
+     */
+    /*
+     @Override
+     synchronized public void sendMessage(String s, String sender) throws RemoteException {
+     for (IAControllerInterface bot : bots.values()) {
+     bot.receiveMessage(s,sender);
+     }
+     }
+
+     @Override
+     public void sendMessage(String botName, String sender , String s) throws RemoteException {
+     for (String bot : bots.keySet()) {
+     if (bot.equals(botName)) {
+     bots.get(bot).receiveMessage(s,sender);
+     }
+     }
+     }
+     */
+    public synchronized void askForColor(String selfAgentId, String color, String agentId) throws RemoteException {
+        clients.get(agentId).addResponceCount();
+        RoomTime temp = (RoomTime) (clients.get(agentId).colorInRoom(color));
+        clients.get(selfAgentId).receiveFromRoom(temp);
+        clients.get(selfAgentId).setFastestResponceAgent(agentId);
     }
-*/
-/*
-    @Override
-    synchronized public void sendMessage(String s, String sender) throws RemoteException {
-        for (IAControllerInterface bot : bots.values()) {
-            bot.receiveMessage(s,sender);
+
+    public synchronized void askForColor(String selfAgentId, String color) throws RemoteException {
+        for (String agentId : clients.keySet()) {
+            if (!agentId.equals(selfAgentId)) {
+                try {
+                    askForColor(selfAgentId,color,agentId);
+                } catch (Exception e) {
+                }
+            }
         }
     }
 
-    @Override
-    public void sendMessage(String botName, String sender , String s) throws RemoteException {
-        for (String bot : bots.keySet()) {
-            if (bot.equals(botName)) {
-                bots.get(bot).receiveMessage(s,sender);
-            }
-        }
-    }
-*/
-    public synchronized void askForColor(IAControllerInterface self, String color, String agentId)throws RemoteException{
-        clients.get(agentId).addResponceCount();
-        RoomTime temp = (RoomTime)(clients.get(agentId).colorInRoom(color));
-        self.receiveFromRoom(temp);
-    }
-    /*
-    public synchronized void askForColor(IAControllerInterface self, String color) throws RemoteException{
-        for (IAControllerInterface bot : bots.values()) {
-            if(!bot.equals(self)) {
-                try{
-                    self.receiveFromRoom((RoomTime)(bot.colorInRoom(color)));
-                    bot.addResponceCount();
-                }catch(Exception e){}
-            }
-        }
-    }
-    */
-    public synchronized void noSuchColor(String room, String color) throws RemoteException{
+    public synchronized void noSuchColor(String room, String color) throws RemoteException {
         /*for (IAControllerInterface bot : bots.values()) {
-            try{
-                bot.removeFromMemory(room,color);
-            }catch(Exception ex){}
-        }*/
+         try{
+         bot.removeFromMemory(room,color);
+         }catch(Exception ex){}
+         }*/
         System.out.println("noSuchColor");
     }
-    
-    
-    public synchronized void requestReset()throws RemoteException, ManagementException{
+
+    public synchronized void requestReset() throws RemoteException, ManagementException {
         requestResetCount++;
-        try {
-            PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("log.txt", true)));
-            out.println(clients.size());
-            for(BW4TClientActions c:clients.values()){
-                out.println(c.getAgentId());
-            }
-            out.close();
-        } catch (IOException ex) {
-            Logger.getLogger(IAServerImpl.class.getName()).log(Level.SEVERE, null, ex);
-        } 
         System.out.println("request reset");
-        if(requestResetCount == clients.size() && times < maxTimes){
+        if (requestResetCount == clients.size() && times < maxTimes) {
+            try {
+                PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("../bw4t-client/log.txt", true)));
+                out.println("===============================================================");
+
+                out.close();
+            } catch (IOException ex) {
+            }
             BW4TEnvironment.getInstance().reset(true);
             try {
                 Thread.sleep(1000);
@@ -135,69 +133,79 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
                 ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c");
                 processBuilder.directory(new File(dir + "/bw4t-client"));
                 processBuilder.command("java", "-cp", "target/bw4t-client-3.5.0-jar-with-dependencies.jar", "nl.tudelft.bw4t.client.environment.RemoteEnvironment");
-                processBuilder.start();
+
+                for (int i = 0; i < agentNo; i++) {
+                    processBuilder.start();
+                    Thread.sleep(1000);
+                }
                 times++;
-            } catch (Exception ex) {}
-            
+            } catch (Exception ex) {
+            }
+
         }
-            
+
     }
     /*public static Identifier findParameter(String[] args, InitParam param) {
-        for (int i = 0; i < args.length - 1; i++) {
-            if (args[i].equalsIgnoreCase("-" + param.nameLower())) {
-                //LOGGER.debug("Found parameter '" + param.nameLower() + "' with '" + args[(i + 1)] + "'");
-                return new Identifier(args[(i + 1)]);
-            }
-        }
-        //LOGGER.debug("Defaulting parameter '" + param.nameLower() + "' with '" + param.getDefaultValue() + "'");
-        return null;
-    }*/
+     for (int i = 0; i < args.length - 1; i++) {
+     if (args[i].equalsIgnoreCase("-" + param.nameLower())) {
+     //LOGGER.debug("Found parameter '" + param.nameLower() + "' with '" + args[(i + 1)] + "'");
+     return new Identifier(args[(i + 1)]);
+     }
+     }
+     //LOGGER.debug("Defaulting parameter '" + param.nameLower() + "' with '" + param.getDefaultValue() + "'");
+     return null;
+     }*/
     /*
-    public static String findArgument(String[] args, InitParam param) {
-        for (int i = 0; i < args.length - 1; i++) {
-            if (args[i].equalsIgnoreCase("-" + param.nameLower())) {
-                return args[(i + 1)];
-            }
+     public static String findArgument(String[] args, InitParam param) {
+     for (int i = 0; i < args.length - 1; i++) {
+     if (args[i].equalsIgnoreCase("-" + param.nameLower())) {
+     return args[(i + 1)];
+     }
+     }
+     return param.getDefaultValue();
+     }
+     */
+    /*    public static void main(String[] args) throws RemoteException, ManagementException, NoEnvironmentException {
+     /*Map<String, Parameter> init = new HashMap();
+     for (InitParam param : InitParam.values()) {
+     if (param == InitParam.GOAL) {
+     //LOGGER.info("Setting parameter 'GOAL' with 'false' because we started from commandline.");
+     init.put(param.nameLower(), new Identifier("false"));
+     } else {
+     Parameter value = findParameter(args, param);
+     if (value != null) {
+     init.put(param.nameLower(), value);
+     }
+     }
+     }
+     Launcher.launch(args);
+
+     Map<String, Parameter> initParameters = new HashMap<String, Parameter>();
+     try {
+     for (InitParam param : InitParam.values()) {
+     initParameters.put(param.nameLower(), new Identifier(
+     findArgument(args, param)));
+     }
+     BW4TRemoteEnvironment env = new BW4TRemoteEnvironment();
+     env.attachEnvironmentListener(new BW4TEnvironmentListener(env));
+     env.init(initParameters);
+     }catch(Exception ex){}
+     IAServerImpl server = new IAServerImpl();
+     Registry registry;
+
+     try {
+     registry = LocateRegistry.createRegistry(8001);
+     } catch (Exception ex) {
+     registry = LocateRegistry.getRegistry(8001);
+     }
+
+     registry.rebind("IAServer", server);
+     System.out.println("IAServer ready");
+     }*/
+
+    public synchronized void addAllAgentIndex() throws RemoteException {
+        for (BW4TClientActions c : clients.values()) {
+            c.addNextBlockIndex();
         }
-        return param.getDefaultValue();
     }
-*/
-/*    public static void main(String[] args) throws RemoteException, ManagementException, NoEnvironmentException {
-        /*Map<String, Parameter> init = new HashMap();
-        for (InitParam param : InitParam.values()) {
-            if (param == InitParam.GOAL) {
-                //LOGGER.info("Setting parameter 'GOAL' with 'false' because we started from commandline.");
-                init.put(param.nameLower(), new Identifier("false"));
-            } else {
-                Parameter value = findParameter(args, param);
-                if (value != null) {
-                    init.put(param.nameLower(), value);
-                }
-            }
-        }
-        Launcher.launch(args);
-
-        Map<String, Parameter> initParameters = new HashMap<String, Parameter>();
-        try {
-            for (InitParam param : InitParam.values()) {
-                initParameters.put(param.nameLower(), new Identifier(
-                        findArgument(args, param)));
-            }
-            BW4TRemoteEnvironment env = new BW4TRemoteEnvironment();
-            env.attachEnvironmentListener(new BW4TEnvironmentListener(env));
-            env.init(initParameters);
-        }catch(Exception ex){}
-        IAServerImpl server = new IAServerImpl();
-        Registry registry;
-
-        try {
-            registry = LocateRegistry.createRegistry(8001);
-        } catch (Exception ex) {
-            registry = LocateRegistry.getRegistry(8001);
-        }
-
-        registry.rebind("IAServer", server);
-        System.out.println("IAServer ready");
-    }*/
-
 }

@@ -604,4 +604,14 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     public synchronized void addResponceCount() throws RemoteException{
         agent.addResponceCount();
     }
+    
+    public synchronized void addNextBlockIndex() throws RemoteException{
+        this.agent.addNextBlockIndex();
+    }
+    public void receiveFromRoom(RoomTime r) throws RemoteException{
+        this.agent.receiveFromRoom(r);
+    }
+    public synchronized void setFastestResponceAgent(String agentId) throws RemoteException{
+        this.agent.setFastestResponceAgent(agentId);
+    }
 }

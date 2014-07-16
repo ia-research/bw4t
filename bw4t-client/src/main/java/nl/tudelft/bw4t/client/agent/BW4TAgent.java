@@ -12,7 +12,6 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.io.Serializable;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
 import java.util.ArrayList;
@@ -40,7 +39,6 @@ import nl.tudelft.bw4t.map.view.ViewEntity;
 import nl.tudelft.bw4t.scenariogui.BotConfig;
 import nl.tudelft.bw4t.scenariogui.EPartnerConfig;
 
-
 /**
  * Java agent that can control an entity.
  */
@@ -65,7 +63,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     private BotConfig botConfig;
     private EPartnerConfig epartnerConfig;
     private IAServerInterface server;
-    private int goToCount, pickUpCount, putDownCount, askForCount, responceCount;
+    private int goToCount, pickUpCount, putDownCount, askForCount, responseCount;
 
     /**
      * Create a new BW4TAgent that can be registered to an entity.
@@ -73,12 +71,12 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
      * @param agentId , the id of this agent used for registering to an entity.
      * @param env the remote environment.
      */
-    public BW4TAgent(String agentId, RemoteEnvironment env) throws RemoteException{
+    public BW4TAgent(String agentId, RemoteEnvironment env) throws RemoteException {
         this.agentId = agentId;
         this.bw4tenv = env;
     }
 
-    public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) throws RemoteException{
+    public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) throws RemoteException {
         this.agentId = agentId;
         this.bw4tenv = env;
         this.server = server;
@@ -89,22 +87,22 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     }
     private final List<String> places = new ArrayList<String>();
     private String state = "arrived"; // [ arrived | collided | traveling ]
-    private int nextDestination = 0;
+    private int nextDestination = (int) (Math.random() * 1024);
     private int colorSequenceIndex = 0;
     private final Set<ViewBlock> visibleBlocks = new HashSet<>();
     private final List<String> colorSequence = new LinkedList<>();
     private boolean holding = false;
-    private boolean isActionPerforming = false;
+    //private boolean isActionPerforming = false;
     private int updateDelay = 41;
     protected Map<String, Integer> nameToIndex = new HashMap<>();
-    protected Map<String, Set<String>> memory = new HashMap<>();
-    protected static String[] rooms = new String[]{"RoomA1", "RoomA2", "RoomA3",
-        "RoomB1", "RoomB2", "RoomB3",
-        "RoomC1", "RoomC2", "RoomC3"};
-    public static final int ROOMS = rooms.length;
-    protected long[] timeStamp = new long[ROOMS];
+    protected Map<String, ArrayList<String>> memory = new HashMap<>();
+    public int ROOMS;
+    protected long[] timeStamp;
     protected int next = 0;
     protected PriorityQueue<RoomTime> queue = new PriorityQueue<>();
+    protected int nextBlockIndex = 0;
+    protected String holdingColor = null;
+    protected String fastestResponceAgent = null;
 
     public List<String> getPlaces() {
         return places;
@@ -131,6 +129,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     }
 
     private boolean isArrived() {
+        //long timeLimit = System.currentTimeMillis();
         while (true) {
             try {
                 Thread.sleep(updateDelay);
@@ -138,6 +137,25 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
             }
 
             if (state.equals("arrived")) {
+                state = "traveling";
+                return true;
+            }
+            if (state.equals("collided")/* || System.currentTimeMillis() - timeLimit >3000*/) {
+                state = "traveling";
+                return false;
+            }
+        }
+    }
+
+    private boolean goToBlockIsArrived() {
+        long timeLimit = System.currentTimeMillis();
+        while (true) {
+            try {
+                Thread.sleep(updateDelay);
+            } catch (Exception ex) {
+            }
+
+            if (state.equals("arrived") || System.currentTimeMillis() - timeLimit > 1500) {
                 state = "traveling";
                 return true;
             }
@@ -227,10 +245,11 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
      */
     @Override
     public void run() {
-        goToCount = pickUpCount = putDownCount = askForCount = responceCount = 0;
+        goToCount = pickUpCount = putDownCount = askForCount = responseCount = 0;
         try {
             Thread.sleep(5000); // for initialization
-
+            ROOMS = places.size();
+            timeStamp = new long[ROOMS];
             if (!environmentKilled) {
                 //traverseAndGetBlocks();
                 //System.out.println(agentId + ":" + this.server.getCurrentColor());
@@ -515,10 +534,10 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
 
     public RoomTime colorInRoom(String color) throws RemoteException {
         PriorityQueue<RoomTime> queue = new PriorityQueue<RoomTime>(1, new Compare());
-        for (int i = 0; i < rooms.length; i++) {
+        for (int i = 0; i < ROOMS; i++) {
             try {
-                if (memory.get(rooms[i]).contains(color)) {
-                    RoomTime temp = new RoomTime(rooms[i], Calendar.getInstance().getTimeInMillis() - timeStamp[nameToIndex.get(rooms[i])]);
+                if (memory.get(places.get(i)).contains(color.toLowerCase())) {
+                    RoomTime temp = new RoomTime(places.get(i), Calendar.getInstance().getTimeInMillis() - timeStamp[nameToIndex.get(places.get(i))]);
                     queue.add(temp);
                 }
             } catch (NullPointerException npe) {
@@ -548,11 +567,11 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         if (memory.keySet().contains(room)) {
             memory.get(room).clear();
         } else {
-            memory.put(room, new HashSet<String>());
+            memory.put(room, new ArrayList<String>());
         }
         for (Percept p : percepts) {
             //System.out.println(p.toProlog());
-            String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")"));
+            String color = p.toProlog().substring(p.toProlog().indexOf(',') + 1, p.toProlog().indexOf(")")).toLowerCase();
             memory.get(room).add(color);
         }
     }
@@ -561,20 +580,39 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         memory.get(room).remove(color);
     }
 
-    public boolean goToBlock() throws Exception {
+    public boolean goToBlock(List<Percept> percepts, String room) throws Exception {
+        System.out.println("adding to memory");
+        addToMemory(percepts, room);
+        System.out.println("finish add to memory");
+        try {
+            Thread.sleep(updateDelay);
+        } catch (Exception ex) {
+        }
         for (ViewBlock b : visibleBlocks) {
-            if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(colorSequenceIndex))) {
+            if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(nextBlockIndex))) {
+                memory.get(room).remove(b.getColor().getName().toLowerCase());
                 goToBlock(b.getObjectId());
-
-                isArrived();
+                goToBlockIsArrived();
                 pickUp();
+                this.holdingColor = b.getColor().getName().toLowerCase();
                 isHolding();
-
-                do {
+                if (this.colorSequence.get(nextBlockIndex).equalsIgnoreCase(this.holdingColor)) {
+                    server.addAllAgentIndex();
+                    do {
+                        goTo("FrontDropZone");
+                        System.out.println("in while loop(arrived)");
+                    } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
+                    while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
+                        System.out.println("in while loop(equals)");
+                    }
+                    System.out.println("out while loop");
                     goTo("DropZone");
-                } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
-
+                    System.out.println("before isArrived");
+                    isArrived();
+                    System.out.println("after isArrived");
+                }
                 putDown();
+                this.holdingColor = null;
                 //Thread.sleep(200);
                 System.out.println("finish putting");
                 //break;
@@ -599,11 +637,16 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     }
 
     /*public void askAllBotForColor(String color) throws RemoteException {
-        askForCount++;
-        server.askForColor(this, color);
-    }*/
+     askForCount++;
+     server.askForColor(this, color);
+     }*/
+    public synchronized void addNextBlockIndex() throws RemoteException {
+        this.nextBlockIndex++;
+        System.out.println("index updated to : " + this.nextBlockIndex);
+    }
 
     public void traverse() {
+        state = "traveling";
         String room = null;
         List<Percept> percepts = null;
         String color = null;
@@ -616,7 +659,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         while (true) {
             // stop traversal (prevent from exception)
             try {
-                color = colorSequence.get(colorSequenceIndex);
+                color = colorSequence.get(this.nextBlockIndex);
                 System.out.println(agentId + " need: " + color);
             } catch (Exception ex) {
                 System.out.println("Finish taking all blocks");
@@ -636,41 +679,31 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                     //ask for single bot's memory, default as Bot1
                     queue.clear();
                     askForCount++;
-                    server.askForColor(this, color, "Human0");
-                    //wait for 1s responce from bot Human_1
+                    if (this.fastestResponceAgent == null) {
+                        server.askForColor(this.agentId, color);
+                    } else {
+                        server.askForColor(this.agentId, color, this.fastestResponceAgent);
+                    }
+                    //wait for 1s response
                     Thread.sleep(1000);
                     room = queue.peek().getRoom();
-                    System.out.println("Human0 : in room " + room);
-                    //ask for other bots' memory
-                    /*
-                     queue.clear();
-                     server.askForColor(this,color);
-                     //wait for 3s responce
-                     Thread.sleep(3000);
-                     room=queue.peek().getRoom();
-                     */
+                    System.out.println(fastestResponceAgent + " : in room " + room);
                 } else {
                     room = temp.getRoom();
                 }
                 goTo(room);
             } catch (Exception ex) {
-                System.err.println("no responce");
+                System.err.println("no response");
                 ex.printStackTrace();
                 try {
-                    goTo(rooms[nextDestination++ % rooms.length]);
-                } catch (ActException ex1) {
+                    goTo(places.get(nextDestination++ % ROOMS));
+                } catch (Exception ex1) {
+                    ex1.printStackTrace();
                 }
-                room = rooms[(nextDestination - 1) % rooms.length];
+                room = places.get((nextDestination - 1) % ROOMS);
             }
             if (!isArrived()) {
-                /*try {
-                    //retry
-                    goTo(room);
-                } catch (ActException ex) {
-                }
-                if (!isArrived()) {*/
-                    continue;
-                //}
+                continue;
             }
 
             // get all colors from room
@@ -682,7 +715,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
             // pick & drop color
             try {
 
-                if (!goToBlock()) {
+                if (!goToBlock(percepts, room)) {
                     //reset
                     impossibleCount++;
                     /*comment out due to boardcasting method
@@ -694,25 +727,21 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                     impossibleCount = 0;
                 }
 
-                if (impossibleCount >= rooms.length) {
+                if (impossibleCount >= ROOMS) {
                     System.out.println("Impossible");
                     break;
                 }
-                /*
-                 // stop traversal
-                 if (ias.getCurrent() >= ias.getColors().length)
-                 break;
-                 */
+
             } catch (Exception ex) {
                 System.err.println("Exception: traverse() - 2 " + agentId);
-            } finally {
-                System.out.println("adding to memory");
-                addToMemory(percepts, room);
-                System.out.println("finish add to memory");
                 try {
-                    Thread.sleep(updateDelay);
-                } catch (Exception ex) {
+                    PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("err.txt", true)));
+                    ex.printStackTrace(out);
+                    out.close();
+                } catch (IOException e) {
+                    System.err.println("IOException occur, log may not be saved into log.txt");
                 }
+                break;
             }
         }
         try {
@@ -721,26 +750,33 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         }
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("log.txt", true)));
-            out.println(entityId + " goTo: " + goToCount + " pickUp: " + pickUpCount + " putDown: " + putDownCount + " askFor: " + askForCount + " responce: " + responceCount);
+            out.println(entityId + " goTo: " + goToCount + " pickUp: " + pickUpCount + " putDown: " + putDownCount + " askFor: " + askForCount + " response: " + responseCount);
             out.close();
         } catch (IOException e) {
             System.err.println("IOException occur, log may not be saved into log.txt");
         }
-        try{
+        try {
             System.out.println("reseting server");
             server.requestReset();
-        }catch(Exception ex){
+        } catch (Exception ex) {
             System.err.println("fail reseting server");
             ex.printStackTrace();
         }
     }
 
     public void receiveFromRoom(RoomTime r) throws RemoteException {
-        if(r!= null)
+        if (r != null) {
             queue.add(r);
+        }
     }
 
     public synchronized void addResponceCount() throws RemoteException {
-        responceCount++;
+        responseCount++;
+    }
+
+    public synchronized void setFastestResponceAgent(String agentId) throws RemoteException {
+        if (fastestResponceAgent == null) {
+            this.fastestResponceAgent = agentId;
+        }
     }
 }

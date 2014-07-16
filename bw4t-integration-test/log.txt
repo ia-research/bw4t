@@ -1,0 +1,4 @@
+Bot_1 goTo: 1 pickUp: 0 putDown: 0 askFor: 0 responce: 0
+Bot_1 goTo: 1 pickUp: 0 putDown: 0 askFor: 0 responce: 0
+Bot_1 goTo: 1 pickUp: 0 putDown: 0 askFor: 0 responce: 0
+Bot_1 goTo: 1 pickUp: 0 putDown: 0 askFor: 0 response: 0
