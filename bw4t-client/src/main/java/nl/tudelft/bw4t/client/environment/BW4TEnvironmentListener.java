@@ -9,7 +9,9 @@ import java.io.Serializable;
 
 import java.lang.reflect.Constructor;
 import java.lang.reflect.InvocationTargetException;
+import java.rmi.RemoteException;
 import java.util.Collection;
+import java.util.logging.Level;
 
 import nl.tudelft.bw4t.client.agent.BW4TAgent;
 import nl.tudelft.bw4t.client.agent.HumanAgent;
@@ -92,7 +94,9 @@ public class BW4TEnvironmentListener implements EnvironmentListener {
             BW4TAgent agent = null;
 
             if (isHuman) {
-                agent = new HumanAgent("Human" + agentCount, environment);
+                try {
+                    agent = new HumanAgent("Human" + agentCount, environment);
+                } catch (RemoteException ex) {}
             } else {
                 agent = newAgent(InitParam.AGENTCLASS.getValue(), entity);
             }
