@@ -1,0 +1,25 @@
+01:44:32,563 - sequence
+01:44:32,563 - room RoomA3 contains blocks:  B O O W R O Y P R Y
+01:44:32,563 - room RoomA2 contains blocks:  P B B
+01:44:32,563 - room RoomB3 contains blocks:  P R G O W G G G P O
+01:44:32,563 - room RoomC1 contains blocks:  W W G O Y B
+01:44:32,563 - room RoomA1 contains blocks:  R G W G B B W Y G Y
+01:44:32,563 - room RoomB2 contains blocks:  B O R O O R P R G
+01:44:32,563 - room RoomC3 contains blocks:  R R W O
+01:44:32,563 - room RoomB1 contains blocks:  W W Y P B R R W R Y
+01:44:32,563 - room RoomC2 contains blocks:  O R P G B O Y Y P Y
+01:44:32,563 - sequence O R W B R P O P R W O G W R Y G G B
+01:44:45,933 - action Human_1 goTo(RoomB3)
+01:44:46,294 - total time is 0.361 seconds
+01:44:46,294 - agentsummary Human_1 handicaps Human
+01:44:46,294 - agentsummary Human0 gooddrops 0
+01:44:46,294 - agentsummary Human0 wrongdrops 0
+01:44:46,294 - agentsummary Human0 nmessage 0
+01:44:46,294 - agentsummary Human0 idletime 6.474
+01:44:46,294 - agentsummary Human0 nroomsentered 0
+01:44:46,294 - agentsummary Human_2 handicaps Human
+01:44:46,294 - agentsummary Human1 gooddrops 0
+01:44:46,294 - agentsummary Human1 wrongdrops 0
+01:44:46,294 - agentsummary Human1 nmessage 0
+01:44:46,294 - agentsummary Human1 idletime 0.0
+01:44:46,294 - agentsummary Human1 nroomsentered 0

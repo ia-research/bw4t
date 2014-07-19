@@ -47,8 +47,8 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     int requestResetCount = 0;
     //PrintWriter pw;
     // bw4t directory
-    private String dir = "D:/Y2_comp/research/sharedFolder/bw4t";
-    private int maxTimes = 20;
+    private String dir = "E:/IA/bw4t";
+    private int maxTimes = 200;
     private static int times = 1; // do not modify
     private int agentNo = 2; //number of agents to be called after reset
 
