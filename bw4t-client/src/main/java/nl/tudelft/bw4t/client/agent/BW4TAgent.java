@@ -9,8 +9,10 @@ import eis.iilang.Action;
 import eis.iilang.Parameter;
 import eis.iilang.Percept;
 import java.io.BufferedWriter;
+import java.io.FileOutputStream;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.io.PrintStream;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
@@ -74,6 +76,12 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     public BW4TAgent(String agentId, RemoteEnvironment env) throws RemoteException {
         this.agentId = agentId;
         this.bw4tenv = env;
+        try{
+            System.setErr(new PrintStream(new FileOutputStream("errLog.txt",true)));
+            System.setOut(new PrintStream(new FileOutputStream("out.txt",true)));
+        }catch(Exception ex){
+            ex.printStackTrace();
+        }
     }
 
     public BW4TAgent(String agentId, RemoteEnvironment env, IAServerInterface server) throws RemoteException {
@@ -603,6 +611,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                         System.out.println("in while loop(arrived)");
                     } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
                     while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
+                        System.out.println("current : "+colorSequenceIndex+"\nexpected : "+colorSequence.get(this.colorSequenceIndex)+"\n holding : "+holdingColor);
                         System.out.println("in while loop(equals)");
                     }
                     System.out.println("out while loop");
@@ -693,8 +702,8 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                 }
                 goTo(room);
             } catch (Exception ex) {
-                System.err.println("no response");
-                ex.printStackTrace();
+                /*System.err.println("no response");
+                ex.printStackTrace();*/
                 try {
                     goTo(places.get(nextDestination++ % ROOMS));
                 } catch (Exception ex1) {

@@ -47,7 +47,7 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     int requestResetCount = 0;
     //PrintWriter pw;
     // bw4t directory
-    private String dir = "E:/IA/bw4t";
+    private String dir = "E:/Y2_comp/research/sharedFolder/bw4t";
     private int maxTimes = 200;
     private static int times = 1; // do not modify
     private int agentNo = 2; //number of agents to be called after reset
@@ -121,6 +121,7 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         if (requestResetCount == clients.size() && times < maxTimes) {
             try {
                 PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("../bw4t-client/log.txt", true)));
+                out.println("log for "+times);
                 out.println("===============================================================");
 
                 out.close();

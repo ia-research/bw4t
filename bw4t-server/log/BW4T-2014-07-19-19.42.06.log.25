@@ -1,0 +1,167 @@
+19:48:33,624 - sequence
+19:48:33,624 - room RoomC2 contains blocks:  R Y G R R Y G O P
+19:48:33,625 - room RoomC3 contains blocks:  P G G P W P W R P Y
+19:48:33,625 - room RoomC1 contains blocks:  Y Y Y R B G R G B B
+19:48:33,625 - room RoomA1 contains blocks:  P G O P O
+19:48:33,626 - room RoomB2 contains blocks:  G Y P B P W Y O
+19:48:33,626 - room RoomB1 contains blocks:  B W R B G O
+19:48:33,627 - room RoomB3 contains blocks:  P P Y R P O Y W G R
+19:48:33,627 - room RoomA3 contains blocks:  Y Y P O P G O R W Y
+19:48:33,628 - room RoomA2 contains blocks:  W W B O
+19:48:33,628 - sequence P P Y P Y Y Y P Y G G G R B P Y R Y
+19:48:44,828 - action Human_1 goTo(RoomC1)
+19:48:45,018 - action Human_2 goTo(RoomB1)
+19:48:46,600 - action Human_1 goTo(FrontDropZone)
+19:48:47,240 - action Human_2 goTo(FrontDropZone)
+19:48:47,653 - action Human_1 goTo(RoomC2)
+19:48:48,291 - action Human_2 goTo(RoomB2)
+19:48:49,776 - action Human_2 goToBlock(76)
+19:48:49,791 - action Human_1 goToBlock(46)
+19:48:49,916 - action Human_1 pickUp
+19:48:49,944 - action Human_2 pickUp
+19:48:49,968 - action Human_1 goTo(FrontDropZone)
+19:48:49,993 - action Human_2 goTo(FrontDropZone)
+19:48:51,689 - action Human_1 goTo(DropZone)
+19:48:51,978 - action Human_1 putDown
+19:48:51,980 - action Human_1 goTo(RoomC2)
+19:48:52,186 - action Human_2 goTo(DropZone)
+19:48:52,476 - action Human_2 putDown
+19:48:52,479 - action Human_2 goTo(RoomB2)
+19:48:53,944 - action Human_1 goToBlock(39)
+19:48:54,135 - action Human_1 pickUp
+19:48:54,189 - action Human_1 goTo(FrontDropZone)
+19:48:55,037 - action Human_2 goToBlock(74)
+19:48:55,163 - action Human_2 pickUp
+19:48:55,212 - action Human_2 goTo(FrontDropZone)
+19:48:56,064 - action Human_1 goTo(DropZone)
+19:48:56,358 - action Human_1 putDown
+19:48:56,365 - action Human_1 goTo(RoomC2)
+19:48:57,394 - action Human_2 goTo(DropZone)
+19:48:57,702 - action Human_2 putDown
+19:48:57,705 - action Human_2 goTo(RoomB2)
+19:48:58,531 - action Human_1 goToBlock(43)
+19:48:58,744 - action Human_1 pickUp
+19:48:58,793 - action Human_1 goTo(FrontDropZone)
+19:49:00,266 - action Human_2 goToBlock(73)
+19:49:00,391 - action Human_2 pickUp
+19:49:00,439 - action Human_2 goTo(FrontDropZone)
+19:49:00,588 - action Human_1 goTo(DropZone)
+19:49:00,930 - action Human_1 putDown
+19:49:00,931 - action Human_1 goTo(RoomC1)
+19:49:02,656 - action Human_2 goTo(DropZone)
+19:49:02,659 - action Human_1 goTo(FrontDropZone)
+19:49:02,703 - action Human_1 goTo(RoomC1)
+19:49:02,831 - action Human_1 goToBlock(59)
+19:49:02,954 - action Human_2 putDown
+19:49:02,956 - action Human_2 goTo(RoomB2)
+19:49:03,006 - action Human_1 pickUp
+19:49:03,117 - action Human_1 goTo(FrontDropZone)
+19:49:04,692 - action Human_1 goTo(DropZone)
+19:49:05,035 - action Human_1 putDown
+19:49:05,436 - action Human_2 goTo(FrontDropZone)
+19:49:06,039 - action Human_1 goTo(RoomC3)
+19:49:06,482 - action Human_2 goTo(RoomB3)
+19:49:07,634 - action Human_2 goToBlock(87)
+19:49:07,752 - action Human_1 goToBlock(50)
+19:49:07,840 - action Human_2 pickUp
+19:49:07,888 - action Human_2 goTo(FrontDropZone)
+19:49:07,918 - action Human_1 pickUp
+19:49:07,965 - action Human_1 putDown
+19:49:07,968 - action Human_1 goTo(RoomC3)
+19:49:08,227 - action Human_1 goToBlock(56)
+19:49:08,357 - action Human_1 pickUp
+19:49:08,405 - action Human_1 goTo(FrontDropZone)
+19:49:09,954 - action Human_2 goTo(DropZone)
+19:49:10,285 - action Human_2 putDown
+19:49:10,287 - action Human_2 goTo(RoomB3)
+19:49:10,333 - action Human_1 goTo(DropZone)
+19:49:10,623 - action Human_1 putDown
+19:49:10,627 - action Human_1 goTo(RoomC3)
+19:49:12,334 - action Human_1 goToBlock(49)
+19:49:12,467 - action Human_2 goToBlock(94)
+19:49:12,502 - action Human_1 pickUp
+19:49:12,552 - action Human_1 goTo(FrontDropZone)
+19:49:12,633 - action Human_2 pickUp
+19:49:12,685 - action Human_2 goTo(FrontDropZone)
+19:49:14,096 - action Human_1 goTo(DropZone)
+19:49:14,458 - action Human_1 putDown
+19:49:14,459 - action Human_1 goTo(RoomC3)
+19:49:14,704 - action Human_2 goTo(DropZone)
+19:49:14,993 - action Human_2 putDown
+19:49:14,995 - action Human_2 goTo(RoomB2)
+19:49:16,197 - action Human_1 goToBlock(48)
+19:49:16,404 - action Human_1 pickUp
+19:49:16,456 - action Human_1 goTo(FrontDropZone)
+19:49:17,421 - action Human_2 goTo(FrontDropZone)
+19:49:17,464 - action Human_2 goTo(RoomB3)
+19:49:18,053 - action Human_1 goTo(DropZone)
+19:49:18,330 - action Human_2 goToBlock(95)
+19:49:18,348 - action Human_1 putDown
+19:49:18,351 - action Human_1 goTo(RoomC3)
+19:49:18,455 - action Human_2 pickUp
+19:49:18,500 - action Human_2 goTo(FrontDropZone)
+19:49:20,105 - action Human_1 goTo(FrontDropZone)
+19:49:20,153 - action Human_1 goTo(RoomC1)
+19:49:20,473 - action Human_2 goTo(DropZone)
+19:49:20,762 - action Human_2 putDown
+19:49:20,765 - action Human_2 goTo(RoomB2)
+19:49:21,228 - action Human_1 goToBlock(61)
+19:49:21,394 - action Human_1 pickUp
+19:49:21,456 - action Human_1 goTo(FrontDropZone)
+19:49:22,982 - action Human_1 goTo(DropZone)
+19:49:23,149 - action Human_2 goTo(FrontDropZone)
+19:49:23,192 - action Human_2 goTo(RoomB3)
+19:49:23,272 - action Human_1 putDown
+19:49:23,275 - action Human_1 goTo(RoomC3)
+19:49:24,015 - action Human_2 goToBlock(86)
+19:49:24,222 - action Human_2 pickUp
+19:49:24,272 - action Human_2 goTo(FrontDropZone)
+19:49:24,982 - action Human_1 goTo(FrontDropZone)
+19:49:25,026 - action Human_1 goTo(RoomC1)
+19:49:26,104 - action Human_1 goToBlock(58)
+19:49:26,244 - action Human_2 goTo(DropZone)
+19:49:26,314 - action Human_1 pickUp
+19:49:26,361 - action Human_1 goTo(FrontDropZone)
+19:49:26,573 - action Human_2 putDown
+19:49:26,575 - action Human_2 goTo(RoomB3)
+19:49:27,888 - action Human_1 goTo(DropZone)
+19:49:28,219 - action Human_1 putDown
+19:49:28,221 - action Human_1 goTo(RoomC1)
+19:49:28,711 - action Human_2 goToBlock(89)
+19:49:28,841 - action Human_2 pickUp
+19:49:28,889 - action Human_2 goTo(FrontDropZone)
+19:49:29,916 - action Human_1 goToBlock(57)
+19:49:30,128 - action Human_1 pickUp
+19:49:30,176 - action Human_1 goTo(FrontDropZone)
+19:49:30,828 - action Human_2 goTo(DropZone)
+19:49:31,116 - action Human_2 putDown
+19:49:31,120 - action Human_2 goTo(FrontDropZone)
+19:49:31,753 - action Human_1 goTo(DropZone)
+19:49:32,065 - action Human_1 putDown
+19:49:32,065 - Time to finish sequence is 7 minutes and 13 seconds
+19:49:32,065 - agentsummary Human_1 handicaps Human
+19:49:32,066 - agentsummary Human0 gooddrops 10
+19:49:32,066 - agentsummary Human0 wrongdrops 0
+19:49:32,066 - agentsummary Human0 nmessage 0
+19:49:32,066 - agentsummary Human0 idletime 14.215
+19:49:32,066 - agentsummary Human0 nroomsentered 23
+19:49:32,066 - agentsummary Human_2 handicaps Human
+19:49:32,066 - agentsummary Human1 gooddrops 8
+19:49:32,066 - agentsummary Human1 wrongdrops 0
+19:49:32,066 - agentsummary Human1 nmessage 0
+19:49:32,066 - agentsummary Human1 idletime 11.645
+19:49:32,066 - agentsummary Human1 nroomsentered 20
+19:49:32,068 - action Human_1 goTo(FrontDropZone)
+19:49:32,075 - total time is 7 minutes and 13 seconds
+19:49:32,075 - agentsummary Human_1 handicaps Human
+19:49:32,075 - agentsummary Human0 gooddrops 10
+19:49:32,075 - agentsummary Human0 wrongdrops 0
+19:49:32,075 - agentsummary Human0 nmessage 0
+19:49:32,076 - agentsummary Human0 idletime 14.215
+19:49:32,076 - agentsummary Human0 nroomsentered 23
+19:49:32,076 - agentsummary Human_2 handicaps Human
+19:49:32,076 - agentsummary Human1 gooddrops 8
+19:49:32,076 - agentsummary Human1 wrongdrops 0
+19:49:32,076 - agentsummary Human1 nmessage 0
+19:49:32,076 - agentsummary Human1 idletime 11.645
+19:49:32,076 - agentsummary Human1 nroomsentered 20
