@@ -206,7 +206,9 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
 
     public synchronized void addAllAgentIndex() throws RemoteException {
         for (BW4TClientActions c : clients.values()) {
-            c.addNextBlockIndex();
+            try{
+                c.addNextBlockIndex();
+            }catch(Exception ex){}
         }
     }
 }
