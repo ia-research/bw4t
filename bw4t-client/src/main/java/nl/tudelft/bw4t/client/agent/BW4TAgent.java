@@ -589,20 +589,18 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     }
 
     public boolean goToBlock(List<Percept> percepts, String room) throws Exception {
-        System.out.println("adding to memory");
         addToMemory(percepts, room);
-        System.out.println("finish add to memory");
         try {
             Thread.sleep(updateDelay);
         } catch (Exception ex) {
         }
-        for (ViewBlock b : visibleBlocks) {
-            if (b.getColor().getName().equalsIgnoreCase(colorSequence.get(nextBlockIndex))) {
-                memory.get(room).remove(b.getColor().getName().toLowerCase());
-                goToBlock(b.getObjectId());
+        for (Percept p : percepts) {
+            if (getBlockColor(p.toProlog()).equalsIgnoreCase(colorSequence.get(nextBlockIndex))) {
+                memory.get(room).remove(getBlockColor(p.toProlog()).toLowerCase());
+                goToBlock(getBlockId(p.toProlog()));
                 goToBlockIsArrived();
                 pickUp();
-                this.holdingColor = b.getColor().getName().toLowerCase();
+                this.holdingColor = getBlockColor(p.toProlog()).toLowerCase();
                 isHolding();
                 if (this.colorSequence.get(nextBlockIndex).equalsIgnoreCase(this.holdingColor)) {
                     server.addAllAgentIndex();
@@ -610,20 +608,20 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                         goTo("FrontDropZone");
                         System.out.println("in while loop(arrived)");
                     } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
+                    long t = System.currentTimeMillis();
                     while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
                         System.out.println("current : "+colorSequenceIndex+"\nexpected : "+colorSequence.get(this.colorSequenceIndex)+"\n holding : "+holdingColor);
-                        System.out.println("in while loop(equals)");
+                        //reset
+                        if(System.currentTimeMillis()-t>10000)
+                            break;
                     }
-                    System.out.println("out while loop");
                     goTo("DropZone");
-                    System.out.println("before isArrived");
                     isArrived();
-                    System.out.println("after isArrived");
                 }
                 putDown();
                 this.holdingColor = null;
+                goTo("FrontDropZone");
                 //Thread.sleep(200);
-                System.out.println("finish putting");
                 //break;
                 return true;
             }
@@ -671,7 +669,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                 color = colorSequence.get(this.nextBlockIndex);
                 System.out.println(agentId + " need: " + color);
             } catch (Exception ex) {
-                System.out.println("Finish taking all blocks");
+                System.out.println(agentId+" : Finish taking all blocks");
                 break;
             }
 
@@ -741,8 +739,11 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                     break;
                 }
 
+            } catch(IndexOutOfBoundsException io){
+                break;
             } catch (Exception ex) {
                 System.err.println("Exception: traverse() - 2 " + agentId);
+                ex.printStackTrace();
                 break;
             }
         }
@@ -758,7 +759,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
             System.err.println("IOException occur, log may not be saved into log.txt");
         }
         try {
-            System.out.println("reseting server");
+            System.out.println(agentId+" request reseting server");
             server.requestReset();
         } catch (Exception ex) {
             System.err.println("fail reseting server");

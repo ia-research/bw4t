@@ -1,17 +1,289 @@
 Exception: traverse() - 2 Human0
 Exception: traverse() - 2 Human1
-Exception: traverse() - 2 Human1
-Exception: traverse() - 2 Human1
-Exception: traverse() - 2 Human1
 Exception: traverse() - 2 Human0
-Exception: traverse() - 2 Human0
-Exception: traverse() - 2 Human0
-Exception: traverse() - 2 Human1
-Exception: traverse() - 2 Human0
-Exception: traverse() - 2 Human1
 Exception: traverse() - 2 Human1
 Exception: traverse() - 2 Human1
 Exception: traverse() - 2 Human0
 Exception: traverse() - 2 Human1
 Exception: traverse() - 2 Human0
 Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:605)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:605)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:605)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human1
+java.lang.IndexOutOfBoundsException: Index: 18, Size: 18
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:598)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
+Exception: traverse() - 2 Human0
+java.lang.NullPointerException
+	at nl.tudelft.bw4t.client.BW4TClient.addNextBlockIndex(BW4TClient.java:609)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:57)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy2.addNextBlockIndex(Unknown Source)
+	at nl.tudelft.bw4t.server.IAServerImpl.addAllAgentIndex(IAServerImpl.java:209)
+	at sun.reflect.GeneratedMethodAccessor32.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy2.addAllAgentIndex(Unknown Source)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:606)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:725)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:264)
+	at java.lang.Thread.run(Thread.java:722)
