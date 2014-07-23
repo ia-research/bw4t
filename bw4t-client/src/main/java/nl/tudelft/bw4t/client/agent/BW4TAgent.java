@@ -65,7 +65,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     private BotConfig botConfig;
     private EPartnerConfig epartnerConfig;
     private IAServerInterface server;
-    private int goToCount, pickUpCount, putDownCount, askForCount, responseCount;
+    private int goToCount, pickUpCount, putDownCount, askForCount, responseCount, boardcast;
 
     /**
      * Create a new BW4TAgent that can be registered to an entity.
@@ -76,10 +76,10 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     public BW4TAgent(String agentId, RemoteEnvironment env) throws RemoteException {
         this.agentId = agentId;
         this.bw4tenv = env;
-        try{
-            System.setErr(new PrintStream(new FileOutputStream("errLog.txt",true)));
-            System.setOut(new PrintStream(new FileOutputStream("out.txt",true)));
-        }catch(Exception ex){
+        try {
+            System.setErr(new PrintStream(new FileOutputStream("errLog.txt", true)));
+            System.setOut(new PrintStream(new FileOutputStream("out.txt", true)));
+        } catch (Exception ex) {
             ex.printStackTrace();
         }
     }
@@ -253,7 +253,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
      */
     @Override
     public void run() {
-        goToCount = pickUpCount = putDownCount = askForCount = responseCount = 0;
+        goToCount = pickUpCount = putDownCount = askForCount = responseCount = boardcast = 0;
         try {
             Thread.sleep(5000); // for initialization
             ROOMS = places.size();
@@ -261,7 +261,17 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
             if (!environmentKilled) {
                 //traverseAndGetBlocks();
                 //System.out.println(agentId + ":" + this.server.getCurrentColor());
-                traverse();
+                if (this.colorSequence.size() == 0) {
+                    try {
+                        System.err.println("initFail - 1, resetting server");
+                        server.reset();
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    return;
+                } else {
+                    traverse();
+                }
             }
         } catch (Exception ex) {
         }
@@ -598,28 +608,42 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
             if (getBlockColor(p.toProlog()).equalsIgnoreCase(colorSequence.get(nextBlockIndex))) {
                 memory.get(room).remove(getBlockColor(p.toProlog()).toLowerCase());
                 goToBlock(getBlockId(p.toProlog()));
-                goToBlockIsArrived();
-                pickUp();
-                this.holdingColor = getBlockColor(p.toProlog()).toLowerCase();
-                isHolding();
-                if (this.colorSequence.get(nextBlockIndex).equalsIgnoreCase(this.holdingColor)) {
-                    server.addAllAgentIndex();
-                    do {
-                        goTo("FrontDropZone");
-                        System.out.println("in while loop(arrived)");
-                    } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
-                    long t = System.currentTimeMillis();
-                    while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
-                        System.out.println("current : "+colorSequenceIndex+"\nexpected : "+colorSequence.get(this.colorSequenceIndex)+"\n holding : "+holdingColor);
-                        //reset
-                        if(System.currentTimeMillis()-t>10000)
-                            break;
+                try {
+                    if (goToBlockIsArrived()) {
+                        pickUp();
+
+                        this.holdingColor = getBlockColor(p.toProlog()).toLowerCase();
+                        isHolding();
+                        //boolean flag = false;
+                        if (this.colorSequence.get(nextBlockIndex).equalsIgnoreCase(this.holdingColor)) {
+                            server.addAllAgentIndex();
+                            do {
+                                goTo("FrontDropZone");
+                                System.out.println("in while loop(arrived)");
+                            } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
+                            long t = System.currentTimeMillis();
+
+                            while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
+                                System.out.println("current : " + colorSequenceIndex + "\nexpected : " + colorSequence.get(this.colorSequenceIndex) + "\n holding : " + holdingColor);
+                                //reset
+                                if (System.currentTimeMillis() - t > 10000) {
+                                    //flag = true;
+                                    break;
+                                }
+                                Thread.sleep(this.updateDelay);
+                            }
+                            goTo("DropZone");
+                            isArrived();
+                        }
+                        putDown();
+                        this.holdingColor = null;
+                        /*if(flag){
+                         nextBlockIndex=colorSequenceIndex;
+                         }*/
                     }
-                    goTo("DropZone");
-                    isArrived();
+                } catch (Exception ex) {
+                    ex.printStackTrace();
                 }
-                putDown();
-                this.holdingColor = null;
                 goTo("FrontDropZone");
                 //Thread.sleep(200);
                 //break;
@@ -669,7 +693,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                 color = colorSequence.get(this.nextBlockIndex);
                 System.out.println(agentId + " need: " + color);
             } catch (Exception ex) {
-                System.out.println(agentId+" : Finish taking all blocks");
+                System.out.println(agentId + " : Finish taking all blocks");
                 break;
             }
 
@@ -687,6 +711,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                     queue.clear();
                     askForCount++;
                     if (this.fastestResponceAgent == null) {
+                        boardcast++;
                         server.askForColor(this.agentId, color);
                     } else {
                         server.askForColor(this.agentId, color, this.fastestResponceAgent);
@@ -701,7 +726,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                 goTo(room);
             } catch (Exception ex) {
                 /*System.err.println("no response");
-                ex.printStackTrace();*/
+                 ex.printStackTrace();*/
                 try {
                     goTo(places.get(nextDestination++ % ROOMS));
                 } catch (Exception ex1) {
@@ -739,7 +764,7 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                     break;
                 }
 
-            } catch(IndexOutOfBoundsException io){
+            } catch (IndexOutOfBoundsException io) {
                 break;
             } catch (Exception ex) {
                 System.err.println("Exception: traverse() - 2 " + agentId);
@@ -753,13 +778,13 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         }
         try {
             PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("log.txt", true)));
-            out.println(entityId + " goTo: " + goToCount + " pickUp: " + pickUpCount + " putDown: " + putDownCount + " askFor: " + askForCount + " response: " + responseCount);
+            out.println(entityId + " goTo: " + goToCount + " pickUp: " + pickUpCount + " putDown: " + putDownCount + " askFor: " + askForCount + "(" + boardcast + ") response: " + responseCount);
             out.close();
         } catch (IOException e) {
             System.err.println("IOException occur, log may not be saved into log.txt");
         }
         try {
-            System.out.println(agentId+" request reseting server");
+            System.out.println(agentId + " request reseting server");
             server.requestReset();
         } catch (Exception ex) {
             System.err.println("fail reseting server");
@@ -781,5 +806,9 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         if (fastestResponceAgent == null) {
             this.fastestResponceAgent = agentId;
         }
+    }
+
+    public int checkInitSequence() throws RemoteException {
+        return this.colorSequence.size();
     }
 }

@@ -60,8 +60,8 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
      * the map that the server uses.
      */
     private NewMap map;
-	//private Map<String, BW4TAgent> agents = new HashMap<>(); // agentId
-	
+    //private Map<String, BW4TAgent> agents = new HashMap<>(); // agentId
+
     private String agentId;
     private BW4TAgent agent;
 
@@ -613,5 +613,8 @@ public class BW4TClient extends UnicastRemoteObject implements BW4TClientActions
     }
     public synchronized void setFastestResponceAgent(String agentId) throws RemoteException{
         this.agent.setFastestResponceAgent(agentId);
+    }
+    public int checkInitSequence()throws RemoteException{
+        return this.agent.checkInitSequence();
     }
 }

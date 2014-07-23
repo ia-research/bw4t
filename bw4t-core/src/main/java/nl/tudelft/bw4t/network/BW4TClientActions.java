@@ -87,4 +87,5 @@ public interface BW4TClientActions extends Remote {
     public void addNextBlockIndex() throws RemoteException;
     public void receiveFromRoom(RoomTime r) throws RemoteException;
     public void setFastestResponceAgent(String agentId) throws RemoteException;
+    public int checkInitSequence()throws RemoteException;
 }

@@ -26,7 +26,7 @@ public enum InitParam {
     /** Number of agents that we have. */
     AGENTCOUNT("0"),
     /** Launch GUI for entities? (check is this only for humans?) */
-    LAUNCHGUI("true"),
+    LAUNCHGUI("false"),
     /** Number of human bots (is this to connect GUIs?) */
     HUMANCOUNT("1"),
     /**

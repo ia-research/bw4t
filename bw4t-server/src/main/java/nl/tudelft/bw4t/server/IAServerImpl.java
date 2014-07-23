@@ -8,12 +8,10 @@ import java.io.IOException;
 import java.io.PrintWriter;
 import java.rmi.RemoteException;
 import java.rmi.server.UnicastRemoteObject;
-import java.util.Calendar;
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
-import java.util.logging.Level;
-import java.util.logging.Logger;
-import nl.tudelft.bw4t.IAControllerInterface;
 import nl.tudelft.bw4t.IAServerInterface;
 import nl.tudelft.bw4t.RoomTime;
 import nl.tudelft.bw4t.network.BW4TClientActions;
@@ -47,10 +45,10 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     int requestResetCount = 0;
     //PrintWriter pw;
     // bw4t directory
-    private String dir = "E:/Y2_comp/research/sharedFolder/bw4t";
+    private String dir = "D:/Y2_comp/research/sharedFolder/bw4t";
     private int maxTimes = 200;
     private static int times = 1; // do not modify
-    private int agentNo = 2; //number of agents to be called after reset
+    private int agentNo = 3; //number of agents to be called after reset
 
     public IAServerImpl() throws RemoteException {
         try {
@@ -62,6 +60,7 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     @Override
     public synchronized void registerClient(String agentId, BW4TClientActions client) throws RemoteException {
         clients.put(agentId, client);
+        System.out.println("added " + agentId);
     }
 
 
@@ -99,7 +98,7 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         for (String agentId : clients.keySet()) {
             if (!agentId.equals(selfAgentId)) {
                 try {
-                    askForColor(selfAgentId,color,agentId);
+                    askForColor(selfAgentId, color, agentId);
                 } catch (Exception e) {
                 }
             }
@@ -121,30 +120,21 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         if (requestResetCount == clients.size() && times < maxTimes) {
             try {
                 PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("../bw4t-client/log.txt", true)));
-                out.println("log for "+times);
+                out.println("log for " + times);
                 out.println("===============================================================");
 
                 out.close();
             } catch (IOException ex) {
             }
-            BW4TEnvironment.getInstance().reset(true);
-            try {
-                Thread.sleep(1000);
-                BW4TEnvironment.getInstance().setTps(Stepper.MAX_TPS);
-                ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c");
-                processBuilder.directory(new File(dir + "/bw4t-client"));
-                processBuilder.command("java", "-cp", "target/bw4t-client-3.5.0-jar-with-dependencies.jar", "nl.tudelft.bw4t.client.environment.RemoteEnvironment");
-
-                for (int i = 0; i < agentNo; i++) {
-                    processBuilder.start();
-                    Thread.sleep(1000);
-                }
+                reset();
+                /*
+                 for (int i = 0; i < agentNo; i++) {
+                 Process ps = Runtime.getRuntime().exec("java -jar "+dir+"/bw4t-client/target/bw4t-client-3.5.0-jar-with-dependencies.jar");
+                 //ps.waitFor();
+                 }
+                 */
                 times++;
-            } catch (Exception ex) {
             }
-
-        }
-
     }
     /*public static Identifier findParameter(String[] args, InitParam param) {
      for (int i = 0; i < args.length - 1; i++) {
@@ -205,10 +195,43 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
      }*/
 
     public synchronized void addAllAgentIndex() throws RemoteException {
-        for (BW4TClientActions c : clients.values()) {
+        List<String> removeList = new ArrayList<>();
+        for (String st : clients.keySet()) {
+            try {
+                clients.get(st).addNextBlockIndex();
+            } catch (Exception ex) {
+                removeList.add(st);
+            }
+        }
+        for (String c : removeList) {
+            //clients.remove(c);
             try{
-                c.addNextBlockIndex();
-            }catch(Exception ex){}
+                PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("../bw4t-client/errLog.txt", true)));
+                out.println("initFail - 2, resetting server");
+            }catch(Exception ex){
+                ex.printStackTrace();
+            }
+            reset();
+        }
+
+    }
+
+    public void reset() throws RemoteException {
+        try {
+            BW4TEnvironment.getInstance().reset(true);
+
+            Thread.sleep(5000);
+            BW4TEnvironment.getInstance().setTps(Stepper.MAX_TPS);
+            ProcessBuilder processBuilder = new ProcessBuilder("cmd", "/c");
+            processBuilder.directory(new File(dir + "/bw4t-client"));
+            processBuilder.command("java", "-cp", "target/bw4t-client-3.5.0-jar-with-dependencies.jar", "nl.tudelft.bw4t.client.environment.RemoteEnvironment");
+
+            for (int i = 0; i < agentNo; i++) {
+                processBuilder.start();
+                //Thread.sleep(2000);
+            }
+        } catch (Exception ex) {
+            ex.printStackTrace();
         }
     }
 }

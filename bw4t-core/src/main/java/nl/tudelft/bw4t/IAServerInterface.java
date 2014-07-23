@@ -20,4 +20,5 @@ public interface IAServerInterface extends Remote {
     public void noSuchColor(String room, String color) throws RemoteException;
     public void requestReset()throws RemoteException, ManagementException;
     public void addAllAgentIndex() throws RemoteException;
+    public void reset() throws RemoteException;
 }
