@@ -1,0 +1,869 @@
+Human_3 goTo: 43 pickUp: 7 putDown: 7 askFor: 6(1) response: 11
+Human_1 goTo: 52 pickUp: 9 putDown: 9 askFor: 4(1) response: 2
+Human_2 goTo: 47 pickUp: 6 putDown: 6 askFor: 7(1) response: 7
+log for 1
+===============================================================
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 44 pickUp: 6 putDown: 6 askFor: 8(1) response: 8
+Human_3 goTo: 57 pickUp: 7 putDown: 7 askFor: 7(1) response: 15
+log for 2
+===============================================================
+Human_2 goTo: 53 pickUp: 7 putDown: 7 askFor: 8(1) response: 8
+Human_1 goTo: 48 pickUp: 8 putDown: 8 askFor: 7(1) response: 2
+Human_3 goTo: 51 pickUp: 7 putDown: 7 askFor: 7(1) response: 15
+log for 3
+===============================================================
+Human_1 goTo: 51 pickUp: 8 putDown: 8 askFor: 4(1) response: 2
+Human_2 goTo: 41 pickUp: 5 putDown: 5 askFor: 5(1) response: 6
+Human_3 goTo: 44 pickUp: 7 putDown: 7 askFor: 5(1) response: 9
+log for 4
+===============================================================
+Human_3 goTo: 61 pickUp: 10 putDown: 10 askFor: 4(1) response: 21
+Human_2 goTo: 53 pickUp: 5 putDown: 5 askFor: 12(1) response: 5
+Human_1 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+log for 5
+===============================================================
+Human_3 goTo: 55 pickUp: 7 putDown: 7 askFor: 13(1) response: 12
+Human_1 goTo: 46 pickUp: 8 putDown: 8 askFor: 5(1) response: 2
+Human_2 goTo: 51 pickUp: 8 putDown: 8 askFor: 7(1) response: 14
+log for 6
+===============================================================
+Human_3 goTo: 42 pickUp: 8 putDown: 8 askFor: 6(1) response: 13
+Human_2 goTo: 44 pickUp: 6 putDown: 6 askFor: 7(1) response: 7
+Human_1 goTo: 47 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 7
+===============================================================
+Human_3 goTo: 36 pickUp: 6 putDown: 6 askFor: 5(1) response: 9
+Human_2 goTo: 41 pickUp: 7 putDown: 7 askFor: 4(1) response: 6
+Human_1 goTo: 43 pickUp: 8 putDown: 8 askFor: 5(1) response: 2
+log for 8
+===============================================================
+Human_1 goTo: 62 pickUp: 9 putDown: 9 askFor: 14(1) response: 2
+Human_3 goTo: 61 pickUp: 6 putDown: 6 askFor: 15(1) response: 27
+Human_2 goTo: 63 pickUp: 7 putDown: 7 askFor: 13(1) response: 16
+log for 9
+===============================================================
+Human_1 goTo: 51 pickUp: 7 putDown: 7 askFor: 4(1) response: 2
+Human_3 goTo: 55 pickUp: 6 putDown: 6 askFor: 9(1) response: 9
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 10
+log for 10
+===============================================================
+Human_3 goTo: 35 pickUp: 6 putDown: 6 askFor: 6(1) response: 8
+Human_1 goTo: 53 pickUp: 8 putDown: 8 askFor: 5(1) response: 2
+Human_2 goTo: 42 pickUp: 6 putDown: 6 askFor: 3(1) response: 7
+log for 11
+===============================================================
+Human_1 goTo: 51 pickUp: 6 putDown: 6 askFor: 13(1) response: 2
+Human_2 goTo: 49 pickUp: 7 putDown: 7 askFor: 8(1) response: 12
+Human_3 goTo: 55 pickUp: 7 putDown: 7 askFor: 11(1) response: 21
+log for 12
+===============================================================
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_3 goTo: 53 pickUp: 8 putDown: 8 askFor: 8(1) response: 12
+Human_2 goTo: 46 pickUp: 6 putDown: 6 askFor: 7(1) response: 9
+log for 13
+===============================================================
+Human_3 goTo: 52 pickUp: 8 putDown: 8 askFor: 8(1) response: 13
+Human_1 goTo: 54 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+Human_2 goTo: 49 pickUp: 6 putDown: 6 askFor: 7(1) response: 9
+log for 14
+===============================================================
+Human_3 goTo: 48 pickUp: 6 putDown: 6 askFor: 8(1) response: 11
+Human_2 goTo: 42 pickUp: 6 putDown: 6 askFor: 4(1) response: 9
+Human_1 goTo: 54 pickUp: 9 putDown: 9 askFor: 7(1) response: 2
+log for 15
+===============================================================
+Human_2 goTo: 37 pickUp: 6 putDown: 6 askFor: 5(1) response: 5
+Human_3 goTo: 40 pickUp: 7 putDown: 7 askFor: 4(1) response: 11
+Human_1 goTo: 44 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+log for 16
+===============================================================
+Human_2 goTo: 52 pickUp: 9 putDown: 8 askFor: 8(1) response: 12
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 4(1) response: 2
+Human_3 goTo: 55 pickUp: 6 putDown: 6 askFor: 11(1) response: 12
+log for 17
+===============================================================
+Human_1 goTo: 49 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 7(1) response: 8
+Human_3 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 17
+log for 18
+===============================================================
+Human_3 goTo: 55 pickUp: 7 putDown: 7 askFor: 8(1) response: 18
+Human_2 goTo: 56 pickUp: 7 putDown: 7 askFor: 9(1) response: 9
+Human_1 goTo: 61 pickUp: 9 putDown: 8 askFor: 9(1) response: 2
+log for 19
+===============================================================
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 10
+Human_1 goTo: 40 pickUp: 7 putDown: 7 askFor: 2(1) response: 2
+Human_3 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 7
+log for 20
+===============================================================
+Human_1 goTo: 51 pickUp: 7 putDown: 6 askFor: 5(1) response: 2
+Human_3 goTo: 44 pickUp: 7 putDown: 7 askFor: 6(1) response: 10
+Human_2 goTo: 46 pickUp: 7 putDown: 7 askFor: 5(1) response: 7
+log for 21
+===============================================================
+Human_2 goTo: 42 pickUp: 7 putDown: 7 askFor: 5(1) response: 5
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 4(1) response: 16
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 11(1) response: 2
+log for 22
+===============================================================
+Human_1 goTo: 53 pickUp: 6 putDown: 6 askFor: 13(1) response: 2
+Human_2 goTo: 54 pickUp: 6 putDown: 6 askFor: 14(1) response: 12
+Human_3 goTo: 59 pickUp: 8 putDown: 8 askFor: 11(1) response: 27
+log for 23
+===============================================================
+Human_2 goTo: 55 pickUp: 6 putDown: 6 askFor: 8(1) response: 6
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 5(1) response: 15
+Human_1 goTo: 53 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+log for 24
+===============================================================
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 6(1) response: 19
+Human_2 goTo: 55 pickUp: 7 putDown: 7 askFor: 9(1) response: 7
+Human_1 goTo: 58 pickUp: 7 putDown: 7 askFor: 10(1) response: 2
+log for 25
+===============================================================
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 5(1) response: 12
+Human_2 goTo: 39 pickUp: 7 putDown: 7 askFor: 4(1) response: 6
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 8(1) response: 2
+log for 26
+===============================================================
+Human_3 goTo: 47 pickUp: 7 putDown: 7 askFor: 7(1) response: 17
+Human_1 goTo: 52 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 11(1) response: 8
+log for 27
+===============================================================
+Human_2 goTo: 46 pickUp: 5 putDown: 5 askFor: 7(1) response: 6
+Human_1 goTo: 41 pickUp: 7 putDown: 7 askFor: 4(1) response: 2
+Human_3 goTo: 52 pickUp: 9 putDown: 8 askFor: 5(1) response: 11
+log for 28
+===============================================================
+Human_3 goTo: 55 pickUp: 6 putDown: 6 askFor: 10(1) response: 24
+Human_1 goTo: 56 pickUp: 7 putDown: 7 askFor: 12(1) response: 2
+Human_2 goTo: 59 pickUp: 8 putDown: 8 askFor: 12(1) response: 11
+log for 29
+===============================================================
+Human_1 goTo: 47 pickUp: 5 putDown: 5 askFor: 7(1) response: 2
+Human_3 goTo: 53 pickUp: 7 putDown: 7 askFor: 5(1) response: 12
+Human_2 goTo: 51 pickUp: 8 putDown: 8 askFor: 5(1) response: 6
+log for 30
+===============================================================
+Human_1 goTo: 44 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_3 goTo: 52 pickUp: 6 putDown: 6 askFor: 11(1) response: 15
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 8(1) response: 12
+log for 31
+===============================================================
+Human_2 goTo: 45 pickUp: 6 putDown: 6 askFor: 5(1) response: 8
+Human_3 goTo: 48 pickUp: 7 putDown: 6 askFor: 7(1) response: 11
+Human_1 goTo: 47 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 32
+===============================================================
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 8(1) response: 9
+Human_3 goTo: 48 pickUp: 6 putDown: 6 askFor: 8(1) response: 14
+Human_1 goTo: 45 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 33
+===============================================================
+Human_3 goTo: 48 pickUp: 8 putDown: 8 askFor: 5(1) response: 12
+Human_2 goTo: 44 pickUp: 6 putDown: 6 askFor: 7(1) response: 6
+Human_1 goTo: 54 pickUp: 9 putDown: 9 askFor: 5(1) response: 2
+log for 34
+===============================================================
+Human_3 goTo: 54 pickUp: 7 putDown: 7 askFor: 5(1) response: 17
+Human_2 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 6
+Human_1 goTo: 57 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+log for 35
+===============================================================
+Human_2 goTo: 48 pickUp: 8 putDown: 8 askFor: 4(1) response: 11
+Human_1 goTo: 48 pickUp: 7 putDown: 7 askFor: 8(1) response: 2
+Human_3 goTo: 55 pickUp: 7 putDown: 7 askFor: 10(1) response: 12
+log for 36
+===============================================================
+Human_1 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+Human_2 goTo: 44 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+Human_3 goTo: 53 pickUp: 8 putDown: 8 askFor: 6(1) response: 15
+log for 37
+===============================================================
+Human_2 goTo: 50 pickUp: 8 putDown: 7 askFor: 5(1) response: 5
+Human_3 goTo: 47 pickUp: 7 putDown: 7 askFor: 4(1) response: 11
+Human_1 goTo: 44 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+log for 38
+===============================================================
+Human_1 goTo: 47 pickUp: 8 putDown: 8 askFor: 5(1) response: 2
+Human_2 goTo: 40 pickUp: 6 putDown: 6 askFor: 4(1) response: 6
+Human_3 goTo: 43 pickUp: 7 putDown: 7 askFor: 5(1) response: 9
+log for 39
+===============================================================
+Human_3 goTo: 44 pickUp: 6 putDown: 6 askFor: 7(1) response: 11
+Human_1 goTo: 44 pickUp: 8 putDown: 8 askFor: 4(1) response: 2
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 7(1) response: 8
+log for 1
+===============================================================
+Human_3 goTo: 49 pickUp: 7 putDown: 7 askFor: 10(1) response: 18
+Human_2 goTo: 53 pickUp: 7 putDown: 7 askFor: 9(1) response: 11
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 9(1) response: 2
+log for 2
+===============================================================
+Human_1 goTo: 50 pickUp: 7 putDown: 7 askFor: 9(1) response: 2
+Human_3 goTo: 58 pickUp: 5 putDown: 5 askFor: 15(1) response: 20
+Human_2 goTo: 65 pickUp: 10 putDown: 10 askFor: 11(1) response: 16
+log for 3
+===============================================================
+Human_2 goTo: 52 pickUp: 6 putDown: 6 askFor: 9(1) response: 6
+Human_1 goTo: 46 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_3 goTo: 47 pickUp: 8 putDown: 8 askFor: 5(1) response: 15
+log for 4
+===============================================================
+Human_3 goTo: 49 pickUp: 6 putDown: 6 askFor: 6(1) response: 17
+Human_2 goTo: 44 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+Human_1 goTo: 57 pickUp: 8 putDown: 8 askFor: 11(1) response: 2
+log for 5
+===============================================================
+Human_2 goTo: 46 pickUp: 7 putDown: 7 askFor: 4(1) response: 8
+Human_1 goTo: 51 pickUp: 6 putDown: 6 askFor: 8(1) response: 2
+Human_3 goTo: 47 pickUp: 7 putDown: 7 askFor: 7(1) response: 12
+log for 6
+===============================================================
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 12(1) response: 21
+Human_1 goTo: 46 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_2 goTo: 53 pickUp: 8 putDown: 8 askFor: 11(1) response: 13
+log for 7
+===============================================================
+Human_3 goTo: 49 pickUp: 7 putDown: 7 askFor: 7(1) response: 15
+Human_2 goTo: 53 pickUp: 7 putDown: 7 askFor: 6(1) response: 8
+Human_1 goTo: 53 pickUp: 8 putDown: 8 askFor: 9(1) response: 2
+log for 8
+===============================================================
+Human_1 goTo: 46 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_3 goTo: 56 pickUp: 8 putDown: 8 askFor: 9(1) response: 13
+Human_2 goTo: 53 pickUp: 8 putDown: 8 askFor: 7(1) response: 10
+log for 9
+===============================================================
+Human_2 goTo: 47 pickUp: 6 putDown: 6 askFor: 8(1) response: 8
+Human_1 goTo: 54 pickUp: 8 putDown: 7 askFor: 7(1) response: 2
+Human_3 goTo: 54 pickUp: 7 putDown: 7 askFor: 7(1) response: 15
+log for 10
+===============================================================
+Human_1 goTo: 46 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 58 pickUp: 8 putDown: 8 askFor: 6(1) response: 9
+Human_3 goTo: 50 pickUp: 6 putDown: 6 askFor: 8(1) response: 13
+log for 11
+===============================================================
+Human_2 goTo: 50 pickUp: 6 putDown: 6 askFor: 7(1) response: 7
+Human_3 goTo: 57 pickUp: 8 putDown: 8 askFor: 6(1) response: 13
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+log for 12
+===============================================================
+Human_3 goTo: 43 pickUp: 7 putDown: 7 askFor: 7(1) response: 13
+Human_1 goTo: 46 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 6(1) response: 8
+log for 13
+===============================================================
+Human_2 goTo: 49 pickUp: 8 putDown: 8 askFor: 7(1) response: 6
+Human_3 goTo: 41 pickUp: 6 putDown: 6 askFor: 5(1) response: 16
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 9(1) response: 2
+log for 14
+===============================================================
+Human_3 goTo: 54 pickUp: 8 putDown: 8 askFor: 9(1) response: 17
+Human_1 goTo: 53 pickUp: 9 putDown: 9 askFor: 7(1) response: 2
+Human_2 goTo: 56 pickUp: 5 putDown: 5 askFor: 10(1) response: 10
+log for 15
+===============================================================
+Human_3 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 22
+Human_1 goTo: 59 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+Human_2 goTo: 66 pickUp: 7 putDown: 7 askFor: 14(1) response: 8
+log for 16
+===============================================================
+Human_1 goTo: 43 pickUp: 7 putDown: 7 askFor: 4(1) response: 2
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 5(1) response: 7
+Human_3 goTo: 45 pickUp: 7 putDown: 7 askFor: 6(1) response: 9
+log for 17
+===============================================================
+Human_3 goTo: 53 pickUp: 7 putDown: 7 askFor: 12(1) response: 21
+Human_1 goTo: 53 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_2 goTo: 64 pickUp: 8 putDown: 8 askFor: 11(1) response: 13
+log for 18
+===============================================================
+Human_2 goTo: 42 pickUp: 7 putDown: 7 askFor: 5(1) response: 5
+Human_3 goTo: 44 pickUp: 7 putDown: 7 askFor: 4(1) response: 10
+Human_1 goTo: 39 pickUp: 6 putDown: 6 askFor: 5(1) response: 2
+log for 19
+===============================================================
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 7(1) response: 17
+Human_1 goTo: 58 pickUp: 8 putDown: 8 askFor: 9(1) response: 2
+Human_2 goTo: 56 pickUp: 7 putDown: 7 askFor: 8(1) response: 8
+log for 20
+===============================================================
+Human_3 goTo: 48 pickUp: 5 putDown: 5 askFor: 11(1) response: 14
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 8(1) response: 12
+Human_1 goTo: 55 pickUp: 9 putDown: 9 askFor: 6(1) response: 2
+log for 21
+===============================================================
+Human_2 goTo: 50 pickUp: 6 putDown: 6 askFor: 8(1) response: 7
+Human_1 goTo: 48 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+Human_3 goTo: 49 pickUp: 8 putDown: 8 askFor: 6(1) response: 17
+log for 22
+===============================================================
+Human_1 goTo: 62 pickUp: 9 putDown: 9 askFor: 11(1) response: 2
+Human_3 goTo: 57 pickUp: 5 putDown: 5 askFor: 14(1) response: 20
+Human_2 goTo: 59 pickUp: 8 putDown: 8 askFor: 9(1) response: 15
+log for 23
+===============================================================
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 7(1) response: 12
+Human_2 goTo: 40 pickUp: 6 putDown: 6 askFor: 6(1) response: 8
+Human_1 goTo: 49 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 24
+===============================================================
+Human_3 goTo: 53 pickUp: 8 putDown: 8 askFor: 6(1) response: 15
+Human_1 goTo: 58 pickUp: 7 putDown: 7 askFor: 10(1) response: 2
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 5(1) response: 7
+log for 25
+===============================================================
+Human_1 goTo: 45 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+Human_2 goTo: 49 pickUp: 7 putDown: 7 askFor: 6(1) response: 8
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 7(1) response: 15
+log for 26
+===============================================================
+Human_1 goTo: 42 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 8(1) response: 12
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 7(1) response: 9
+log for 27
+===============================================================
+Human_1 goTo: 38 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_3 goTo: 44 pickUp: 8 putDown: 8 askFor: 4(1) response: 10
+Human_2 goTo: 37 pickUp: 6 putDown: 6 askFor: 4(1) response: 5
+log for 28
+===============================================================
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 5
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 4(1) response: 12
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+log for 29
+===============================================================
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 6(1) response: 10
+Human_3 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 12
+Human_1 goTo: 52 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 30
+===============================================================
+Human_2 goTo: 53 pickUp: 6 putDown: 6 askFor: 12(1) response: 9
+Human_1 goTo: 59 pickUp: 6 putDown: 6 askFor: 11(1) response: 2
+Human_3 goTo: 57 pickUp: 8 putDown: 8 askFor: 8(1) response: 23
+log for 31
+===============================================================
+Human_3 goTo: 42 pickUp: 7 putDown: 7 askFor: 3(1) response: 11
+Human_1 goTo: 51 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_2 goTo: 41 pickUp: 7 putDown: 7 askFor: 5(1) response: 4
+log for 32
+===============================================================
+Human_2 goTo: 44 pickUp: 5 putDown: 5 askFor: 10(1) response: 9
+Human_1 goTo: 53 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+Human_3 goTo: 51 pickUp: 8 putDown: 8 askFor: 8(1) response: 16
+log for 33
+===============================================================
+Human_3 goTo: 47 pickUp: 6 putDown: 6 askFor: 7(1) response: 9
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 5(1) response: 8
+Human_1 goTo: 52 pickUp: 9 putDown: 9 askFor: 4(1) response: 2
+log for 34
+===============================================================
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 10
+Human_2 goTo: 50 pickUp: 8 putDown: 8 askFor: 5(1) response: 6
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+log for 35
+===============================================================
+Human_1 goTo: 61 pickUp: 10 putDown: 10 askFor: 6(1) response: 8
+Human_2 goTo: 61 pickUp: 10 putDown: 10 askFor: 8(1) response: 6
+log for 36
+===============================================================
+Human_3 goTo: 51 pickUp: 7 putDown: 7 askFor: 9(1) response: 16
+Human_1 goTo: 53 pickUp: 7 putDown: 7 askFor: 9(1) response: 2
+Human_2 goTo: 51 pickUp: 8 putDown: 8 askFor: 7(1) response: 10
+log for 37
+===============================================================
+Human_2 goTo: 49 pickUp: 8 putDown: 8 askFor: 7(1) response: 7
+Human_1 goTo: 46 pickUp: 6 putDown: 6 askFor: 5(1) response: 2
+Human_3 goTo: 45 pickUp: 6 putDown: 6 askFor: 6(1) response: 12
+log for 38
+===============================================================
+Human_3 goTo: 31 pickUp: 5 putDown: 5 askFor: 4(1) response: 7
+Human_4 goTo: 38 pickUp: 4 putDown: 4 askFor: 5(1) response: 12
+Human_2 goTo: 34 pickUp: 4 putDown: 4 askFor: 5(1) response: 3
+Human_1 goTo: 40 pickUp: 7 putDown: 7 askFor: 4(2) response: 3
+log for 39
+===============================================================
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 8(1) response: 16
+Human_2 goTo: 51 pickUp: 6 putDown: 6 askFor: 11(1) response: 9
+log for 40
+===============================================================
+Human_3 goTo: 44 pickUp: 5 putDown: 5 askFor: 10(1) response: 13
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+Human_2 goTo: 50 pickUp: 8 putDown: 8 askFor: 7(1) response: 11
+log for 1
+===============================================================
+Human_3 goTo: 48 pickUp: 6 putDown: 5 askFor: 9(1) response: 13
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 6(1) response: 10
+Human_1 goTo: 55 pickUp: 8 putDown: 8 askFor: 7(1) response: 2
+log for 2
+===============================================================
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 9(1) response: 8
+Human_3 goTo: 55 pickUp: 7 putDown: 7 askFor: 7(1) response: 20
+Human_1 goTo: 53 pickUp: 6 putDown: 6 askFor: 11(1) response: 2
+log for 3
+===============================================================
+Human_1 goTo: 52 pickUp: 6 putDown: 6 askFor: 11(1) response: 2
+Human_2 goTo: 54 pickUp: 9 putDown: 9 askFor: 9(1) response: 14
+Human_3 goTo: 59 pickUp: 7 putDown: 7 askFor: 13(1) response: 20
+log for 4
+===============================================================
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+Human_3 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 14
+Human_2 goTo: 56 pickUp: 6 putDown: 6 askFor: 8(1) response: 6
+log for 5
+===============================================================
+Human_1 goTo: 49 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_3 goTo: 58 pickUp: 8 putDown: 8 askFor: 6(1) response: 18
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 8(1) response: 7
+log for 6
+===============================================================
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+Human_3 goTo: 42 pickUp: 7 putDown: 7 askFor: 6(1) response: 13
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+log for 7
+===============================================================
+Human_2 goTo: 40 pickUp: 6 putDown: 6 askFor: 5(1) response: 8
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 4(1) response: 2
+Human_3 goTo: 47 pickUp: 7 putDown: 7 askFor: 7(1) response: 9
+log for 8
+===============================================================
+Human_3 goTo: 46 pickUp: 6 putDown: 6 askFor: 6(1) response: 14
+Human_1 goTo: 51 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 59 pickUp: 7 putDown: 7 askFor: 7(1) response: 7
+log for 9
+===============================================================
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 7
+Human_1 goTo: 42 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_3 goTo: 50 pickUp: 8 putDown: 8 askFor: 6(1) response: 10
+log for 10
+===============================================================
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 5(1) response: 7
+Human_1 goTo: 48 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_3 goTo: 53 pickUp: 7 putDown: 7 askFor: 6(1) response: 11
+log for 11
+===============================================================
+Human_1 goTo: 48 pickUp: 6 putDown: 6 askFor: 7(1) response: 2
+Human_3 goTo: 54 pickUp: 8 putDown: 8 askFor: 5(1) response: 14
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 7(1) response: 6
+log for 12
+===============================================================
+Human_2 goTo: 38 pickUp: 5 putDown: 5 askFor: 7(1) response: 8
+Human_3 goTo: 50 pickUp: 8 putDown: 8 askFor: 7(1) response: 16
+Human_1 goTo: 42 pickUp: 7 putDown: 7 askFor: 9(1) response: 2
+log for 13
+===============================================================
+Human_3 goTo: 48 pickUp: 6 putDown: 6 askFor: 5(1) response: 11
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 7(1) response: 6
+Human_1 goTo: 44 pickUp: 8 putDown: 8 askFor: 4(1) response: 2
+log for 14
+===============================================================
+Human_1 goTo: 52 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+Human_3 goTo: 46 pickUp: 5 putDown: 5 askFor: 8(1) response: 13
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 9
+log for 15
+===============================================================
+Human_2 goTo: 41 pickUp: 7 putDown: 7 askFor: 7(1) response: 8
+Human_3 goTo: 44 pickUp: 6 putDown: 6 askFor: 7(1) response: 13
+Human_1 goTo: 55 pickUp: 9 putDown: 9 askFor: 6(1) response: 2
+log for 16
+===============================================================
+Human_3 goTo: 40 pickUp: 6 putDown: 6 askFor: 5(1) response: 9
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 5(1) response: 6
+Human_1 goTo: 49 pickUp: 8 putDown: 8 askFor: 4(1) response: 2
+log for 17
+===============================================================
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 7(1) response: 8
+Human_3 goTo: 49 pickUp: 7 putDown: 7 askFor: 7(1) response: 10
+Human_1 goTo: 49 pickUp: 8 putDown: 8 askFor: 3(1) response: 2
+log for 18
+===============================================================
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 52 pickUp: 8 putDown: 8 askFor: 6(1) response: 10
+Human_3 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 13
+log for 19
+===============================================================
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 6(1) response: 8
+Human_3 goTo: 47 pickUp: 6 putDown: 6 askFor: 7(1) response: 12
+Human_1 goTo: 53 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 20
+===============================================================
+Human_3 goTo: 47 pickUp: 6 putDown: 6 askFor: 9(1) response: 12
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 7(1) response: 10
+Human_1 goTo: 44 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+log for 21
+===============================================================
+Human_2 goTo: 36 pickUp: 6 putDown: 6 askFor: 5(1) response: 11
+Human_1 goTo: 48 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 10(1) response: 11
+log for 22
+===============================================================
+Human_2 goTo: 62 pickUp: 6 putDown: 6 askFor: 15(1) response: 11
+Human_3 goTo: 65 pickUp: 8 putDown: 8 askFor: 10(1) response: 24
+Human_1 goTo: 59 pickUp: 8 putDown: 8 askFor: 9(1) response: 2
+log for 23
+===============================================================
+Human_3 goTo: 45 pickUp: 8 putDown: 8 askFor: 6(1) response: 10
+Human_1 goTo: 39 pickUp: 6 putDown: 6 askFor: 4(1) response: 2
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+log for 24
+===============================================================
+Human_3 goTo: 50 pickUp: 8 putDown: 8 askFor: 7(1) response: 12
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 43 pickUp: 6 putDown: 6 askFor: 5(1) response: 8
+log for 25
+===============================================================
+Human_1 goTo: 39 pickUp: 7 putDown: 7 askFor: 3(1) response: 2
+Human_3 goTo: 40 pickUp: 6 putDown: 6 askFor: 4(1) response: 9
+Human_2 goTo: 46 pickUp: 7 putDown: 7 askFor: 6(1) response: 5
+log for 26
+===============================================================
+Human_3 goTo: 39 pickUp: 5 putDown: 5 askFor: 6(1) response: 11
+Human_2 goTo: 52 pickUp: 9 putDown: 9 askFor: 3(1) response: 7
+Human_1 goTo: 45 pickUp: 6 putDown: 6 askFor: 8(1) response: 2
+log for 27
+===============================================================
+Human_1 goTo: 47 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+Human_2 goTo: 53 pickUp: 6 putDown: 6 askFor: 8(1) response: 7
+Human_3 goTo: 43 pickUp: 7 putDown: 7 askFor: 6(1) response: 14
+log for 28
+===============================================================
+Human_2 goTo: 36 pickUp: 6 putDown: 6 askFor: 4(1) response: 7
+Human_3 goTo: 46 pickUp: 6 putDown: 6 askFor: 6(1) response: 7
+Human_1 goTo: 45 pickUp: 8 putDown: 8 askFor: 3(1) response: 2
+log for 29
+===============================================================
+Human_1 goTo: 71 pickUp: 6 putDown: 6 askFor: 19(1) response: 2
+Human_3 goTo: 69 pickUp: 7 putDown: 7 askFor: 17(1) response: 37
+Human_2 goTo: 76 pickUp: 7 putDown: 7 askFor: 18(1) response: 18
+log for 30
+===============================================================
+Human_3 goTo: 51 pickUp: 8 putDown: 8 askFor: 6(1) response: 22
+Human_2 goTo: 48 pickUp: 7 putDown: 7 askFor: 9(1) response: 7
+Human_1 goTo: 55 pickUp: 7 putDown: 7 askFor: 13(1) response: 2
+log for 31
+===============================================================
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+Human_1 goTo: 46 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+Human_3 goTo: 50 pickUp: 8 putDown: 8 askFor: 6(1) response: 14
+log for 32
+===============================================================
+Human_3 goTo: 51 pickUp: 7 putDown: 6 askFor: 7(1) response: 11
+Human_2 goTo: 47 pickUp: 6 putDown: 6 askFor: 5(1) response: 8
+Human_1 goTo: 52 pickUp: 9 putDown: 9 askFor: 6(1) response: 2
+log for 33
+===============================================================
+Human_2 goTo: 44 pickUp: 7 putDown: 6 askFor: 7(1) response: 8
+Human_3 goTo: 49 pickUp: 7 putDown: 7 askFor: 7(1) response: 17
+Human_1 goTo: 53 pickUp: 7 putDown: 7 askFor: 10(1) response: 2
+log for 34
+===============================================================
+Human_2 goTo: 46 pickUp: 7 putDown: 7 askFor: 7(1) response: 7
+Human_3 goTo: 48 pickUp: 8 putDown: 8 askFor: 6(1) response: 16
+Human_1 goTo: 48 pickUp: 7 putDown: 7 askFor: 9(1) response: 2
+log for 35
+===============================================================
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 9
+Human_1 goTo: 45 pickUp: 5 putDown: 5 askFor: 5(1) response: 2
+Human_2 goTo: 59 pickUp: 10 putDown: 10 askFor: 4(1) response: 6
+log for 36
+===============================================================
+Human_3 goTo: 48 pickUp: 7 putDown: 6 askFor: 6(1) response: 14
+Human_1 goTo: 48 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+Human_2 goTo: 52 pickUp: 7 putDown: 7 askFor: 8(1) response: 7
+log for 37
+===============================================================
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 6(1) response: 8
+Human_3 goTo: 52 pickUp: 8 putDown: 8 askFor: 7(1) response: 12
+log for 38
+===============================================================
+Human_3 goTo: 50 pickUp: 8 putDown: 8 askFor: 7(1) response: 16
+Human_2 goTo: 49 pickUp: 7 putDown: 7 askFor: 9(1) response: 8
+Human_1 goTo: 47 pickUp: 8 putDown: 7 askFor: 7(1) response: 2
+log for 39
+===============================================================
+Human_2 goTo: 49 pickUp: 6 putDown: 6 askFor: 8(1) response: 9
+Human_3 goTo: 54 pickUp: 8 putDown: 8 askFor: 8(1) response: 19
+Human_1 goTo: 52 pickUp: 6 putDown: 6 askFor: 11(1) response: 2
+log for 40
+===============================================================
+Human_3 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 12
+Human_2 goTo: 49 pickUp: 6 putDown: 6 askFor: 6(1) response: 8
+Human_1 goTo: 52 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+log for 41
+===============================================================
+Human_3 goTo: 56 pickUp: 7 putDown: 7 askFor: 7(1) response: 19
+Human_1 goTo: 50 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+Human_2 goTo: 57 pickUp: 6 putDown: 6 askFor: 11(1) response: 8
+log for 42
+===============================================================
+Human_2 goTo: 53 pickUp: 8 putDown: 8 askFor: 8(1) response: 8
+Human_1 goTo: 50 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 7(1) response: 18
+log for 43
+===============================================================
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 8(1) response: 16
+Human_2 goTo: 44 pickUp: 7 putDown: 7 askFor: 7(1) response: 9
+Human_1 goTo: 56 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+log for 44
+===============================================================
+Human_1 goTo: 43 pickUp: 7 putDown: 7 askFor: 3(1) response: 2
+Human_2 goTo: 49 pickUp: 9 putDown: 9 askFor: 6(1) response: 12
+Human_3 goTo: 49 pickUp: 6 putDown: 6 askFor: 11(1) response: 9
+log for 45
+===============================================================
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 8
+Human_3 goTo: 46 pickUp: 6 putDown: 6 askFor: 7(1) response: 10
+Human_1 goTo: 46 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+log for 46
+===============================================================
+Human_3 goTo: 44 pickUp: 6 putDown: 6 askFor: 7(1) response: 11
+Human_2 goTo: 42 pickUp: 5 putDown: 5 askFor: 8(1) response: 8
+Human_1 goTo: 50 pickUp: 9 putDown: 9 askFor: 3(1) response: 2
+log for 47
+===============================================================
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 4(1) response: 6
+Human_3 goTo: 52 pickUp: 8 putDown: 8 askFor: 5(1) response: 10
+Human_1 goTo: 49 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+log for 48
+===============================================================
+Human_2 goTo: 58 pickUp: 7 putDown: 7 askFor: 10(1) response: 9
+Human_3 goTo: 56 pickUp: 7 putDown: 7 askFor: 8(1) response: 16
+Human_1 goTo: 50 pickUp: 7 putDown: 7 askFor: 6(1) response: 2
+log for 49
+===============================================================
+Human_1 goTo: 46 pickUp: 7 putDown: 7 askFor: 4(1) response: 2
+Human_2 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 7
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 6(1) response: 9
+log for 50
+===============================================================
+Human_3 goTo: 43 pickUp: 5 putDown: 5 askFor: 9(1) response: 12
+Human_2 goTo: 53 pickUp: 9 putDown: 9 askFor: 7(1) response: 10
+Human_1 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+log for 51
+===============================================================
+Human_1 goTo: 50 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_2 goTo: 49 pickUp: 8 putDown: 8 askFor: 6(1) response: 8
+Human_3 goTo: 50 pickUp: 6 putDown: 6 askFor: 7(1) response: 12
+log for 52
+===============================================================
+Human_3 goTo: 49 pickUp: 7 putDown: 7 askFor: 7(1) response: 14
+Human_1 goTo: 51 pickUp: 8 putDown: 8 askFor: 7(1) response: 2
+Human_2 goTo: 46 pickUp: 6 putDown: 6 askFor: 7(1) response: 8
+log for 53
+===============================================================
+Human_2 goTo: 54 pickUp: 7 putDown: 7 askFor: 7(1) response: 9
+Human_3 goTo: 46 pickUp: 4 putDown: 4 askFor: 8(1) response: 11
+Human_1 goTo: 56 pickUp: 9 putDown: 9 askFor: 4(1) response: 2
+log for 54
+===============================================================
+Human_3 goTo: 46 pickUp: 6 putDown: 6 askFor: 7(1) response: 12
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 5(1) response: 8
+Human_1 goTo: 59 pickUp: 8 putDown: 8 askFor: 7(1) response: 2
+log for 55
+===============================================================
+Human_1 goTo: 50 pickUp: 8 putDown: 8 askFor: 4(1) response: 2
+Human_2 goTo: 44 pickUp: 7 putDown: 7 askFor: 7(1) response: 9
+Human_3 goTo: 55 pickUp: 7 putDown: 7 askFor: 8(1) response: 11
+log for 56
+===============================================================
+Human_3 goTo: 40 pickUp: 6 putDown: 6 askFor: 7(1) response: 14
+Human_1 goTo: 48 pickUp: 7 putDown: 7 askFor: 10(1) response: 2
+Human_2 goTo: 49 pickUp: 7 putDown: 7 askFor: 4(1) response: 8
+log for 57
+===============================================================
+Human_2 goTo: 46 pickUp: 6 putDown: 6 askFor: 8(1) response: 9
+Human_1 goTo: 53 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+Human_3 goTo: 45 pickUp: 6 putDown: 6 askFor: 8(1) response: 16
+log for 58
+===============================================================
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 9(1) response: 15
+Human_2 goTo: 43 pickUp: 6 putDown: 6 askFor: 7(1) response: 10
+Human_1 goTo: 51 pickUp: 8 putDown: 8 askFor: 8(1) response: 2
+log for 59
+===============================================================
+Human_1 goTo: 40 pickUp: 7 putDown: 7 askFor: 3(1) response: 2
+Human_2 goTo: 42 pickUp: 7 putDown: 7 askFor: 6(1) response: 9
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 8(1) response: 9
+log for 60
+===============================================================
+Human_2 goTo: 53 pickUp: 7 putDown: 7 askFor: 8(1) response: 10
+Human_3 goTo: 56 pickUp: 8 putDown: 8 askFor: 9(1) response: 15
+Human_1 goTo: 56 pickUp: 6 putDown: 6 askFor: 7(1) response: 2
+log for 61
+===============================================================
+Human_1 goTo: 49 pickUp: 8 putDown: 8 askFor: 5(1) response: 2
+Human_2 goTo: 44 pickUp: 6 putDown: 6 askFor: 7(1) response: 5
+Human_3 goTo: 49 pickUp: 8 putDown: 8 askFor: 4(1) response: 12
+log for 62
+===============================================================
+Human_1 goTo: 44 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_2 goTo: 52 pickUp: 7 putDown: 7 askFor: 8(1) response: 7
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 6(1) response: 14
+log for 63
+===============================================================
+Human_3 goTo: 51 pickUp: 7 putDown: 7 askFor: 7(1) response: 18
+Human_1 goTo: 59 pickUp: 9 putDown: 9 askFor: 8(1) response: 2
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 10(1) response: 8
+log for 64
+===============================================================
+Human_1 goTo: 38 pickUp: 6 putDown: 6 askFor: 5(1) response: 2
+Human_2 goTo: 41 pickUp: 7 putDown: 7 askFor: 5(1) response: 3
+Human_3 goTo: 41 pickUp: 7 putDown: 7 askFor: 2(1) response: 10
+log for 65
+===============================================================
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_2 goTo: 49 pickUp: 8 putDown: 8 askFor: 5(1) response: 8
+Human_3 goTo: 51 pickUp: 8 putDown: 8 askFor: 7(1) response: 10
+log for 66
+===============================================================
+Human_1 goTo: 43 pickUp: 6 putDown: 6 askFor: 8(1) response: 2
+Human_2 goTo: 43 pickUp: 6 putDown: 6 askFor: 6(1) response: 7
+Human_3 goTo: 48 pickUp: 8 putDown: 8 askFor: 6(1) response: 14
+log for 67
+===============================================================
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 7(1) response: 12
+Human_2 goTo: 41 pickUp: 6 putDown: 6 askFor: 6(1) response: 8
+Human_1 goTo: 47 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 68
+===============================================================
+Human_1 goTo: 49 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+Human_2 goTo: 46 pickUp: 7 putDown: 7 askFor: 6(1) response: 8
+Human_3 goTo: 43 pickUp: 6 putDown: 6 askFor: 7(1) response: 12
+log for 69
+===============================================================
+Human_1 goTo: 49 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_2 goTo: 47 pickUp: 6 putDown: 6 askFor: 9(1) response: 6
+Human_3 goTo: 53 pickUp: 9 putDown: 9 askFor: 5(1) response: 19
+log for 70
+===============================================================
+Human_2 goTo: 49 pickUp: 7 putDown: 7 askFor: 5(1) response: 6
+Human_3 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 13
+Human_1 goTo: 51 pickUp: 6 putDown: 6 askFor: 8(1) response: 2
+log for 71
+===============================================================
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_2 goTo: 41 pickUp: 7 putDown: 7 askFor: 4(1) response: 6
+Human_3 goTo: 50 pickUp: 7 putDown: 7 askFor: 5(1) response: 11
+log for 72
+===============================================================
+Human_3 goTo: 45 pickUp: 6 putDown: 6 askFor: 7(1) response: 12
+Human_1 goTo: 49 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_2 goTo: 50 pickUp: 7 putDown: 7 askFor: 7(1) response: 8
+log for 73
+===============================================================
+Human_3 goTo: 47 pickUp: 7 putDown: 7 askFor: 6(1) response: 15
+Human_1 goTo: 47 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+Human_2 goTo: 54 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+log for 74
+===============================================================
+Human_3 goTo: 39 pickUp: 6 putDown: 6 askFor: 6(1) response: 10
+Human_1 goTo: 49 pickUp: 9 putDown: 9 askFor: 4(1) response: 2
+Human_2 goTo: 43 pickUp: 6 putDown: 6 askFor: 6(1) response: 7
+log for 75
+===============================================================
+Human_1 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 2
+Human_3 goTo: 50 pickUp: 8 putDown: 8 askFor: 5(1) response: 10
+Human_2 goTo: 44 pickUp: 7 putDown: 7 askFor: 5(1) response: 6
+log for 76
+===============================================================
+Human_3 goTo: 53 pickUp: 8 putDown: 8 askFor: 8(1) response: 12
+Human_1 goTo: 54 pickUp: 6 putDown: 6 askFor: 7(1) response: 2
+Human_2 goTo: 52 pickUp: 8 putDown: 8 askFor: 5(1) response: 9
+log for 77
+===============================================================
+Human_1 goTo: 46 pickUp: 6 putDown: 6 askFor: 7(1) response: 2
+Human_3 goTo: 43 pickUp: 7 putDown: 7 askFor: 5(1) response: 11
+Human_2 goTo: 53 pickUp: 8 putDown: 8 askFor: 4(1) response: 6
+log for 78
+===============================================================
+Human_2 goTo: 52 pickUp: 6 putDown: 6 askFor: 10(1) response: 9
+Human_3 goTo: 46 pickUp: 7 putDown: 7 askFor: 8(1) response: 17
+Human_1 goTo: 54 pickUp: 8 putDown: 8 askFor: 7(1) response: 2
+log for 79
+===============================================================
+Human_3 goTo: 40 pickUp: 6 putDown: 6 askFor: 4(1) response: 8
+Human_1 goTo: 39 pickUp: 6 putDown: 6 askFor: 4(1) response: 2
+Human_2 goTo: 48 pickUp: 9 putDown: 9 askFor: 4(1) response: 5
+log for 80
+===============================================================
+Human_3 goTo: 45 pickUp: 7 putDown: 7 askFor: 5(1) response: 11
+Human_1 goTo: 42 pickUp: 6 putDown: 6 askFor: 6(1) response: 2
+Human_2 goTo: 47 pickUp: 7 putDown: 7 askFor: 5(1) response: 6
+log for 81
+===============================================================
+Human_1 goTo: 44 pickUp: 6 putDown: 6 askFor: 5(1) response: 2
+Human_3 goTo: 44 pickUp: 8 putDown: 8 askFor: 4(1) response: 11
+Human_2 goTo: 46 pickUp: 7 putDown: 7 askFor: 6(1) response: 5
+log for 82
+===============================================================
+Human_2 goTo: 44 pickUp: 7 putDown: 7 askFor: 6(1) response: 7
+Human_1 goTo: 54 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+Human_3 goTo: 53 pickUp: 7 putDown: 7 askFor: 6(1) response: 15
+log for 83
+===============================================================
+Human_1 goTo: 48 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_3 goTo: 46 pickUp: 5 putDown: 5 askFor: 9(1) response: 12
+Human_2 goTo: 57 pickUp: 10 putDown: 10 askFor: 5(1) response: 10
+log for 84
+===============================================================
+Human_3 goTo: 56 pickUp: 8 putDown: 8 askFor: 8(1) response: 16
+Human_2 goTo: 55 pickUp: 6 putDown: 6 askFor: 7(1) response: 9
+Human_1 goTo: 50 pickUp: 6 putDown: 6 askFor: 9(1) response: 2
+log for 85
+===============================================================
+Human_3 goTo: 44 pickUp: 7 putDown: 7 askFor: 5(1) response: 8
+Human_2 goTo: 48 pickUp: 6 putDown: 6 askFor: 5(1) response: 6
+Human_1 goTo: 47 pickUp: 8 putDown: 8 askFor: 3(1) response: 2
+log for 86
+===============================================================
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 6(1) response: 14
+Human_1 goTo: 43 pickUp: 5 putDown: 5 askFor: 8(1) response: 2
+Human_2 goTo: 52 pickUp: 8 putDown: 8 askFor: 6(1) response: 7
+log for 87
+===============================================================
+Human_3 goTo: 56 pickUp: 6 putDown: 6 askFor: 10(1) response: 18
+Human_2 goTo: 60 pickUp: 9 putDown: 9 askFor: 9(1) response: 11
+Human_1 goTo: 55 pickUp: 8 putDown: 8 askFor: 9(1) response: 2
+log for 88
+===============================================================
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 7(1) response: 18
+Human_2 goTo: 49 pickUp: 6 putDown: 6 askFor: 9(1) response: 8
+Human_1 goTo: 51 pickUp: 8 putDown: 8 askFor: 9(1) response: 2
+log for 89
+===============================================================
+Human_2 goTo: 53 pickUp: 7 putDown: 7 askFor: 9(1) response: 9
+Human_3 goTo: 58 pickUp: 9 putDown: 9 askFor: 8(1) response: 15
+Human_1 goTo: 53 pickUp: 8 putDown: 8 askFor: 6(1) response: 2
+log for 90
+===============================================================
+Human_2 goTo: 62 pickUp: 10 putDown: 10 askFor: 11(1) response: 11
+Human_1 goTo: 72 pickUp: 11 putDown: 11 askFor: 11(1) response: 11
+log for 91
+===============================================================
+Human_3 goTo: 43 pickUp: 7 putDown: 7 askFor: 7(1) response: 12
+Human_1 goTo: 39 pickUp: 5 putDown: 5 askFor: 6(1) response: 2
+Human_2 goTo: 52 pickUp: 9 putDown: 9 askFor: 6(1) response: 8
+log for 92
+===============================================================
+Human_1 goTo: 46 pickUp: 6 putDown: 6 askFor: 7(1) response: 2
+Human_2 goTo: 51 pickUp: 7 putDown: 7 askFor: 6(1) response: 8
+Human_3 goTo: 52 pickUp: 7 putDown: 7 askFor: 7(1) response: 13
+log for 93
+===============================================================
+Human_2 goTo: 50 pickUp: 8 putDown: 8 askFor: 6(1) response: 9
+Human_1 goTo: 41 pickUp: 7 putDown: 7 askFor: 7(1) response: 2
+Human_3 goTo: 53 pickUp: 7 putDown: 7 askFor: 8(1) response: 13
+log for 94
+===============================================================
+Human_1 goTo: 48 pickUp: 6 putDown: 6 askFor: 10(1) response: 2
+Human_3 goTo: 48 pickUp: 7 putDown: 7 askFor: 5(1) response: 18
+Human_2 goTo: 55 pickUp: 7 putDown: 7 askFor: 8(1) response: 6
+log for 95
+===============================================================

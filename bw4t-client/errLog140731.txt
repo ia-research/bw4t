@@ -1,0 +1,1299 @@
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor32.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+	at java.util.ArrayList.rangeCheck(ArrayList.java:604)
+	at java.util.ArrayList.get(ArrayList.java:382)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor32.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+	at java.util.ArrayList.rangeCheck(ArrayList.java:604)
+	at java.util.ArrayList.get(ArrayList.java:382)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.NullPointerException
+	at javolution.util.FastMap$Entry.access$000(FastMap.java:1574)
+	at javolution.util.FastMap.remove(FastMap.java:772)
+	at javolution.util.FastMap.remove(FastMap.java:737)
+	at repast.simphony.space.continuous.AbstractContinuousSpace.remove(AbstractContinuousSpace.java:365)
+	at repast.simphony.context.space.continuous.ContextSpace.eventOccured(ContextSpace.java:60)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.NullPointerException
+	at javolution.util.FastMap$Entry.access$000(FastMap.java:1574)
+	at javolution.util.FastMap.remove(FastMap.java:772)
+	at javolution.util.FastMap.remove(FastMap.java:737)
+	at repast.simphony.space.continuous.AbstractContinuousSpace.remove(AbstractContinuousSpace.java:365)
+	at repast.simphony.context.space.continuous.ContextSpace.eventOccured(ContextSpace.java:60)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+	at java.util.ArrayList.rangeCheck(ArrayList.java:604)
+	at java.util.ArrayList.get(ArrayList.java:382)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.NullPointerException
+	at javolution.util.FastMap$Entry.access$000(FastMap.java:1574)
+	at javolution.util.FastMap.remove(FastMap.java:772)
+	at javolution.util.FastMap.remove(FastMap.java:737)
+	at repast.simphony.space.continuous.AbstractContinuousSpace.remove(AbstractContinuousSpace.java:365)
+	at repast.simphony.context.space.continuous.ContextSpace.eventOccured(ContextSpace.java:60)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor38.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor38.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+	at java.util.ArrayList.rangeCheck(ArrayList.java:604)
+	at java.util.ArrayList.get(ArrayList.java:382)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+initFail - 1, resetting server
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor38.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor38.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor35.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor38.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.IndexOutOfBoundsException: Index: 2, Size: 2
+	at java.util.ArrayList.rangeCheck(ArrayList.java:604)
+	at java.util.ArrayList.get(ArrayList.java:382)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor32.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.lang.NullPointerException
+	at javolution.util.FastMap$Entry.access$000(FastMap.java:1574)
+	at javolution.util.FastMap.remove(FastMap.java:772)
+	at javolution.util.FastMap.remove(FastMap.java:737)
+	at repast.simphony.space.continuous.AbstractContinuousSpace.remove(AbstractContinuousSpace.java:365)
+	at repast.simphony.context.space.continuous.ContextSpace.eventOccured(ContextSpace.java:60)
+	at repast.simphony.context.AbstractContext.fireContextEvent(AbstractContext.java:378)
+	at repast.simphony.context.AbstractContext.fireRemoveEvent(AbstractContext.java:228)
+	at repast.simphony.context.AbstractContext.remove(AbstractContext.java:200)
+	at nl.tudelft.bw4t.server.model.BoundedMoveableObject.removeFromContext(BoundedMoveableObject.java:203)
+	at nl.tudelft.bw4t.server.model.robots.AbstractRobot.pickUp(AbstractRobot.java:249)
+	at nl.tudelft.bw4t.server.model.robots.handicap.AbstractRobotDecorator.pickUp(AbstractRobotDecorator.java:83)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:537)
+	... 22 more
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+java.lang.IndexOutOfBoundsException: Index: 20, Size: 20
+	at java.util.LinkedList.checkElementIndex(LinkedList.java:553)
+	at java.util.LinkedList.get(LinkedList.java:474)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:618)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+ActException type="failure" message="pickUp failed" cause="java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException""
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:381)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.goToBlock(BW4TAgent.java:613)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.traverse(BW4TAgent.java:750)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.run(BW4TAgent.java:273)
+	at java.lang.Thread.run(Thread.java:722)
+Caused by: java.rmi.ServerException: RemoteException occurred in server thread; nested exception is: 
+	java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:353)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	at java.lang.Thread.run(Thread.java:722)
+	at sun.rmi.transport.StreamRemoteCall.exceptionReceivedFromServer(StreamRemoteCall.java:273)
+	at sun.rmi.transport.StreamRemoteCall.executeCall(StreamRemoteCall.java:251)
+	at sun.rmi.server.UnicastRef.invoke(UnicastRef.java:160)
+	at java.rmi.server.RemoteObjectInvocationHandler.invokeRemoteMethod(RemoteObjectInvocationHandler.java:194)
+	at java.rmi.server.RemoteObjectInvocationHandler.invoke(RemoteObjectInvocationHandler.java:148)
+	at $Proxy1.performEntityAction(Unknown Source)
+	at nl.tudelft.bw4t.client.BW4TClient.performEntityAction(BW4TClient.java:234)
+	at nl.tudelft.bw4t.client.environment.RemoteEnvironment.performEntityAction(RemoteEnvironment.java:486)
+	at nl.tudelft.bw4t.client.agent.BW4TAgent.pickUp(BW4TAgent.java:379)
+	... 4 more
+Caused by: java.rmi.RemoteException: action failed; nested exception is: 
+	ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:206)
+	at sun.reflect.GeneratedMethodAccessor29.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at sun.rmi.server.UnicastServerRef.dispatch(UnicastServerRef.java:322)
+	at sun.rmi.transport.Transport$1.run(Transport.java:177)
+	at sun.rmi.transport.Transport$1.run(Transport.java:174)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at sun.rmi.transport.Transport.serviceCall(Transport.java:173)
+	at sun.rmi.transport.tcp.TCPTransport.handleMessages(TCPTransport.java:553)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run0(TCPTransport.java:808)
+	at sun.rmi.transport.tcp.TCPTransport$ConnectionHandler.run(TCPTransport.java:667)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1110)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:603)
+	... 1 more
+Caused by: ActException type="failure" message="Action pickUp with parameters [] failed to execute" cause="java.lang.reflect.InvocationTargetException"
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:126)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:67)
+	at eis.eis2java.environment.AbstractEnvironment.performEntityAction(AbstractEnvironment.java:185)
+	at nl.tudelft.bw4t.server.environment.BW4TEnvironment.performClientAction(BW4TEnvironment.java:410)
+	at nl.tudelft.bw4t.server.BW4TServer.performEntityAction(BW4TServer.java:204)
+	... 14 more
+Caused by: java.lang.reflect.InvocationTargetException
+	at sun.reflect.GeneratedMethodAccessor33.invoke(Unknown Source)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:601)
+	at eis.eis2java.handlers.DefaultActionHandler.performAction(DefaultActionHandler.java:116)
+	... 18 more
+Caused by: java.util.ConcurrentModificationException
+	at java.util.ArrayList$Itr.checkForComodification(ArrayList.java:819)
+	at java.util.ArrayList$Itr.next(ArrayList.java:791)
+	at repast.simphony.util.collections.DelegatedIterator.next(DelegatedIterator.java:44)
+	at org.apache.commons.collections15.iterators.IteratorChain.next(IteratorChain.java:271)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.getClosest(RobotEntity.java:710)
+	at nl.tudelft.bw4t.server.eis.RobotEntity.pickUp(RobotEntity.java:530)
+	... 22 more
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server
+initFail - 1, resetting server

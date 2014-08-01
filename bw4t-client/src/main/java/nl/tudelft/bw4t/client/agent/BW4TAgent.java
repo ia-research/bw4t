@@ -111,6 +111,8 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     protected int nextBlockIndex = 0;
     protected String holdingColor = null;
     protected String fastestResponceAgent = null;
+    protected boolean memoryFlag;
+    protected boolean coopFlag;
 
     public List<String> getPlaces() {
         return places;
@@ -270,7 +272,9 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
                     }
                     return;
                 } else {
-                    traverse();
+                    //simpleTraverse();
+                    //memoryTraverse();
+                    coopMemoryTraverse();
                 }
             }
         } catch (Exception ex) {
@@ -599,55 +603,82 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
     }
 
     public boolean goToBlock(List<Percept> percepts, String room) throws Exception {
-        addToMemory(percepts, room);
-        try {
-            Thread.sleep(updateDelay);
-        } catch (Exception ex) {
+        if (memoryFlag) {
+            addToMemory(percepts, room);
+            try {
+                Thread.sleep(updateDelay);
+            } catch (Exception ex) {
+            }
         }
-        for (Percept p : percepts) {
-            if (getBlockColor(p.toProlog()).equalsIgnoreCase(colorSequence.get(nextBlockIndex))) {
-                memory.get(room).remove(getBlockColor(p.toProlog()).toLowerCase());
-                goToBlock(getBlockId(p.toProlog()));
-                try {
-                    if (goToBlockIsArrived()) {
-                        pickUp();
+        if (memoryFlag && coopFlag) {
+            for (Percept p : percepts) {
+                if (getBlockColor(p.toProlog()).equalsIgnoreCase(colorSequence.get(nextBlockIndex))) {
+                    memory.get(room).remove(getBlockColor(p.toProlog()).toLowerCase());
+                    goToBlock(getBlockId(p.toProlog()));
+                    try {
+                        if (goToBlockIsArrived()) {
+                            pickUp();
 
-                        this.holdingColor = getBlockColor(p.toProlog()).toLowerCase();
-                        isHolding();
-                        //boolean flag = false;
-                        if (this.colorSequence.get(nextBlockIndex).equalsIgnoreCase(this.holdingColor)) {
-                            server.addAllAgentIndex();
-                            do {
-                                goTo("FrontDropZone");
-                                System.out.println("in while loop(arrived)");
-                            } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
-                            long t = System.currentTimeMillis();
+                            this.holdingColor = getBlockColor(p.toProlog()).toLowerCase();
+                            isHolding();
+                            //boolean flag = false;
+                            if (this.colorSequence.get(nextBlockIndex).equalsIgnoreCase(this.holdingColor)) {
+                                server.addAllAgentIndex();
+                                do {
+                                    goTo("FrontDropZone");
+                                    System.out.println("in while loop(arrived)");
+                                } while (!isArrived()/* && ias.getCurrent() < ias.getColors().length*/);
+                                long t = System.currentTimeMillis();
 
-                            while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
-                                System.out.println("current : " + colorSequenceIndex + "\nexpected : " + colorSequence.get(this.colorSequenceIndex) + "\n holding : " + holdingColor);
-                                //reset
-                                if (System.currentTimeMillis() - t > 10000) {
-                                    //flag = true;
-                                    break;
+                                while (!this.colorSequence.get(this.colorSequenceIndex).equalsIgnoreCase(this.holdingColor)) {
+                                    System.out.println("current : " + colorSequenceIndex + "\nexpected : " + colorSequence.get(this.colorSequenceIndex) + "\n holding : " + holdingColor);
+                                    //reset
+                                    if (System.currentTimeMillis() - t > 10000) {
+                                        //flag = true;
+                                        break;
+                                    }
+                                    Thread.sleep(this.updateDelay);
                                 }
-                                Thread.sleep(this.updateDelay);
+                                goTo("DropZone");
+                                isArrived();
                             }
+                            putDown();
+                            this.holdingColor = null;
+                            /*if(flag){
+                             nextBlockIndex=colorSequenceIndex;
+                             }*/
+                        }
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
+                    }
+                    goTo("FrontDropZone");
+                    //Thread.sleep(200);
+                    //break;
+                    return true;
+                }
+            }
+        } else  {
+            for (Percept p : percepts) {
+                if (getBlockColor(p.toProlog()).equalsIgnoreCase(colorSequence.get(this.colorSequenceIndex))) {
+                    if (memoryFlag)
+                        memory.get(room).remove(getBlockColor(p.toProlog()).toLowerCase());
+                    goToBlock(getBlockId(p.toProlog()));
+                    try {
+                        if (goToBlockIsArrived()) {
+                            pickUp();
+                            isHolding();
                             goTo("DropZone");
                             isArrived();
                         }
                         putDown();
-                        this.holdingColor = null;
-                        /*if(flag){
-                         nextBlockIndex=colorSequenceIndex;
-                         }*/
+                    } catch (Exception ex) {
+                        ex.printStackTrace();
                     }
-                } catch (Exception ex) {
-                    ex.printStackTrace();
+                    goTo("FrontDropZone");
+                    //Thread.sleep(200);
+                    //break;
+                    return true;
                 }
-                goTo("FrontDropZone");
-                //Thread.sleep(200);
-                //break;
-                return true;
             }
         }
         return false;
@@ -676,6 +707,24 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         System.out.println("index updated to : " + this.nextBlockIndex);
     }
 
+    public void simpleTraverse() {
+        memoryFlag = false;
+        coopFlag = false;
+        traverse();
+    }
+
+    public void memoryTraverse() {
+        memoryFlag = true;
+        coopFlag = false;
+        traverse();
+    }
+
+    public void coopMemoryTraverse() {
+        memoryFlag = true;
+        coopFlag = true;
+        traverse();
+    }
+
     public void traverse() {
         state = "traveling";
         String room = null;
@@ -690,7 +739,11 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
         while (true) {
             // stop traversal (prevent from exception)
             try {
-                color = colorSequence.get(this.nextBlockIndex);
+                if (coopFlag) {
+                    color = colorSequence.get(this.nextBlockIndex);
+                } else {
+                    color = colorSequence.get(this.colorSequenceIndex);
+                }
                 System.out.println(agentId + " need: " + color);
             } catch (Exception ex) {
                 System.out.println(agentId + " : Finish taking all blocks");
@@ -698,32 +751,40 @@ public class BW4TAgent extends UnicastRemoteObject implements ActionInterface, I
             }
 
             try {
-                RoomTime temp = null;
-                try {
-                    //ask for self-memory
-                    temp = colorInRoom(color);
-                    System.out.println("in room " + temp.getRoom());
-                } catch (Exception ex) {
-                }
-
-                if (temp == null) {
-                    //ask for single bot's memory, default as Bot1
-                    queue.clear();
-                    askForCount++;
-                    if (this.fastestResponceAgent == null) {
-                        boardcast++;
-                        server.askForColor(this.agentId, color);
-                    } else {
-                        server.askForColor(this.agentId, color, this.fastestResponceAgent);
+                if (memoryFlag) {
+                    RoomTime temp = null;
+                    try {
+                        //ask for self-memory
+                        temp = colorInRoom(color);
+                        System.out.println("in room " + temp.getRoom());
+                    } catch (Exception ex) {
                     }
-                    //wait for 1s response
-                    Thread.sleep(1000);
-                    room = queue.peek().getRoom();
-                    System.out.println(fastestResponceAgent + " : in room " + room);
+                    if (coopFlag) {
+                        if (temp == null) {
+                            //ask for single bot's memory, default as Bot1
+                            queue.clear();
+                            askForCount++;
+                            if (this.fastestResponceAgent == null) {
+                                boardcast++;
+                                server.askForColor(this.agentId, color);
+                            } else {
+                                server.askForColor(this.agentId, color, this.fastestResponceAgent);
+                            }
+                            //wait for 1s response
+                            Thread.sleep(1000);
+                            room = queue.peek().getRoom();
+                            System.out.println(fastestResponceAgent + " : in room " + room);
+                        } else {
+                            room = temp.getRoom();
+                        }
+                    } else {
+                        room = temp.getRoom();
+                    }
+                    goTo(room);
                 } else {
-                    room = temp.getRoom();
+                    //not coop and no memory
+                    throw new Exception();
                 }
-                goTo(room);
             } catch (Exception ex) {
                 /*System.err.println("no response");
                  ex.printStackTrace();*/

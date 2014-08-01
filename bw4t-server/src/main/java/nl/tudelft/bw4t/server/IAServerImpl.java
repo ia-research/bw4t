@@ -49,7 +49,9 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
     private int maxTimes = 200;
     private static int times = 1; // do not modify
     private int agentNo = 3; //number of agents to be called after reset
-
+    private int connectCounter = 0;
+    private boolean resetFlag = false;    
+    
     public IAServerImpl() throws RemoteException {
         try {
             //pw = new PrintWriter("IAServer_log.txt");
@@ -59,8 +61,15 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
 
     @Override
     public synchronized void registerClient(String agentId, BW4TClientActions client) throws RemoteException {
+        connectCounter ++;
+        if (agentId == null || client == null) {
+            resetFlag = true;
+        }
         clients.put(agentId, client);
         System.out.println("added " + agentId);
+        if(connectCounter == agentNo && resetFlag){
+            reset();
+        }
     }
 
 
@@ -126,15 +135,15 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
                 out.close();
             } catch (IOException ex) {
             }
-                reset();
-                /*
-                 for (int i = 0; i < agentNo; i++) {
-                 Process ps = Runtime.getRuntime().exec("java -jar "+dir+"/bw4t-client/target/bw4t-client-3.5.0-jar-with-dependencies.jar");
-                 //ps.waitFor();
-                 }
-                 */
-                times++;
-            }
+            reset();
+            /*
+             for (int i = 0; i < agentNo; i++) {
+             Process ps = Runtime.getRuntime().exec("java -jar "+dir+"/bw4t-client/target/bw4t-client-3.5.0-jar-with-dependencies.jar");
+             //ps.waitFor();
+             }
+             */
+            times++;
+        }
     }
     /*public static Identifier findParameter(String[] args, InitParam param) {
      for (int i = 0; i < args.length - 1; i++) {
@@ -205,10 +214,10 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
         }
         for (String c : removeList) {
             //clients.remove(c);
-            try{
+            try {
                 PrintWriter out = new PrintWriter(new BufferedWriter(new FileWriter("../bw4t-client/errLog.txt", true)));
                 out.println("initFail - 2, resetting server");
-            }catch(Exception ex){
+            } catch (Exception ex) {
                 ex.printStackTrace();
             }
             reset();
@@ -230,7 +239,10 @@ public class IAServerImpl extends UnicastRemoteObject implements IAServerInterfa
                 processBuilder.start();
                 Thread.sleep(41);
             }
-        } catch (Exception ex) {
+        } catch (java.lang.IllegalStateException ise){
+            ise.printStackTrace();
+            reset();
+        }catch (Exception ex) {
             ex.printStackTrace();
         }
     }
